@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.1 (Python 3.11.1 on darwin)" generated="20230114 03:58:37.312" rpa="false" schemaversion="3">
+<suite id="s1" name="Register" source="/Users/andre/Documents/QA Academy/GravidadeZERO/getgeeks/projects/register.robot">
+<test id="s1-t1" name="Should register a client" line="11">
+<kw name="Start Section" library="base" type="SETUP">
+<kw name="New Browser" library="Browser">
+<arg>chromium</arg>
+<arg>headless=false</arg>
+<arg>slowMo=00:00:00</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<msg timestamp="20230114 03:58:37.773" level="INFO">{"browser": "chromium", "headless": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "deprecated_pos_args": [], "tracesDir": "/Users/andre/Documents/QA Academy/GravidadeZERO/getgeeks/projects/logs/browser/traces/e76569ab-e096-4d13-9447-d8296095b0a2"}</msg>
+<msg timestamp="20230114 03:58:38.296" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"deprecated_pos_args":[],"tracesDir":"/Users/andre/Documents/QA Academy/GravidadeZERO/getgeeks/projects/logs/browser/traces/e76569ab-e096-4d13-9447-d8296095b0a2"}</msg>
+<status status="PASS" starttime="20230114 03:58:37.773" endtime="20230114 03:58:38.296"/>
+</kw>
+<kw name="New Page" library="Browser">
+<arg>https://geeks-web-andre.fly.dev</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20230114 03:58:39.129" level="INFO">Successfully initialized new page object and opened url: https://geeks-web-andre.fly.dev</msg>
+<msg timestamp="20230114 03:58:39.129" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20230114 03:58:38.296" endtime="20230114 03:58:39.129"/>
+</kw>
+<status status="PASS" starttime="20230114 03:58:37.772" endtime="20230114 03:58:39.129"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>css=span a[href="/signup"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230114 03:58:39.130" endtime="20230114 03:58:39.221"/>
+</kw>
+<kw name="Wait For Elements State" library="Browser">
+<arg>.signup-form h1</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20230114 03:58:39.226" level="INFO">Waited for Element with selector .signup-form h1 at state visible</msg>
+<status status="PASS" starttime="20230114 03:58:39.221" endtime="20230114 03:58:39.226"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>input[id="name"]</arg>
+<arg>Name1</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230114 03:58:39.226" level="INFO">Fills the text 'Name1' in the given field.</msg>
+<status status="PASS" starttime="20230114 03:58:39.226" endtime="20230114 03:58:39.239"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>input[id="lastname"]</arg>
+<arg>Lastname1</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230114 03:58:39.240" level="INFO">Fills the text 'Lastname1' in the given field.</msg>
+<status status="PASS" starttime="20230114 03:58:39.240" endtime="20230114 03:58:39.248"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>input[id="email"]</arg>
+<arg>email@test1.com</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230114 03:58:39.249" level="INFO">Fills the text 'email@test1.com' in the given field.</msg>
+<status status="PASS" starttime="20230114 03:58:39.249" endtime="20230114 03:58:39.256"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>input[id="password"]</arg>
+<arg>pwd123</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230114 03:58:39.256" level="INFO">Fills the text 'pwd123' in the given field.</msg>
+<status status="PASS" starttime="20230114 03:58:39.256" endtime="20230114 03:58:39.263"/>
+</kw>
+<kw name="Click" library="Browser">
+<arg>css=.submit-button</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230114 03:58:39.263" endtime="20230114 03:58:39.312"/>
+</kw>
+<kw name="Wait For Elements State" library="Browser">
+<arg>css=div p &gt;&gt; text="Agora você faz parte da Getgeeks. Tenha uma ótima experiência."</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20230114 03:58:39.433" level="INFO">Waited for Element with selector css=div p &gt;&gt; text="Agora você faz parte da Getgeeks. Tenha uma ótima experiência." at state visible</msg>
+<status status="PASS" starttime="20230114 03:58:39.313" endtime="20230114 03:58:39.433"/>
+</kw>
+<kw name="End Section" library="base" type="TEARDOWN">
+<kw name="Take Screenshot" library="Browser">
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<msg timestamp="20230114 03:58:39.656" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-1.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230114 03:58:39.434" endtime="20230114 03:58:39.656"/>
+</kw>
+<status status="PASS" starttime="20230114 03:58:39.434" endtime="20230114 03:58:39.656"/>
+</kw>
+<status status="PASS" starttime="20230114 03:58:37.771" endtime="20230114 03:58:39.657"/>
+</test>
+<doc>I should be able to register a client</doc>
+<status status="PASS" starttime="20230114 03:58:37.313" endtime="20230114 03:58:39.702"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Register">Register</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
