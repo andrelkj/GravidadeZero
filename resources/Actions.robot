@@ -6,7 +6,7 @@ Resource            Base.robot
 
 *** Keywords ***
 Go To Signup Form
-    Go To    https://geeks-web-andre.fly.dev/signup
+    Go To    ${BASE_URL}
 
     Wait For Elements State    css=.signup-form h1 >> text="Cadastro"    visible    5
 

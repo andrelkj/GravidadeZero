@@ -1,7 +1,8 @@
 # Defining test dough
 
-from faker  import  Faker
+from faker import Faker
 fake = Faker()
+
 
 def factory_user():
     user = {
