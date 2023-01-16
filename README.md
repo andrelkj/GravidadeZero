@@ -4,6 +4,7 @@
 - [Structure](#structure)
   - [Actions](#actions)
   - [Factories](#factories)
+    - [Faker Library](#faker-library)
 - [Important links](#important-links)
 
 ---
@@ -66,7 +67,7 @@ It's very important to consider the creation of actions for repetitive steps fro
 **Note:**
 <p>One way of doing it is by considering each step of the BDD as a action.</p>
 
-**For example:**
+**For example:** [Actions](resources/Actions.robot)
 - Dado que acesso a página de cadastro
 
 ```
@@ -98,9 +99,9 @@ Go to signup form
 **Important**
 <p>One important thing to remember is that as actions will be defined inside a different file you need to add this as a Resource inside the Test case file and inside the Base file as well in order to integrate all the information.</p>
 
-## Factories
+## Factories 
 
-Factories are used to avoid the need of entering all testing set of information individually for each element. It works by defining a factory (factory_user) and then defining all arguments (test dough) inside a varible (user) which will be returned as response. **For example:**
+Factories are used to avoid the need of entering all testing set of information individually for each element. It works by defining a factory (factory_user) and then defining all arguments (test dough) inside a varible (user) which will be returned as response. **For example:** [Users factory](resources/factories/Users.py)
 
 ```
 # Defining test dough
@@ -141,8 +142,35 @@ Register a new user
     Fill Signup Form    ${user}
 ```
 
+### Faker Library
+
+Faker is a python package used to create dynamic arguments, making it possible to test scenarios with different sets of information automatically created. This can be really usefull for scenarios where you need unique data like registering users, validating emails and so on.
+
+To use it we just need to configure faker inside our factory file:
+[Using Faker Library](https://pypi.org/project/Faker/)
+
+```py
+# Defining test dough
+
+from faker  import  Faker
+fake = Faker()
+
+def factory_user():
+    user = {
+        'name': fake.first_name(),
+        'lastname': fake.last_name(),
+        'email': fake.free_email(),
+        'password': 'pwd123'
+    }
+
+    return user
+```
+
+And then run the project again now using dynamic mass of test.
+
 ---
 # Important links
 - [Web application](https://geeks-web-andre.fly.dev/signup)
 - [ElephantSQL](https://api.elephantsql.com/console/51ccfaa2-d261-4503-b858-da3b75125790/browser?#)
 - [QAcademy course](https://app.qacademy.io/area/produto/item/149046)
+- [Faker Library](https://pypi.org/project/Faker/)
