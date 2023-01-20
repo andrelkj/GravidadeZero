@@ -7,6 +7,7 @@
     - [Faker Library](#faker-library)
 - [Database.robot](#databaserobot)
 - [Usefull terminal commands](#usefull-terminal-commands)
+  - [chmod +x run.sh](#chmod-x-runsh)
 - [Important links](#important-links)
 
 ---
@@ -175,15 +176,39 @@ And then run the project again now using dynamic mass of test.
 - `pip install robotframework-databaselibrary` - Gives access to the database through robot
 - `pip3 install psycopg2` - Connect to the postgreSQL database natively
 
+---
 # Database.robot
 Here we're creating a task that will return the application to default. Meaning that after running all database entered information will be deleted and the application will run as if it was the first time.
 
 **Important:** always disconnect from data base after finishing the task. (BEST PRACTICE)
 
+---
 # Usefull terminal commands
 
-- robot -l NONE tasks/Delorean.robot - runs the file without returning outputs. It's mostly used for tasks.
+- robot -l NONE tasks/Delorean.robot - runs the file without generating log. It's mostly used for tasks.
+- robot --help - show all possible commands with detailed description
+- robot -o NONE - runs the file without generating output
+- robot -r NONE - runs the file witout generating report
+- chmod +x run.sh - gives file "run.sh" permition to be executed. Turns the file executable. **Works for linux based terminals**
+- ./run.sh - runs a file inside the actual file path
+- run.bat - runs terminal shortcuts **This works for MS-DOS based terminals**
 
+## chmod +x run.sh
+
+files.sh only runs in linux compatible terminals, for terminals MS-DOS based we need to use a file.bat which will then need additional changes. **For example:**
+
+Files path uses \ instead of /:
+
+```
+robot -l NONE -o NONE -r NONE tasks\Delorean.robot
+robot -d ./logs tests\Signup.robot
+```
+
+And also a different way of calling it:
+
+```
+run.bat
+```
 
 ---
 # Important links
