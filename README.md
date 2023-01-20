@@ -168,6 +168,11 @@ def factory_user():
 
 And then run the project again now using dynamic mass of test.
 
+**Obs.:** using faker can create a massive amont of information inside the database, in order to avoid this we install 2 libraries:
+
+- `pip install robotframework-databaselibrary` - Gives access to the database through robot
+- `pip3 install psycopg2` - Connect to the postgreSQL database natively
+
 ---
 # Important links
 - [Web application](https://geeks-web-andre.fly.dev/signup)
