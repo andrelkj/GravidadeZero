@@ -9,7 +9,7 @@ Library             DatabaseLibrary
 
 
 *** Keywords ***
-Connect To Postgress
+Connect To Postgres
     Connect To Database    psycopg2
     # Database
     ...    dubneckp
@@ -23,5 +23,5 @@ Connect To Postgress
     ...    5432
 
 Reset Env
-    Execute Sql String    DELETE from public.geeks;
-    Execute Sql Script    DELETE from public.users;
+    Execute SQL String    DELETE from public.geeks;
+    Execute SQL String    DELETE from public.users;

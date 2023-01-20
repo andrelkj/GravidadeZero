@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.1 (Python 3.11.1 on darwin)" generated="20230120 00:55:04.684" rpa="true" schemaversion="3">
+<suite id="s1" name="Delorean" source="/Users/andre/Documents/QA Academy/GravidadeZERO/getgeeks/projects/tasks/Delorean.robot">
+<test id="s1-t1" name="Back to the Past" line="8">
+<kw name="Connect To Postgres" library="Database">
+<kw name="Connect To Database" library="DatabaseLibrary">
+<arg>psycopg2</arg>
+<arg>dubneckp</arg>
+<arg>dubneckp</arg>
+<arg>ee8Q5gfemekDwIRgt5DdgU01wK8hoYqp</arg>
+<arg>babar.db.elephantsql.com</arg>
+<arg>5432</arg>
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
+<msg timestamp="20230120 00:55:04.712" level="INFO">Connecting using : psycopg2.connect(database=dubneckp, user=dubneckp, password=ee8Q5gfemekDwIRgt5DdgU01wK8hoYqp, host=babar.db.elephantsql.com, port=5432) </msg>
+<status status="PASS" starttime="20230120 00:55:04.696" endtime="20230120 00:55:04.825"/>
+</kw>
+<status status="PASS" starttime="20230120 00:55:04.695" endtime="20230120 00:55:04.825"/>
+</kw>
+<kw name="Reset Env" library="Database">
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<arg>DELETE from public.geeks;</arg>
+<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
+True to run command without an explicit transaction commit or rollback.</doc>
+<msg timestamp="20230120 00:55:04.825" level="INFO">Executing : Execute SQL String  |  DELETE from public.geeks; </msg>
+<status status="PASS" starttime="20230120 00:55:04.825" endtime="20230120 00:55:04.859"/>
+</kw>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<arg>DELETE from public.users;</arg>
+<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
+True to run command without an explicit transaction commit or rollback.</doc>
+<msg timestamp="20230120 00:55:04.860" level="INFO">Executing : Execute SQL String  |  DELETE from public.users; </msg>
+<status status="PASS" starttime="20230120 00:55:04.859" endtime="20230120 00:55:04.897"/>
+</kw>
+<status status="PASS" starttime="20230120 00:55:04.825" endtime="20230120 00:55:04.897"/>
+</kw>
+<kw name="Disconnect From Database" library="DatabaseLibrary">
+<doc>Disconnects from the database.</doc>
+<msg timestamp="20230120 00:55:04.897" level="INFO">Executing : Disconnect From Database</msg>
+<status status="PASS" starttime="20230120 00:55:04.897" endtime="20230120 00:55:04.897"/>
+</kw>
+<status status="PASS" starttime="20230120 00:55:04.695" endtime="20230120 00:55:04.898"/>
+</test>
+<doc>Delorean</doc>
+<status status="PASS" starttime="20230120 00:55:04.685" endtime="20230120 00:55:04.898"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Delorean">Delorean</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

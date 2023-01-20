@@ -5,6 +5,8 @@
   - [Actions](#actions)
   - [Factories](#factories)
     - [Faker Library](#faker-library)
+- [Database.robot](#databaserobot)
+- [Usefull terminal commands](#usefull-terminal-commands)
 - [Important links](#important-links)
 
 ---
@@ -172,6 +174,16 @@ And then run the project again now using dynamic mass of test.
 
 - `pip install robotframework-databaselibrary` - Gives access to the database through robot
 - `pip3 install psycopg2` - Connect to the postgreSQL database natively
+
+# Database.robot
+Here we're creating a task that will return the application to default. Meaning that after running all database entered information will be deleted and the application will run as if it was the first time.
+
+**Important:** always disconnect from data base after finishing the task. (BEST PRACTICE)
+
+# Usefull terminal commands
+
+- robot -l NONE tasks/Delorean.robot - runs the file without returning outputs. It's mostly used for tasks.
+
 
 ---
 # Important links
