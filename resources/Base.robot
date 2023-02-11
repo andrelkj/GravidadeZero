@@ -3,7 +3,6 @@ Documentation       Base
 
 Library             Browser
 Library             factories/Users.py
-Resource            Actions.robot
 
 
 *** Variables ***

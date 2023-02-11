@@ -1,7 +1,8 @@
 *** Settings ***
 Documentation       Signup Test Suite
 
-Resource            ../resources/Base.robot
+Resource    ../resources/Base.robot
+Resource    ../resources/Actions.robot
 
 Test Setup          Start Section
 Test Teardown       Finish Section
@@ -11,6 +12,9 @@ Test Teardown       Finish Section
 Register a new user
 # Entering test data mass
     ${user}    Factory User
+
+# Armazena o usuário na variável e reutiliza ele onde mencionado
+    Set Suite Variable    ${user}
 
 # Once I enter register page
     Go To Signup Form
@@ -24,3 +28,10 @@ Register a new user
 
 # Then I should register the user and see the welcome message
     User Should Be Registered
+
+Duplicate user
+
+    Go To Signup Form
+    Fill Signup Form    ${user}
+    Submit Signut Form
+    Modal Content Should Be    "Oops! Já temos um usuário com o e-mail informado."
