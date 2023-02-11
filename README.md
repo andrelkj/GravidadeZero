@@ -3,6 +3,8 @@
 - [Notes](#notes)
 - [Structure](#structure)
   - [Actions](#actions)
+    - [Arguments](#arguments)
+    - [Tags](#tags)
   - [Factories](#factories)
     - [Faker Library](#faker-library)
 - [Database.robot](#databaserobot)
@@ -101,6 +103,37 @@ Go to signup form
 
 **Important**
 <p>One important thing to remember is that as actions will be defined inside a different file you need to add this as a Resource inside the Test case file and inside the Base file as well in order to integrate all the information.</p>
+
+### Arguments
+Arguments can be used to reduce reuse and facilitate code maintenance once it's necessary to update and/or change only one element. For example:
+
+```
+Modal Content Should Be
+    [Arguments]    ${expected_text}
+
+    ${title}    Set Variable    css=.swal2-title
+    ${container}    Set Variable    css=.swal2-html-container
+
+    Wait For Elements State    ${title}    visible    5
+    Get Text    ${title}    equal    Oops...
+
+    Wait For Elements State    ${container}    visible    5
+    Get Text    ${container}    equal    ${expected_text}
+```
+
+### Tags
+Tags can be used to identify one specific test case and allow you to run individual test cases by calling they're tags using:
+`-i tag_name` before the test case name. For example:
+
+```
+Duplicate user
+    [Tags]    dup_email
+
+    Go To Signup Form
+    Fill Signup Form    ${user}
+    Submit Signut Form
+    Modal Content Should Be    Já temos um usuário com o e-mail informado.
+```
 
 ## Factories 
 

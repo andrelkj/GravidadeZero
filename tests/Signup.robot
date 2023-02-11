@@ -30,6 +30,8 @@ Register a new user
     User Should Be Registered
 
 Duplicate user
+    [Tags]    dup_email
+
     Go To Signup Form
     Fill Signup Form    ${user}
     Submit Signut Form
