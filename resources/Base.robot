@@ -4,6 +4,10 @@ Documentation       Base
 Library             Browser
 Library             factories/Users.py
 
+Resource    Actions.robot
+Resource    Database.robot
+Resource    Helpers.robot
+
 
 *** Variables ***
 ${BASE_URL}     https://geeks-web-andre.fly.dev/signup
