@@ -215,6 +215,8 @@ Here we're creating a task that will return the application to default. Meaning 
 
 **Important:** always disconnect from data base after finishing the task. (BEST PRACTICE)
 
+**Note:** always consider password_dash instead of password while dealing with databases as it uses encripted passwords
+
 ---
 # Usefull terminal commands
 
@@ -222,6 +224,7 @@ Here we're creating a task that will return the application to default. Meaning 
 - robot --help - show all possible commands with detailed description
 - robot -o NONE - runs the file without generating output
 - robot -r NONE - runs the file witout generating report
+- robot -i tags_name - runs only test cases that contains the defined tag
 - chmod +x run.sh - gives file "run.sh" permition to be executed. Turns the file executable. **Works for linux based terminals**
 - ./run.sh - runs a file inside the actual file path
 - run.bat - runs terminal shortcuts **This works for MS-DOS based terminals**

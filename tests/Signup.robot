@@ -3,7 +3,7 @@ Documentation       Signup Test Suite
 
 Resource            ../resources/Base.robot
 Resource            ../resources/Actions.robot
-Resource    ../resources/Helpers.robot
+Resource            ../resources/Helpers.robot
 
 Test Setup          Start Section
 Test Teardown       Finish Section
@@ -33,9 +33,9 @@ Register a new user
 Duplicate user
     [Tags]    dup_email
 
+    # pre-conditiions for the test case to work
     ${user}    Factory User
-
-    Add User    ${user}
+    Add User From Database    ${user}
 
     Go To Signup Form
     Fill Signup Form    ${user}
