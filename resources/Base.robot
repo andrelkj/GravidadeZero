@@ -2,11 +2,11 @@
 Documentation       Base
 
 Library             Browser
+Library             Collections
 Library             factories/Users.py
-
-Resource    Actions.robot
-Resource    Database.robot
-Resource    Helpers.robot
+Resource            Actions.robot
+Resource            Database.robot
+Resource            Helpers.robot
 
 
 *** Variables ***

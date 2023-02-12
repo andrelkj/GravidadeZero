@@ -1,113 +1,209 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.1 (Python 3.11.1 on darwin)" generated="20230212 13:23:54.467" rpa="false" schemaversion="3">
-<suite id="s1" name="Temp" source="/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/tests/Temp.robot">
-<test id="s1-t1" name="Working with Lists" line="8">
+<robot generator="Robot 6.0.1 (Python 3.11.1 on darwin)" generated="20230212 13:44:54.167" rpa="false" schemaversion="3">
+<suite id="s1" name="Signup" source="/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/tests/Signup.robot">
+<test id="s1-t1" name="Required Fields" line="53">
+<kw name="Start Section" library="Base" type="SETUP">
+<kw name="New Browser" library="Browser">
+<arg>chromium</arg>
+<arg>headless=false</arg>
+<arg>slowMo=00:00:00</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<msg timestamp="20230212 13:44:54.512" level="INFO">{"browser": "chromium", "headless": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "deprecated_pos_args": [], "tracesDir": "/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/logs/browser/traces/f320b3ce-3973-4e7a-add2-8b85e3e7f429"}</msg>
+<msg timestamp="20230212 13:44:54.748" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"deprecated_pos_args":[],"tracesDir":"/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/logs/browser/traces/f320b3ce-3973-4e7a-add2-8b85e3e7f429"}</msg>
+<status status="PASS" starttime="20230212 13:44:54.511" endtime="20230212 13:44:54.748"/>
+</kw>
+<kw name="New Page" library="Browser">
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20230212 13:44:55.642" level="INFO">Successfully initialized new page object and opened url: https://geeks-web-andre.fly.dev/signup</msg>
+<msg timestamp="20230212 13:44:55.642" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20230212 13:44:54.748" endtime="20230212 13:44:55.643"/>
+</kw>
+<status status="PASS" starttime="20230212 13:44:54.511" endtime="20230212 13:44:55.643"/>
+</kw>
 <kw name="Create List" library="BuiltIn">
-<var>@{avengers}</var>
-<arg>Tony Stak</arg>
-<arg>Kamalakhan</arg>
-<arg>Steve Rogers</arg>
+<var>@{expected_alerts}</var>
+<arg>Cadê o seu nome?</arg>
+<arg>E o sobrenome?</arg>
+<arg>O email é importante também!</arg>
+<arg>Agora só falta a senha!</arg>
 <doc>Returns a list containing given items.</doc>
-<msg timestamp="20230212 13:23:54.476" level="INFO">@{avengers} = [ Tony Stak | Kamalakhan | Steve Rogers ]</msg>
-<status status="PASS" starttime="20230212 13:23:54.476" endtime="20230212 13:23:54.476"/>
+<msg timestamp="20230212 13:44:55.643" level="INFO">@{expected_alerts} = [ Cadê o seu nome? | E o sobrenome? | O email é importante também! | Agora só falta a senha! ]</msg>
+<status status="PASS" starttime="20230212 13:44:55.643" endtime="20230212 13:44:55.643"/>
 </kw>
-<kw name="Append To List" library="Collections">
-<arg>${avengers}</arg>
-<arg>Bruce Banner</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230212 13:23:54.476" endtime="20230212 13:23:54.476"/>
+<kw name="Go To Signup Form" library="Actions">
+<kw name="Go To" library="Browser">
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<msg timestamp="20230212 13:44:55.728" level="INFO">Successfully opened URL https://geeks-web-andre.fly.dev/signup</msg>
+<status status="PASS" starttime="20230212 13:44:55.643" endtime="20230212 13:44:55.729"/>
 </kw>
-<kw name="Append To List" library="Collections">
-<arg>${avengers}</arg>
-<arg>Scot Lang</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20230212 13:23:54.476" endtime="20230212 13:23:54.476"/>
+<kw name="Wait For Elements State" library="Browser">
+<arg>css=.signup-form h1 &gt;&gt; text="Cadastro"</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20230212 13:44:55.744" level="INFO">Waited for Element with selector css=.signup-form h1 &gt;&gt; text="Cadastro" at state visible</msg>
+<status status="PASS" starttime="20230212 13:44:55.729" endtime="20230212 13:44:55.744"/>
+</kw>
+<status status="PASS" starttime="20230212 13:44:55.643" endtime="20230212 13:44:55.745"/>
+</kw>
+<kw name="Submit Signut Form" library="Actions">
+<kw name="Click" library="Browser">
+<arg>css=.submit-button &gt;&gt; text="Cadastrar"</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230212 13:44:55.745" endtime="20230212 13:44:55.797"/>
+</kw>
+<status status="PASS" starttime="20230212 13:44:55.745" endtime="20230212 13:44:55.797"/>
+</kw>
+<kw name="Alert Spans Should Be" library="Actions">
+<arg>${expected_alerts}</arg>
+<kw name="Create List" library="BuiltIn">
+<var>@{got_alerts}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230212 13:44:55.797" level="INFO">@{got_alerts} = [ ]</msg>
+<status status="PASS" starttime="20230212 13:44:55.797" endtime="20230212 13:44:55.798"/>
+</kw>
+<kw name="Get Elements" library="Browser">
+<var>${spans}</var>
+<arg>xpath=//span[@class="error"]</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns a reference to Playwright [https://playwright.dev/docs/api/class-locator|Locator]
+for all matched elements by ``selector``.</doc>
+<msg timestamp="20230212 13:44:55.836" level="INFO">Found 4 Locators successfully.</msg>
+<msg timestamp="20230212 13:44:55.836" level="INFO">${spans} = ['element=73979186-7819-438b-95cf-7af3a177cfdc', 'element=b4919903-5501-40da-948a-a09699da7986', 'element=4794d572-f979-43fe-82f7-b974ff81b64f', 'element=83cddab7-c99c-4da6-bca3-a40bfe1cbb84']</msg>
+<status status="PASS" starttime="20230212 13:44:55.798" endtime="20230212 13:44:55.836"/>
 </kw>
 <for flavor="IN">
-<var>${a}</var>
-<value>@{avengers}</value>
+<var>${span}</var>
+<value>@{spans}</value>
 <iter>
-<var name="${a}">Tony Stak</var>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${a}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230212 13:23:54.476" endtime="20230212 13:23:54.477"/>
+<var name="${span}">element=73979186-7819-438b-95cf-7af3a177cfdc</var>
+<kw name="Get Text" library="Browser">
+<var>${text}</var>
+<arg>${span}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20230212 13:44:55.848" level="INFO">${text} = Cadê o seu nome?</msg>
+<status status="PASS" starttime="20230212 13:44:55.837" endtime="20230212 13:44:55.848"/>
 </kw>
-<status status="PASS" starttime="20230212 13:23:54.476" endtime="20230212 13:23:54.477"/>
+<kw name="Append To List" library="Collections">
+<arg>${got_alerts}</arg>
+<arg>${text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230212 13:44:55.848" endtime="20230212 13:44:55.848"/>
+</kw>
+<status status="PASS" starttime="20230212 13:44:55.836" endtime="20230212 13:44:55.848"/>
 </iter>
 <iter>
-<var name="${a}">Kamalakhan</var>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${a}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230212 13:23:54.477" endtime="20230212 13:23:54.477"/>
+<var name="${span}">element=b4919903-5501-40da-948a-a09699da7986</var>
+<kw name="Get Text" library="Browser">
+<var>${text}</var>
+<arg>${span}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20230212 13:44:55.854" level="INFO">${text} = E o sobrenome?</msg>
+<status status="PASS" starttime="20230212 13:44:55.848" endtime="20230212 13:44:55.854"/>
 </kw>
-<status status="PASS" starttime="20230212 13:23:54.477" endtime="20230212 13:23:54.477"/>
+<kw name="Append To List" library="Collections">
+<arg>${got_alerts}</arg>
+<arg>${text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230212 13:44:55.854" endtime="20230212 13:44:55.855"/>
+</kw>
+<status status="PASS" starttime="20230212 13:44:55.848" endtime="20230212 13:44:55.855"/>
 </iter>
 <iter>
-<var name="${a}">Steve Rogers</var>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${a}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230212 13:23:54.477" endtime="20230212 13:23:54.477"/>
+<var name="${span}">element=4794d572-f979-43fe-82f7-b974ff81b64f</var>
+<kw name="Get Text" library="Browser">
+<var>${text}</var>
+<arg>${span}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20230212 13:44:55.859" level="INFO">${text} = O email é importante também!</msg>
+<status status="PASS" starttime="20230212 13:44:55.855" endtime="20230212 13:44:55.859"/>
 </kw>
-<status status="PASS" starttime="20230212 13:23:54.477" endtime="20230212 13:23:54.477"/>
+<kw name="Append To List" library="Collections">
+<arg>${got_alerts}</arg>
+<arg>${text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230212 13:44:55.859" endtime="20230212 13:44:55.859"/>
+</kw>
+<status status="PASS" starttime="20230212 13:44:55.855" endtime="20230212 13:44:55.859"/>
 </iter>
 <iter>
-<var name="${a}">Bruce Banner</var>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${a}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230212 13:23:54.477" endtime="20230212 13:23:54.477"/>
+<var name="${span}">element=83cddab7-c99c-4da6-bca3-a40bfe1cbb84</var>
+<kw name="Get Text" library="Browser">
+<var>${text}</var>
+<arg>${span}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<msg timestamp="20230212 13:44:55.863" level="INFO">${text} = Agora só falta a senha!</msg>
+<status status="PASS" starttime="20230212 13:44:55.859" endtime="20230212 13:44:55.863"/>
 </kw>
-<status status="PASS" starttime="20230212 13:23:54.477" endtime="20230212 13:23:54.477"/>
-</iter>
-<iter>
-<var name="${a}">Scot Lang</var>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${a}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20230212 13:23:54.477" endtime="20230212 13:23:54.477"/>
+<kw name="Append To List" library="Collections">
+<arg>${got_alerts}</arg>
+<arg>${text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230212 13:44:55.863" endtime="20230212 13:44:55.863"/>
 </kw>
-<status status="PASS" starttime="20230212 13:23:54.477" endtime="20230212 13:23:54.477"/>
+<status status="PASS" starttime="20230212 13:44:55.859" endtime="20230212 13:44:55.863"/>
 </iter>
-<status status="PASS" starttime="20230212 13:23:54.476" endtime="20230212 13:23:54.477"/>
+<status status="PASS" starttime="20230212 13:44:55.836" endtime="20230212 13:44:55.863"/>
 </for>
-<kw name="Create List" library="BuiltIn">
-<var>@{avengers2}</var>
-<arg>Tony Stark</arg>
-<arg>Miss Marvel</arg>
-<arg>Steve Rogers</arg>
-<arg>Bruce Banner</arg>
-<arg>Scot Lang</arg>
-<doc>Returns a list containing given items.</doc>
-<msg timestamp="20230212 13:23:54.477" level="INFO">@{avengers2} = [ Tony Stark | Miss Marvel | Steve Rogers | Bruce Banner | Scot Lang ]</msg>
-<status status="PASS" starttime="20230212 13:23:54.477" endtime="20230212 13:23:54.477"/>
-</kw>
 <kw name="Lists Should Be Equal" library="Collections">
-<arg>${avengers}</arg>
-<arg>${avengers2}</arg>
+<arg>${expected_alerts}</arg>
+<arg>${got_alerts}</arg>
 <doc>Fails if given lists are unequal.</doc>
-<msg timestamp="20230212 13:23:54.477" level="FAIL">Lists are different:
-Index 0: Tony Stak != Tony Stark
-Index 1: Kamalakhan != Miss Marvel</msg>
-<status status="FAIL" starttime="20230212 13:23:54.477" endtime="20230212 13:23:54.477"/>
+<status status="PASS" starttime="20230212 13:44:55.864" endtime="20230212 13:44:55.864"/>
 </kw>
-<status status="FAIL" starttime="20230212 13:23:54.476" endtime="20230212 13:23:54.477">Lists are different:
-Index 0: Tony Stak != Tony Stark
-Index 1: Kamalakhan != Miss Marvel</status>
+<status status="PASS" starttime="20230212 13:44:55.797" endtime="20230212 13:44:55.864"/>
+</kw>
+<kw name="Finish Section" library="Base" type="TEARDOWN">
+<kw name="Take Screenshot" library="Browser">
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<msg timestamp="20230212 13:44:56.029" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-1.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230212 13:44:55.864" endtime="20230212 13:44:56.029"/>
+</kw>
+<status status="PASS" starttime="20230212 13:44:55.864" endtime="20230212 13:44:56.029"/>
+</kw>
+<tag>attempt_signup</tag>
+<tag>required_fields</tag>
+<status status="PASS" starttime="20230212 13:44:54.509" endtime="20230212 13:44:56.029"/>
 </test>
-<doc>Temp</doc>
-<status status="FAIL" starttime="20230212 13:23:54.468" endtime="20230212 13:23:54.478"/>
+<doc>Signup Test Suite</doc>
+<status status="PASS" starttime="20230212 13:44:54.167" endtime="20230212 13:44:56.063"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
+<stat pass="1" fail="0" skip="0">attempt_signup</stat>
+<stat pass="1" fail="0" skip="0">required_fields</stat>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Temp">Temp</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Signup">Signup</stat>
 </suite>
 </statistics>
 <errors>

@@ -52,12 +52,17 @@ Wrong Email
 
 Required Fields
     [Tags]    attempt_signup    required_fields
-    [Template]    Signup Submit Without Form
 # Template shouldn't be used here because it will execute the hole process 4 times instead of validating all at once
-    Cadê o seu nome?
-    -Remover esse texto- E o sobrenome?
-    O email é importante também!
-    Agora só falta a senha!
+
+    @{expected_alerts}    Create List
+    ...    Cadê o seu nome?
+    ...    E o sobrenome?
+    ...    O email é importante também!
+    ...    Agora só falta a senha!
+
+    Go To Signup Form
+    Submit Signut Form
+    Alert Spans Should Be    ${expected_alerts}
 
 Short Password
     [Tags]    attempt_signup    short_pass
@@ -75,6 +80,7 @@ Short Password
     -1
     acb#1
 
+
 *** Keywords ***
 Signup With Short Password
     [Arguments]    ${short_pass}
@@ -88,10 +94,3 @@ Signup With Short Password
     Fill Signup Form    ${user}
     Submit Signut Form
     Alert Span Should Be    Informe uma senha com pelo menos 6 caracteres
-
-Signup Submit Without Form
-    [Arguments]    ${expected_alert}
-
-    Go To Signup Form
-    Submit Signut Form
-    Alert Span Should Be    ${expected_alert}
