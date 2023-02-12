@@ -2,8 +2,6 @@
 Documentation       Signup Test Suite
 
 Resource            ../resources/Base.robot
-Resource            ../resources/Actions.robot
-Resource            ../resources/Helpers.robot
 
 Test Setup          Start Section
 Test Teardown       Finish Section
@@ -57,7 +55,7 @@ Required Fields
     [Template]    Signup Submit Without Form
 # Template shouldn't be used here because it will execute the hole process 4 times instead of validating all at once
     Cadê o seu nome?
-    E o sobrenome?
+    -Remover esse texto- E o sobrenome?
     O email é importante também!
     Agora só falta a senha!
 
