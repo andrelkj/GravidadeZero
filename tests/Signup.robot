@@ -31,7 +31,7 @@ Register a new user
     User Should Be Registered
 
 Duplicate user
-    [Tags]    dup_email
+    [Tags]    attempt_signup
 
     # pre-conditiions for the test case to work
     ${user}    Factory User
@@ -41,3 +41,13 @@ Duplicate user
     Fill Signup Form    ${user}
     Submit Signut Form
     Modal Content Should Be    Já temos um usuário com o e-mail informado.
+
+Wrong email
+    [Tags]    attempt_signup
+
+    ${user}    Factory Wrong Email
+
+    Go To Signup Form
+    Fill Signup Form    ${user}
+    Submit Signut Form
+    Field Notiication Should Be    O email está estranho

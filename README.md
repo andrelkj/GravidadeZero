@@ -228,6 +228,7 @@ Here we're creating a task that will return the application to default. Meaning 
 - chmod +x run.sh - gives file "run.sh" permition to be executed. Turns the file executable. **Works for linux based terminals**
 - ./run.sh - runs a file inside the actual file path
 - run.bat - runs terminal shortcuts **This works for MS-DOS based terminals**
+- .lower() - python method to turn text onto lower case only
 
 ## chmod +x run.sh
 
