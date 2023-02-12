@@ -54,13 +54,12 @@ Wrong Email
 
 Required Fields
     [Tags]    attempt_signup    required_fields
-
-    Go To Signup Form
-    Submit Signut Form
-    Alert Span Should Be    Cadê o seu nome?
-    Alert Span Should Be    E o sobrenome?
-    Alert Span Should Be    O email é importante também!
-    Alert Span Should Be    Agora só falta a senha!
+    [Template]    Signup Submit Without Form
+# Template shouldn't be used here because it will execute the hole process 4 times instead of validating all at once
+    Cadê o seu nome?
+    E o sobrenome?
+    O email é importante também!
+    Agora só falta a senha!
 
 Short Password
     [Tags]    attempt_signup    short_pass
@@ -91,3 +90,10 @@ Signup With Short Password
     Fill Signup Form    ${user}
     Submit Signut Form
     Alert Span Should Be    Informe uma senha com pelo menos 6 caracteres
+
+Signup Submit Without Form
+    [Arguments]    ${expected_alert}
+
+    Go To Signup Form
+    Submit Signut Form
+    Alert Span Should Be    ${expected_alert}
