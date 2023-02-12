@@ -30,7 +30,7 @@ Register a new user
 # Then I should register the user and see the welcome message
     User Should Be Registered
 
-Duplicate user
+Duplicate User
     [Tags]    attempt_signup
 
     # pre-conditiions for the test case to work
@@ -42,7 +42,7 @@ Duplicate user
     Submit Signut Form
     Modal Content Should Be    Já temos um usuário com o e-mail informado.
 
-Wrong email
+Wrong Email
     [Tags]    attempt_signup
 
     ${user}    Factory Wrong Email
@@ -51,3 +51,13 @@ Wrong email
     Fill Signup Form    ${user}
     Submit Signut Form
     Field Notiication Should Be    O email está estranho
+
+Empty Fields
+    [Tags]    attempt_signup    required_fields
+
+    Go To Signup Form
+    Submit Signut Form
+    Field Notiication Should Be    Cadê o seu nome?
+    Field Notiication Should Be    E o sobrenome?
+    Field Notiication Should Be    O email é importante também!
+    Field Notiication Should Be    Agora só falta a senha!
