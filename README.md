@@ -9,6 +9,10 @@
     - [Faker Library](#faker-library)
   - [Template](#template)
 - [Database.robot](#databaserobot)
+- [SignupRequired.robot](#signuprequiredrobot)
+- [Temp.robot](#temprobot)
+  - [Loops](#loops)
+  - [Keywords](#keywords)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [chmod +x run.sh](#chmod-x-runsh)
 - [Important links](#important-links)
@@ -222,6 +226,83 @@ Here we're creating a task that will return the application to default. Meaning 
 **Important:** always disconnect from data base after finishing the task. (BEST PRACTICE)
 
 **Note:** always consider password_dash instead of password while dealing with databases as it uses encripted passwords
+
+---
+# SignupRequired.robot
+The use of templates are not recommended in same cases because it will run all the steps as they come. Using required fields as example the test case will open a new browser tab and start the hole process all over for each conditions, instead of validation all of them as one, even considering that they're all being shown in the same page.
+
+One way to deal and improve templates is by defining a hole test suite using test cases and defining all steps inside a keyword. The key here is to use the `Suite Setup` as start point instead of the previous Test Setup. It will allow all test cases to run one after another without the need to close and open tabs every time.
+
+**Example:**
+```
+*** Settings ***
+Documentation       Signup Test Suite
+
+Resource            ../resources/Base.robot
+
+Suite Setup         Signup Without Fill Form    # execute the setup once for suite and not for test as used before
+Test Teardown       Finish Section
+
+*** Test Cases ***
+Name is required
+    Alert Span Should Be    Cadê o seu nome?
+Lastname is required
+    Alert Span Should Be    -Remover esse texto- E o sobrenome?
+Email is required
+    Alert Span Should Be    O email é importante também!
+Password is required
+    Alert Span Should Be    Agora só falta a senha!
+
+# Testing all forms all together using form
+*** Keywords ***
+Signup Without Fill Form
+
+    Start Section
+    Go To Signup Form
+    Submit Signut Form
+```
+
+---
+# Temp.robot
+Tabulation is essential for lists functioning
+
+By using `@{name}` robot will consider this as a temporary element. Yet to call it as a variable we need to use the `${name}`
+
+## Loops
+It is possible to use FOR to create a loop that will be executed until there's no more element available to use
+
+Example:
+```
+Working with Lists
+
+    @{avengers}    Create List    Tony Stak    Kamalakhan    Steve Rogers
+
+    Append To List    ${avengers}    Hulk
+
+      FOR    ${a}    IN    @{avengers}
+          Log To Console   ${a}
+          
+      END
+```
+
+**Note:** Here all individual list elements a inside the avengers list will be logged into console one by one until there's not more elements available.
+
+## Keywords
+Append To List allows to add a new element to the list. Example:
+
+```
+Working with Lists
+
+    @{avengers}    Create List    Tony Stak    Kamalakhan    Steve Rogers
+
+    Append To List    ${avengers}    Hulk
+
+    Log To Console  ${avengers}[0]
+    Log To Console  ${avengers}[1]
+    Log To Console  ${avengers}[2]
+```
+
+**Important:** to use this arguments we need to import the library Collections from Robot
 
 ---
 # Usefull terminal commands
