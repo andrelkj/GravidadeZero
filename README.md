@@ -7,6 +7,7 @@
     - [Tags](#tags)
   - [Factories](#factories)
     - [Faker Library](#faker-library)
+  - [Template](#template)
 - [Database.robot](#databaserobot)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [chmod +x run.sh](#chmod-x-runsh)
@@ -208,6 +209,11 @@ And then run the project again now using dynamic mass of test.
 
 - `pip install robotframework-databaselibrary` - Gives access to the database through robot
 - `pip3 install psycopg2` - Connect to the postgreSQL database natively
+
+## Template
+It is possible to define several steps inside a keyword and then use template to indicate that the test case should follow those steps one at a time following exactly what is defined inside the keyword. This allows us to repeat several cenários changing only the test variable.
+
+**Important:** template will only work if all conditions are exactly equal to one another
 
 ---
 # Database.robot

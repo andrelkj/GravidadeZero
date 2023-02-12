@@ -61,3 +61,33 @@ Required Fields
     Alert Span Should Be    E o sobrenome?
     Alert Span Should Be    O email é importante também!
     Alert Span Should Be    Agora só falta a senha!
+
+Short Password
+    [Tags]    attempt_signup    short_pass
+    [Template]    Signup With Short Password
+    1
+    12
+    123
+    1234
+    12345
+    a
+    a2
+    ab3
+    ab3c
+    a23bc
+    -1
+    acb#1
+
+*** Keywords ***
+Signup With Short Password
+    [Arguments]    ${short_pass}
+
+    ${user}    Create Dictionary
+    ...    name=Test    lastname=User
+    ...    email=test@email.com
+    ...    password=${short_pass}
+
+    Go To Signup Form
+    Fill Signup Form    ${user}
+    Submit Signut Form
+    Alert Span Should Be    Informe uma senha com pelo menos 6 caracteres
