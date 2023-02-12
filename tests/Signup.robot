@@ -50,14 +50,14 @@ Wrong Email
     Go To Signup Form
     Fill Signup Form    ${user}
     Submit Signut Form
-    Field Notiication Should Be    O email está estranho
+    Alert Span Should Be    O email está estranho
 
-Empty Fields
+Required Fields
     [Tags]    attempt_signup    required_fields
 
     Go To Signup Form
     Submit Signut Form
-    Field Notiication Should Be    Cadê o seu nome?
-    Field Notiication Should Be    E o sobrenome?
-    Field Notiication Should Be    O email é importante também!
-    Field Notiication Should Be    Agora só falta a senha!
+    Alert Span Should Be    Cadê o seu nome?
+    Alert Span Should Be    E o sobrenome?
+    Alert Span Should Be    O email é importante também!
+    Alert Span Should Be    Agora só falta a senha!
