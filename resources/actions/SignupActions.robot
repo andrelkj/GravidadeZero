@@ -1,13 +1,12 @@
 *** Settings ***
-Documentation       Actions
+Documentation       Signup Actions
 
-Resource            Base.robot
-Library             Collections
+Resource            ../Base.robot
 
 
 *** Keywords ***
 Go To Signup Form
-    Go To    ${BASE_URL}
+    Go To    ${BASE_URL}/signup
 
     Wait For Elements State    css=.signup-form h1 >> text="Cadastro"    visible    5
 

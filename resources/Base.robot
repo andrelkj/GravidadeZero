@@ -1,16 +1,17 @@
 *** Settings ***
-Documentation       Base
+Documentation       Base Test
 
 Library             Browser
 Library             Collections
 Library             factories/Users.py
-Resource            Actions.robot
+Resource            actions/AuthActions.robot
+Resource            actions/SignupActions.robot
 Resource            Database.robot
 Resource            Helpers.robot
 
 
 *** Variables ***
-${BASE_URL}     https://geeks-web-andre.fly.dev/signup
+${BASE_URL}     https://geeks-web-andre.fly.dev
 
 
 *** Keywords ***
