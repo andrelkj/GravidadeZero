@@ -29,10 +29,14 @@ Reset Env
 
 Insert User
     [Arguments]    ${u}
-# password must be encripted to a successfull login
+    # password must be encripted to a successfull login
     ${hashed_pass}    Get Hashed Pass    ${u}[password]
 
     ${q}    Set Variable
     ...    INSERT INTO public.users (name, email, password_hash, is_geek) values ('${u}[name] ${u}[lastname]', '${u}[email]', '${hashed_pass}', false)
 
     Execute SQL String    ${q}
+
+Users Seed
+    ${user}    Factory User Login
+    Insert User    ${user}
