@@ -390,6 +390,8 @@ git init - initialize the git repository
 git status - return repository and files status
 git add . - add all pending changes to the staged file
 git commit -m 'message' - commit all staged changes and define a message to the commit
+git pull - pull github updates to the local environment
+git push - push local updates to the github environment
 
 ## chmod +x run.sh
 
