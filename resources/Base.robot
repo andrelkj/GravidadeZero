@@ -8,6 +8,7 @@ Resource            actions/AuthActions.robot
 Resource            actions/SignupActions.robot
 Resource            Database.robot
 Resource            Helpers.robot
+Resource            actions/_SharedActions.robot
 
 
 *** Variables ***
