@@ -16,6 +16,7 @@
   - [Keywords](#keywords)
 - [Login.robot](#loginrobot)
 - [Usefull terminal commands](#usefull-terminal-commands)
+  - [Git](#git)
   - [chmod +x run.sh](#chmod-x-runsh)
 - [Important links](#important-links)
 
@@ -382,6 +383,13 @@ Incorrect Email
 - ./run.sh - runs a file inside the actual file path
 - run.bat - runs terminal shortcuts **This works for MS-DOS based terminals**
 - .lower() - python method to turn text onto lower case only
+
+## Git
+
+git init - initialize the git repository
+git status - return repository and files status
+git add . - add all pending changes to the staged file
+git commit -m 'message' - commit all staged changes and define a message to the commit
 
 ## chmod +x run.sh
 
