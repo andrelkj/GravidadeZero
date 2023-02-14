@@ -9,7 +9,10 @@ Test Teardown       Finish Section
 
 *** Test Cases ***
 User Login
+    ${user}    Factory User Login
+    Add User From Database    ${user}
+
     Go To Login Page
-    Fill Credentials    test@email.com    pwd123
+    Fill Credentials    ${user}
     Submit Credentials
-    User Should Be Logged In    Test User
+    User Should Be Logged In    ${user}

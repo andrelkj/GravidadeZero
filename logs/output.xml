@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.1 (Python 3.11.1 on darwin)" generated="20230212 22:53:07.183" rpa="false" schemaversion="3">
+<robot generator="Robot 6.0.1 (Python 3.11.1 on darwin)" generated="20230213 22:33:38.649" rpa="false" schemaversion="3">
 <suite id="s1" name="Login" source="/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/tests/Login.robot">
 <test id="s1-t1" name="User Login" line="11">
 <kw name="Start Section" library="Base" type="SETUP">
@@ -10,20 +10,73 @@
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
-<msg timestamp="20230212 22:53:07.747" level="INFO">{"browser": "chromium", "headless": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "deprecated_pos_args": [], "tracesDir": "/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/logs/browser/traces/3f68f252-8b54-41e2-aa27-a7bdc850f0c5"}</msg>
-<msg timestamp="20230212 22:53:08.273" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"deprecated_pos_args":[],"tracesDir":"/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/logs/browser/traces/3f68f252-8b54-41e2-aa27-a7bdc850f0c5"}</msg>
-<status status="PASS" starttime="20230212 22:53:07.747" endtime="20230212 22:53:08.273"/>
+<msg timestamp="20230213 22:33:39.193" level="INFO">{"browser": "chromium", "headless": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "deprecated_pos_args": [], "tracesDir": "/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/logs/browser/traces/ed63e784-0bee-4e2f-a7f9-d0ef080c7570"}</msg>
+<msg timestamp="20230213 22:33:39.791" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"deprecated_pos_args":[],"tracesDir":"/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/logs/browser/traces/ed63e784-0bee-4e2f-a7f9-d0ef080c7570"}</msg>
+<status status="PASS" starttime="20230213 22:33:39.193" endtime="20230213 22:33:39.792"/>
 </kw>
 <kw name="New Page" library="Browser">
 <arg>${BASE_URL}</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Open a new Page.</doc>
-<msg timestamp="20230212 22:53:09.233" level="INFO">Successfully initialized new page object and opened url: https://geeks-web-andre.fly.dev</msg>
-<msg timestamp="20230212 22:53:09.233" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
-<status status="PASS" starttime="20230212 22:53:08.273" endtime="20230212 22:53:09.233"/>
+<msg timestamp="20230213 22:33:41.121" level="INFO">Successfully initialized new page object and opened url: https://geeks-web-andre.fly.dev</msg>
+<msg timestamp="20230213 22:33:41.121" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20230213 22:33:39.792" endtime="20230213 22:33:41.121"/>
 </kw>
-<status status="PASS" starttime="20230212 22:53:07.747" endtime="20230212 22:53:09.233"/>
+<status status="PASS" starttime="20230213 22:33:39.192" endtime="20230213 22:33:41.122"/>
+</kw>
+<kw name="Factory User Login" library="Users">
+<var>${user}</var>
+<msg timestamp="20230213 22:33:41.122" level="INFO">${user} = {'name': 'Test', 'lastname': 'User', 'email': 'test@email.com', 'password': 'pwd123'}</msg>
+<status status="PASS" starttime="20230213 22:33:41.122" endtime="20230213 22:33:41.122"/>
+</kw>
+<kw name="Add User From Database" library="Helpers">
+<arg>${user}</arg>
+<kw name="Connect To Postgres" library="Database">
+<kw name="Connect To Database" library="DatabaseLibrary">
+<arg>psycopg2</arg>
+<arg>dubneckp</arg>
+<arg>dubneckp</arg>
+<arg>ee8Q5gfemekDwIRgt5DdgU01wK8hoYqp</arg>
+<arg>babar.db.elephantsql.com</arg>
+<arg>5432</arg>
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
+<msg timestamp="20230213 22:33:41.133" level="INFO">Connecting using : psycopg2.connect(database=dubneckp, user=dubneckp, password=ee8Q5gfemekDwIRgt5DdgU01wK8hoYqp, host=babar.db.elephantsql.com, port=5432) </msg>
+<status status="PASS" starttime="20230213 22:33:41.123" endtime="20230213 22:33:41.210"/>
+</kw>
+<status status="PASS" starttime="20230213 22:33:41.123" endtime="20230213 22:33:41.210"/>
+</kw>
+<kw name="Insert User" library="Database">
+<arg>${user}</arg>
+<kw name="Get Hashed Pass" library="Users">
+<var>${hashed_pass}</var>
+<arg>${u}[password]</arg>
+<msg timestamp="20230213 22:33:41.233" level="INFO">${hashed_pass} = $2b$08$CDQQ/t8tt7BOGxbmkvO6DeIiIPc7EAwqtvLM5zwUcn4oGOWpA2CTa</msg>
+<status status="PASS" starttime="20230213 22:33:41.210" endtime="20230213 22:33:41.233"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${q}</var>
+<arg>INSERT INTO public.users (name, email, password_hash, is_geek) values ('${u}[name] ${u}[lastname]', '${u}[email]', '${hashed_pass}', false)</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230213 22:33:41.234" level="INFO">${q} = INSERT INTO public.users (name, email, password_hash, is_geek) values ('Test User', 'test@email.com', '$2b$08$CDQQ/t8tt7BOGxbmkvO6DeIiIPc7EAwqtvLM5zwUcn4oGOWpA2CTa', false)</msg>
+<status status="PASS" starttime="20230213 22:33:41.234" endtime="20230213 22:33:41.234"/>
+</kw>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<arg>${q}</arg>
+<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
+True to run command without an explicit transaction commit or rollback.</doc>
+<msg timestamp="20230213 22:33:41.234" level="INFO">Executing : Execute SQL String  |  INSERT INTO public.users (name, email, password_hash, is_geek) values ('Test User', 'test@email.com', '$2b$08$CDQQ/t8tt7BOGxbmkvO6DeIiIPc7EAwqtvLM5zwUcn4oGOWpA2CTa', false) </msg>
+<status status="PASS" starttime="20230213 22:33:41.234" endtime="20230213 22:33:41.270"/>
+</kw>
+<status status="PASS" starttime="20230213 22:33:41.210" endtime="20230213 22:33:41.270"/>
+</kw>
+<kw name="Disconnect From Database" library="DatabaseLibrary">
+<doc>Disconnects from the database.</doc>
+<msg timestamp="20230213 22:33:41.271" level="INFO">Executing : Disconnect From Database</msg>
+<status status="PASS" starttime="20230213 22:33:41.271" endtime="20230213 22:33:41.271"/>
+</kw>
+<status status="PASS" starttime="20230213 22:33:41.123" endtime="20230213 22:33:41.271"/>
 </kw>
 <kw name="Go To Login Page" library="AuthActions">
 <kw name="Go To" library="Browser">
@@ -31,8 +84,8 @@
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Navigates to the given ``url``.</doc>
-<msg timestamp="20230212 22:53:09.306" level="INFO">Successfully opened URL https://geeks-web-andre.fly.dev</msg>
-<status status="PASS" starttime="20230212 22:53:09.234" endtime="20230212 22:53:09.306"/>
+<msg timestamp="20230213 22:33:41.360" level="INFO">Successfully opened URL https://geeks-web-andre.fly.dev</msg>
+<status status="PASS" starttime="20230213 22:33:41.271" endtime="20230213 22:33:41.360"/>
 </kw>
 <kw name="Wait For Elements State" library="Browser">
 <arg>css=.login-form</arg>
@@ -41,33 +94,32 @@
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<msg timestamp="20230212 22:53:09.323" level="INFO">Waited for Element with selector css=.login-form at state visible</msg>
-<status status="PASS" starttime="20230212 22:53:09.306" endtime="20230212 22:53:09.323"/>
+<msg timestamp="20230213 22:33:41.376" level="INFO">Waited for Element with selector css=.login-form at state visible</msg>
+<status status="PASS" starttime="20230213 22:33:41.361" endtime="20230213 22:33:41.376"/>
 </kw>
-<status status="PASS" starttime="20230212 22:53:09.234" endtime="20230212 22:53:09.323"/>
+<status status="PASS" starttime="20230213 22:33:41.271" endtime="20230213 22:33:41.376"/>
 </kw>
 <kw name="Fill Credentials" library="AuthActions">
-<arg>test@email.com</arg>
-<arg>pwd123</arg>
+<arg>${user}</arg>
 <kw name="Fill Text" library="Browser">
 <arg>id=email</arg>
-<arg>${email}</arg>
+<arg>${user}[email]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20230212 22:53:09.323" level="INFO">Fills the text 'test@email.com' in the given field.</msg>
-<status status="PASS" starttime="20230212 22:53:09.323" endtime="20230212 22:53:09.339"/>
+<msg timestamp="20230213 22:33:41.376" level="INFO">Fills the text 'test@email.com' in the given field.</msg>
+<status status="PASS" starttime="20230213 22:33:41.376" endtime="20230213 22:33:41.425"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>id=password</arg>
-<arg>${password}</arg>
+<arg>${user}[password]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20230212 22:53:09.339" level="INFO">Fills the text 'pwd123' in the given field.</msg>
-<status status="PASS" starttime="20230212 22:53:09.339" endtime="20230212 22:53:09.366"/>
+<msg timestamp="20230213 22:33:41.425" level="INFO">Fills the text 'pwd123' in the given field.</msg>
+<status status="PASS" starttime="20230213 22:33:41.425" endtime="20230213 22:33:41.459"/>
 </kw>
-<status status="PASS" starttime="20230212 22:53:09.323" endtime="20230212 22:53:09.367"/>
+<status status="PASS" starttime="20230213 22:33:41.376" endtime="20230213 22:33:41.459"/>
 </kw>
 <kw name="Submit Credentials" library="AuthActions">
 <kw name="Click" library="Browser">
@@ -75,18 +127,25 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<status status="PASS" starttime="20230212 22:53:09.367" endtime="20230212 22:53:09.421"/>
+<status status="PASS" starttime="20230213 22:33:41.459" endtime="20230213 22:33:41.509"/>
 </kw>
-<status status="PASS" starttime="20230212 22:53:09.367" endtime="20230212 22:53:09.422"/>
+<status status="PASS" starttime="20230213 22:33:41.459" endtime="20230213 22:33:41.510"/>
 </kw>
 <kw name="User Should Be Logged In" library="AuthActions">
-<arg>Test User</arg>
+<arg>${user}</arg>
 <kw name="Set Variable" library="BuiltIn">
 <var>${element}</var>
 <arg>css=a[href="/profile"]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230212 22:53:09.422" level="INFO">${element} = css=a[href="/profile"]</msg>
-<status status="PASS" starttime="20230212 22:53:09.422" endtime="20230212 22:53:09.422"/>
+<msg timestamp="20230213 22:33:41.510" level="INFO">${element} = css=a[href="/profile"]</msg>
+<status status="PASS" starttime="20230213 22:33:41.510" endtime="20230213 22:33:41.510"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${expected_fullname}</var>
+<arg>${user}[name] ${user}[lastname]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230213 22:33:41.510" level="INFO">${expected_fullname} = Test User</msg>
+<status status="PASS" starttime="20230213 22:33:41.510" endtime="20230213 22:33:41.510"/>
 </kw>
 <kw name="Wait For Elements State" library="Browser">
 <arg>${element}</arg>
@@ -95,8 +154,8 @@
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<msg timestamp="20230212 22:53:09.674" level="INFO">Waited for Element with selector css=a[href="/profile"] at state visible</msg>
-<status status="PASS" starttime="20230212 22:53:09.422" endtime="20230212 22:53:09.674"/>
+<msg timestamp="20230213 22:33:41.770" level="INFO">Waited for Element with selector css=a[href="/profile"] at state visible</msg>
+<status status="PASS" starttime="20230213 22:33:41.510" endtime="20230213 22:33:41.770"/>
 </kw>
 <kw name="Get Text" library="Browser">
 <arg>${element}</arg>
@@ -106,23 +165,23 @@
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns text attribute of the element found by ``selector``.</doc>
-<status status="PASS" starttime="20230212 22:53:09.674" endtime="20230212 22:53:09.696"/>
+<status status="PASS" starttime="20230213 22:33:41.771" endtime="20230213 22:33:41.792"/>
 </kw>
-<status status="PASS" starttime="20230212 22:53:09.422" endtime="20230212 22:53:09.696"/>
+<status status="PASS" starttime="20230213 22:33:41.510" endtime="20230213 22:33:41.792"/>
 </kw>
 <kw name="Finish Section" library="Base" type="TEARDOWN">
 <kw name="Take Screenshot" library="Browser">
 <tag>PageContent</tag>
 <doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
-<msg timestamp="20230212 22:53:09.841" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-1.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20230212 22:53:09.696" endtime="20230212 22:53:09.841"/>
+<msg timestamp="20230213 22:33:41.924" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-1.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230213 22:33:41.792" endtime="20230213 22:33:41.924"/>
 </kw>
-<status status="PASS" starttime="20230212 22:53:09.696" endtime="20230212 22:53:09.841"/>
+<status status="PASS" starttime="20230213 22:33:41.792" endtime="20230213 22:33:41.924"/>
 </kw>
-<status status="PASS" starttime="20230212 22:53:07.745" endtime="20230212 22:53:09.841"/>
+<status status="PASS" starttime="20230213 22:33:39.191" endtime="20230213 22:33:41.925"/>
 </test>
 <doc>Login Test Suite</doc>
-<status status="PASS" starttime="20230212 22:53:07.183" endtime="20230212 22:53:09.882"/>
+<status status="PASS" starttime="20230213 22:33:38.650" endtime="20230213 22:33:41.969"/>
 </suite>
 <statistics>
 <total>

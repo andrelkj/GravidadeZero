@@ -1,4 +1,5 @@
 # Summary
+
 - [Summary](#summary)
 - [Notes](#notes)
 - [Structure](#structure)
@@ -18,13 +19,14 @@
 - [Important links](#important-links)
 
 ---
+
 # Notes
 
 Here we're going to automate the web application [Getgeeks](https://geeks-web-andre.fly.dev/signup) geratered using Fly that is connect to a PostgreSQL database. We're also using ElephantSQL to manage our database.
 
-We'll use Gherkin to define our test scenarios following Behaviour Driven Development (BDD) standards. 
+We'll use Gherkin to define our test scenarios following Behaviour Driven Development (BDD) standards.
 
-BDD is a colaborative specification technique where development driven scenarios are written considering the final users` point of view in order to give a better undertanding and clear informations to facilitate development and also testing after all. BDD is used to guide the development, not only testing automation and should be defined before starting the development. 
+BDD is a colaborative specification technique where development driven scenarios are written considering the final users` point of view in order to give a better undertanding and clear informations to facilitate development and also testing after all. BDD is used to guide the development, not only testing automation and should be defined before starting the development.
 
 **Example:** [Register notes](docs/signup.md)
 
@@ -38,7 +40,7 @@ BDD is a colaborative specification technique where development driven scenarios
 Dado que acesso a página de cadastro
 Quando faço o meu cadastro com o nome completo, e-mail e senha
 Então vejo a mensagem de boas vindas:
-     "Agora você faz parte da Getgeeks. Tenha uma ótima experiência."
+"Agora você faz parte da Getgeeks. Tenha uma ótima experiência."
 ```
 
 We can list here our Sad scenarios, those cases that can lead to erros, as well:
@@ -50,7 +52,7 @@ Dado que acesso a página de cadastro
 Porem o meu e-mail já foi cadastrado
 Quando faço o meu cadastro com o nome completo, e-mail e senha
 Então vejo a mensagem de alerta:
-    "Oops! Já temos um usuário com o e-mail informado."
+"Oops! Já temos um usuário com o e-mail informado."
 
 ##### Cenário: Email com formato incorreto
 
@@ -66,18 +68,21 @@ Então devo ver uma mensagem informando que todos os campos são obrigatórios
 ```
 
 ---
+
 # Structure
 
-We'll use *PascalCase* in here to define files and *snake_case* to define methods,
+We'll use _PascalCase_ in here to define files and _snake_case_ to define methods,
 
 ## Actions
 
-It's very important to consider the creation of actions for repetitive steps from the start in order to arrange the code properly and make it easier to use the same actions in different scenarios. 
+It's very important to consider the creation of actions for repetitive steps from the start in order to arrange the code properly and make it easier to use the same actions in different scenarios.
 
 **Note:**
+
 <p>One way of doing it is by considering each step of the BDD as a action.</p>
 
 **For example:** [Actions](resources/Actions.robot)
+
 - Dado que acesso a página de cadastro
 
 ```
@@ -101,15 +106,18 @@ Go to signup form
 ```
 
 - Então vejo a mensagem de boas vindas:
+
 ```
 # Then I should register the user and see the welcome message
     User Should Be Registered
 ```
 
 **Important**
+
 <p>One important thing to remember is that as actions will be defined inside a different file you need to add this as a Resource inside the Test case file and inside the Base file as well in order to integrate all the information.</p>
 
 ### Arguments
+
 Arguments can be used to reduce reuse and facilitate code maintenance once it's necessary to update and/or change only one element. For example:
 
 ```
@@ -127,6 +135,7 @@ Modal Content Should Be
 ```
 
 ### Tags
+
 Tags can be used to identify one specific test case and allow you to run individual test cases by calling they're tags using:
 `-i tag_name` before the test case name. For example:
 
@@ -140,7 +149,7 @@ Duplicate user
     Modal Content Should Be    Já temos um usuário com o e-mail informado.
 ```
 
-## Factories 
+## Factories
 
 Factories are used to avoid the need of entering all testing set of information individually for each element. It works by defining a factory (factory_user) and then defining all arguments (test dough) inside a varible (user) which will be returned as response. **For example:** [Users factory](resources/factories/Users.py)
 
@@ -215,25 +224,46 @@ And then run the project again now using dynamic mass of test.
 - `pip3 install psycopg2` - Connect to the postgreSQL database natively
 
 ## Template
+
 It is possible to define several steps inside a keyword and then use template to indicate that the test case should follow those steps one at a time following exactly what is defined inside the keyword. This allows us to repeat several cenários changing only the test variable.
 
 **Important:** template will only work if all conditions are exactly equal to one another
 
 ---
+
 # Database.robot
+
 Here we're creating a task that will return the application to default. Meaning that after running all database entered information will be deleted and the application will run as if it was the first time.
 
 **Important:** always disconnect from data base after finishing the task. (BEST PRACTICE)
 
 **Note:** always consider password_dash instead of password while dealing with databases as it uses encripted passwords
 
+For the register test cases we were using a forced hardcoded password inside the database.
+
+```
+Insert User
+    [Arguments]    ${u}
+# password must be encripted to a successfull login
+
+    ${q}    Set Variable
+    ...    INSERT INTO public.users (name, email, password_hash, is_geek) values ('${u}[name] ${u}[lastname]', '${u}[email]', '${u}[password]', false)
+
+    Execute SQL String    ${q}
+```
+
+While creating the login test case it won't work because of the password integrity, so we'll need to now update our test to consider the encripted password instead of the hardcoded one.
+
 ---
+
 # SignupRequired.robot
+
 The use of templates are not recommended in same cases because it will run all the steps as they come. Using required fields as example the test case will open a new browser tab and start the hole process all over for each conditions, instead of validation all of them as one, even considering that they're all being shown in the same page.
 
 One way to deal and improve templates is by defining a hole test suite using test cases and defining all steps inside a keyword. The key here is to use the `Suite Setup` as start point instead of the previous Test Setup. It will allow all test cases to run one after another without the need to close and open tabs every time.
 
 **Example:**
+
 ```
 *** Settings ***
 Documentation       Signup Test Suite
@@ -263,15 +293,19 @@ Signup Without Fill Form
 ```
 
 ---
+
 # Temp.robot
+
 Tabulation is essential for lists functioning
 
 By using `@{name}` robot will consider this as a temporary element. Yet to call it as a variable we need to use the `${name}`
 
 ## Loops
+
 It is possible to use FOR to create a loop that will be executed until there's no more element available to use
 
 Example:
+
 ```
 Working with Lists
 
@@ -281,13 +315,14 @@ Working with Lists
 
       FOR    ${a}    IN    @{avengers}
           Log To Console   ${a}
-          
+
       END
 ```
 
 **Note:** Here all individual list elements a inside the avengers list will be logged into console one by one until there's not more elements available.
 
 ## Keywords
+
 Append To List allows to add a new element to the list. Example:
 
 ```
@@ -305,6 +340,7 @@ Working with Lists
 **Important:** to use this arguments we need to import the library Collections from Robot
 
 ---
+
 # Usefull terminal commands
 
 - robot -l NONE tasks/Delorean.robot - runs the file without generating log. It's mostly used for tasks.
@@ -335,7 +371,9 @@ run.bat
 ```
 
 ---
+
 # Important links
+
 - [Web application](https://geeks-web-andre.fly.dev/signup)
 - [ElephantSQL](https://api.elephantsql.com/console/51ccfaa2-d261-4503-b858-da3b75125790/browser?#)
 - [QAcademy course](https://app.qacademy.io/area/produto/item/149046)
