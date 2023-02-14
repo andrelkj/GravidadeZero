@@ -17,7 +17,7 @@ ${BASE_URL}     https://geeks-web-andre.fly.dev
 
 *** Keywords ***
 Start Section
-    New Browser    chromium    headless=false    slowMo=00:00:00
+    New Browser    chromium    headless=false    slowMo=00:00:00.5
     New Page    ${BASE_URL}
 
 Finish Section
