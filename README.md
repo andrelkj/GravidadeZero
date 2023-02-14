@@ -14,6 +14,7 @@
 - [Temp.robot](#temprobot)
   - [Loops](#loops)
   - [Keywords](#keywords)
+- [Login.robot](#loginrobot)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [chmod +x run.sh](#chmod-x-runsh)
 - [Important links](#important-links)
@@ -338,6 +339,35 @@ Working with Lists
 ```
 
 **Important:** to use this arguments we need to import the library Collections from Robot
+
+---
+
+# Login.robot
+
+Tooltip cannot be inspected as it isn't part of the code, instead it is a browser navigator response that cannot be used as selector. This happens when the input type is defined as email and one solution is to:
+
+Create a new keyword to validate the element type inside the code:
+
+```
+Should Be Type Email
+    Get Property    id=email    type    equal    email
+```
+
+And adding it to our test case:
+
+```
+Incorrect Email
+    [Tags]    incorrect_email
+
+    ${user}    Create Dictionary    email=invalid.format.com    password=pwd123
+
+    Go To Login Page
+    Fill Credentials    ${user}
+    Submit Credentials
+    Should Be Type Email
+```
+
+**Important:** global variables should be used wisely, but one best practice is to create a global variable for global elements that repeat themselves throughout the code. In this example we created the `${INPUT_PASS}` global variable as well just for a visual purpose.
 
 ---
 

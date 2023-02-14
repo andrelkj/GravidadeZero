@@ -43,3 +43,13 @@ User not found
     Fill Credentials    ${user}
     Submit Credentials
     Modal Content Should Be    Usuário e/ou senha inválidos.
+
+Incorrect Email
+    [Tags]    incorrect_email
+
+    ${user}    Create Dictionary    email=invalid.format.com    password=pwd123
+
+    Go To Login Page
+    Fill Credentials    ${user}
+    Submit Credentials
+    Should Be Type Email
