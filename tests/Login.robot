@@ -47,9 +47,40 @@ User not found
 Incorrect Email
     [Tags]    incorrect_email
 
-    ${user}    Create Dictionary    email=invalid.format.com    password=pwd123
+    ${user}    Create Dictionary    email=invalid.email.com    password=pwd123
 
     Go To Login Page
     Fill Credentials    ${user}
     Submit Credentials
     Should Be Type Email
+
+Required email
+    [Tags]    required_fields
+
+    ${user}    Create Dictionary    email=    password=pwd123
+
+    Go To Login Page
+    Fill Credentials    ${user}
+    Submit Credentials
+    Should Return Required Message    E-mail obrigatório
+
+Required password
+    [Tags]    required_fields
+
+    ${user}    Create Dictionary    email=test@email.com    password=
+
+    Go To Login Page
+    Fill Credentials    ${user}
+    Submit Credentials
+    Should Return Required Message    Senha obrigatória
+
+Required fields
+    [Tags]    required_fields
+
+    ${user}    Create Dictionary    email=    password=
+
+    Go To Login Page
+    Fill Credentials    ${user}
+    Submit Credentials
+    Should Return Required Message    E-mail obrigatório
+    Should Return Required Message    Senha obrigatória

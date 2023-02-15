@@ -35,3 +35,8 @@ User Should Be Logged In
 
 Should Be Type Email
     Get Property    ${INPUT_EMAIL}    type    equal    email
+
+Should Return Required Message
+    [Arguments]    ${required_message}
+
+    Get Text    css=.error >> text="${required_message}"

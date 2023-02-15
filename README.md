@@ -18,6 +18,8 @@
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
   - [chmod +x run.sh](#chmod-x-runsh)
+- [Challenge 1 - module PRO](#challenge-1---module-pro)
+  - [Automate 3 new test cases inside the login suite:](#automate-3-new-test-cases-inside-the-login-suite)
 - [Important links](#important-links)
 
 ---
@@ -409,6 +411,36 @@ And also a different way of calling it:
 ```
 run.bat
 ```
+
+---
+
+# Challenge 1 - module PRO
+
+## Automate 3 new test cases inside the login suite:
+
+- Required email
+
+Given that I an inside the login page
+When the email field is empty
+And I submit the login button
+Then a required field message is displayed
+"E-mail obrigatório"
+
+- Required password
+
+Given that I an inside the login page
+When the password field is empty
+And I submit the login button
+Then a required field message is displayed
+"Senha obrigatório"
+
+- Required fields
+
+Given that I an inside the login page
+When both email and password fields are empty
+And I submit the login button
+Then a required field message is displayed for each field
+"E-mail obrigatório" and "Senha obrigatório"
 
 ---
 
