@@ -26,24 +26,3 @@ User Should Be Registered
     ...    css=div p >> text="Agora você faz parte da Getgeeks. Tenha uma ótima experiência."
 
     Wait For Elements State    ${expect_message}    visible    5
-
-Alert Span Should Be
-    [Arguments]    ${expected_alert}
-
-    Wait For Elements State    css=span[class=error] >> text=${expected_alert}    visible    5
-
-Alert Spans Should Be
-    [Arguments]    ${expected_alerts}
-
-    @{got_alerts}    Create List
-
-    ${spans}    Get Elements
-    ...    xpath=//span[@class="error"]
-    # there's no need to use @{spans} in here because Get Elements already returns a ready to use list
-
-    FOR    ${span}    IN    @{spans}
-        ${text}    Get Text    ${span}
-        Append To List    ${got_alerts}    ${text}
-    END
-
-    Lists Should Be Equal    ${expected_alerts}    ${got_alerts}

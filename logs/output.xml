@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.1 (Python 3.11.1 on darwin)" generated="20230214 22:52:46.724" rpa="false" schemaversion="3">
+<robot generator="Robot 6.0.1 (Python 3.11.1 on darwin)" generated="20230215 13:45:10.982" rpa="false" schemaversion="3">
 <suite id="s1" name="Login" source="/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/tests/Login.robot">
-<test id="s1-t1" name="Required email" line="57">
+<test id="s1-t1" name="Required Email" line="57">
 <kw name="Start Section" library="Base" type="SETUP">
 <kw name="New Browser" library="Browser">
 <arg>chromium</arg>
@@ -10,28 +10,28 @@
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
-<msg timestamp="20230214 22:52:47.278" level="INFO">{"browser": "chromium", "headless": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 500.0, "timeout": 30000.0, "deprecated_pos_args": [], "tracesDir": "/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/logs/browser/traces/e729bbb7-f03d-47ce-81e0-320be3869696"}</msg>
-<msg timestamp="20230214 22:52:47.888" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":500,"timeout":30000,"deprecated_pos_args":[],"tracesDir":"/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/logs/browser/traces/e729bbb7-f03d-47ce-81e0-320be3869696"}</msg>
-<status status="PASS" starttime="20230214 22:52:47.277" endtime="20230214 22:52:47.888"/>
+<msg timestamp="20230215 13:45:11.540" level="INFO">{"browser": "chromium", "headless": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 500.0, "timeout": 30000.0, "deprecated_pos_args": [], "tracesDir": "/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/logs/browser/traces/9fd509f7-e2b6-482e-9bf3-3bc6943ea49a"}</msg>
+<msg timestamp="20230215 13:45:12.109" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":500,"timeout":30000,"deprecated_pos_args":[],"tracesDir":"/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/logs/browser/traces/9fd509f7-e2b6-482e-9bf3-3bc6943ea49a"}</msg>
+<status status="PASS" starttime="20230215 13:45:11.539" endtime="20230215 13:45:12.109"/>
 </kw>
 <kw name="New Page" library="Browser">
 <arg>${BASE_URL}</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Open a new Page.</doc>
-<msg timestamp="20230214 22:52:49.454" level="INFO">Successfully initialized new page object and opened url: https://geeks-web-andre.fly.dev</msg>
-<msg timestamp="20230214 22:52:49.454" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
-<status status="PASS" starttime="20230214 22:52:47.889" endtime="20230214 22:52:49.454"/>
+<msg timestamp="20230215 13:45:14.529" level="INFO">Successfully initialized new page object and opened url: https://geeks-web-andre.fly.dev</msg>
+<msg timestamp="20230215 13:45:14.529" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20230215 13:45:12.109" endtime="20230215 13:45:14.530"/>
 </kw>
-<status status="PASS" starttime="20230214 22:52:47.277" endtime="20230214 22:52:49.455"/>
+<status status="PASS" starttime="20230215 13:45:11.539" endtime="20230215 13:45:14.530"/>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${user}</var>
-<arg>email=</arg>
-<arg>password=pwd123</arg>
+<arg>email=${EMPTY}</arg>
+<arg>password=abc123</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20230214 22:52:49.457" level="INFO">${user} = {'email': '', 'password': 'pwd123'}</msg>
-<status status="PASS" starttime="20230214 22:52:49.456" endtime="20230214 22:52:49.457"/>
+<msg timestamp="20230215 13:45:14.532" level="INFO">${user} = {'email': '', 'password': 'abc123'}</msg>
+<status status="PASS" starttime="20230215 13:45:14.531" endtime="20230215 13:45:14.532"/>
 </kw>
 <kw name="Go To Login Page" library="AuthActions">
 <kw name="Go To" library="Browser">
@@ -39,8 +39,8 @@
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Navigates to the given ``url``.</doc>
-<msg timestamp="20230214 22:52:50.057" level="INFO">Successfully opened URL https://geeks-web-andre.fly.dev</msg>
-<status status="PASS" starttime="20230214 22:52:49.457" endtime="20230214 22:52:50.057"/>
+<msg timestamp="20230215 13:45:15.127" level="INFO">Successfully opened URL https://geeks-web-andre.fly.dev</msg>
+<status status="PASS" starttime="20230215 13:45:14.532" endtime="20230215 13:45:15.128"/>
 </kw>
 <kw name="Wait For Elements State" library="Browser">
 <arg>css=.login-form</arg>
@@ -49,10 +49,10 @@
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<msg timestamp="20230214 22:52:50.094" level="INFO">Waited for Element with selector css=.login-form at state visible</msg>
-<status status="PASS" starttime="20230214 22:52:50.058" endtime="20230214 22:52:50.094"/>
+<msg timestamp="20230215 13:45:15.165" level="INFO">Waited for Element with selector css=.login-form at state visible</msg>
+<status status="PASS" starttime="20230215 13:45:15.128" endtime="20230215 13:45:15.165"/>
 </kw>
-<status status="PASS" starttime="20230214 22:52:49.457" endtime="20230214 22:52:50.094"/>
+<status status="PASS" starttime="20230215 13:45:14.532" endtime="20230215 13:45:15.166"/>
 </kw>
 <kw name="Fill Credentials" library="AuthActions">
 <arg>${user}</arg>
@@ -62,8 +62,8 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20230214 22:52:50.095" level="INFO">Fills the text '' in the given field.</msg>
-<status status="PASS" starttime="20230214 22:52:50.095" endtime="20230214 22:52:50.775"/>
+<msg timestamp="20230215 13:45:15.166" level="INFO">Fills the text '' in the given field.</msg>
+<status status="PASS" starttime="20230215 13:45:15.166" endtime="20230215 13:45:15.727"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>${INPUT_PASS}</arg>
@@ -71,10 +71,10 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20230214 22:52:50.776" level="INFO">Fills the text 'pwd123' in the given field.</msg>
-<status status="PASS" starttime="20230214 22:52:50.776" endtime="20230214 22:52:51.334"/>
+<msg timestamp="20230215 13:45:15.728" level="INFO">Fills the text 'abc123' in the given field.</msg>
+<status status="PASS" starttime="20230215 13:45:15.727" endtime="20230215 13:45:16.285"/>
 </kw>
-<status status="PASS" starttime="20230214 22:52:50.095" endtime="20230214 22:52:51.335"/>
+<status status="PASS" starttime="20230215 13:45:15.166" endtime="20230215 13:45:16.285"/>
 </kw>
 <kw name="Submit Credentials" library="AuthActions">
 <kw name="Click" library="Browser">
@@ -82,9 +82,9 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<status status="PASS" starttime="20230214 22:52:51.336" endtime="20230214 22:52:51.904"/>
+<status status="PASS" starttime="20230215 13:45:16.286" endtime="20230215 13:45:16.847"/>
 </kw>
-<status status="PASS" starttime="20230214 22:52:51.335" endtime="20230214 22:52:51.904"/>
+<status status="PASS" starttime="20230215 13:45:16.286" endtime="20230215 13:45:16.847"/>
 </kw>
 <kw name="Should Return Required Message" library="AuthActions">
 <arg>E-mail obrigatório</arg>
@@ -94,23 +94,23 @@
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns text attribute of the element found by ``selector``.</doc>
-<status status="PASS" starttime="20230214 22:52:51.906" endtime="20230214 22:52:51.932"/>
+<status status="PASS" starttime="20230215 13:45:16.849" endtime="20230215 13:45:16.873"/>
 </kw>
-<status status="PASS" starttime="20230214 22:52:51.904" endtime="20230214 22:52:51.932"/>
+<status status="PASS" starttime="20230215 13:45:16.847" endtime="20230215 13:45:16.874"/>
 </kw>
 <kw name="Finish Section" library="Base" type="TEARDOWN">
 <kw name="Take Screenshot" library="Browser">
 <tag>PageContent</tag>
 <doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
-<msg timestamp="20230214 22:52:52.104" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-1.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20230214 22:52:51.933" endtime="20230214 22:52:52.105"/>
+<msg timestamp="20230215 13:45:17.036" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-1.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230215 13:45:16.874" endtime="20230215 13:45:17.036"/>
 </kw>
-<status status="PASS" starttime="20230214 22:52:51.932" endtime="20230214 22:52:52.105"/>
+<status status="PASS" starttime="20230215 13:45:16.874" endtime="20230215 13:45:17.037"/>
 </kw>
 <tag>required_fields</tag>
-<status status="PASS" starttime="20230214 22:52:47.275" endtime="20230214 22:52:52.105"/>
+<status status="PASS" starttime="20230215 13:45:11.537" endtime="20230215 13:45:17.037"/>
 </test>
-<test id="s1-t2" name="Required password" line="67">
+<test id="s1-t2" name="Required Password" line="67">
 <kw name="Start Section" library="Base" type="SETUP">
 <kw name="New Browser" library="Browser">
 <arg>chromium</arg>
@@ -119,28 +119,28 @@
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
-<msg timestamp="20230214 22:52:52.153" level="INFO">{"browser": "chromium", "headless": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 500.0, "timeout": 30000.0, "deprecated_pos_args": [], "tracesDir": "/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/logs/browser/traces/b52c4b1a-37c7-431c-9c0c-b3d344f94933"}</msg>
-<msg timestamp="20230214 22:52:52.333" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":500,"timeout":30000,"deprecated_pos_args":[],"tracesDir":"/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/logs/browser/traces/b52c4b1a-37c7-431c-9c0c-b3d344f94933"}</msg>
-<status status="PASS" starttime="20230214 22:52:52.153" endtime="20230214 22:52:52.333"/>
+<msg timestamp="20230215 13:45:17.079" level="INFO">{"browser": "chromium", "headless": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 500.0, "timeout": 30000.0, "deprecated_pos_args": [], "tracesDir": "/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/logs/browser/traces/fb1854ba-3d5d-4260-b36c-5c2bc6f0fab8"}</msg>
+<msg timestamp="20230215 13:45:17.258" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":500,"timeout":30000,"deprecated_pos_args":[],"tracesDir":"/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/logs/browser/traces/fb1854ba-3d5d-4260-b36c-5c2bc6f0fab8"}</msg>
+<status status="PASS" starttime="20230215 13:45:17.079" endtime="20230215 13:45:17.258"/>
 </kw>
 <kw name="New Page" library="Browser">
 <arg>${BASE_URL}</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Open a new Page.</doc>
-<msg timestamp="20230214 22:52:53.473" level="INFO">Successfully initialized new page object and opened url: https://geeks-web-andre.fly.dev</msg>
-<msg timestamp="20230214 22:52:53.474" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
-<status status="PASS" starttime="20230214 22:52:52.333" endtime="20230214 22:52:53.474"/>
+<msg timestamp="20230215 13:45:19.475" level="INFO">Successfully initialized new page object and opened url: https://geeks-web-andre.fly.dev</msg>
+<msg timestamp="20230215 13:45:19.476" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20230215 13:45:17.258" endtime="20230215 13:45:19.476"/>
 </kw>
-<status status="PASS" starttime="20230214 22:52:52.153" endtime="20230214 22:52:53.475"/>
+<status status="PASS" starttime="20230215 13:45:17.078" endtime="20230215 13:45:19.476"/>
 </kw>
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${user}</var>
 <arg>email=test@email.com</arg>
-<arg>password=</arg>
+<arg>password=${EMPTY}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20230214 22:52:53.476" level="INFO">${user} = {'email': 'test@email.com', 'password': ''}</msg>
-<status status="PASS" starttime="20230214 22:52:53.475" endtime="20230214 22:52:53.476"/>
+<msg timestamp="20230215 13:45:19.478" level="INFO">${user} = {'email': 'test@email.com', 'password': ''}</msg>
+<status status="PASS" starttime="20230215 13:45:19.477" endtime="20230215 13:45:19.478"/>
 </kw>
 <kw name="Go To Login Page" library="AuthActions">
 <kw name="Go To" library="Browser">
@@ -148,8 +148,8 @@
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Navigates to the given ``url``.</doc>
-<msg timestamp="20230214 22:52:54.071" level="INFO">Successfully opened URL https://geeks-web-andre.fly.dev</msg>
-<status status="PASS" starttime="20230214 22:52:53.477" endtime="20230214 22:52:54.071"/>
+<msg timestamp="20230215 13:45:20.068" level="INFO">Successfully opened URL https://geeks-web-andre.fly.dev</msg>
+<status status="PASS" starttime="20230215 13:45:19.479" endtime="20230215 13:45:20.068"/>
 </kw>
 <kw name="Wait For Elements State" library="Browser">
 <arg>css=.login-form</arg>
@@ -158,10 +158,10 @@
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<msg timestamp="20230214 22:52:54.101" level="INFO">Waited for Element with selector css=.login-form at state visible</msg>
-<status status="PASS" starttime="20230214 22:52:54.072" endtime="20230214 22:52:54.101"/>
+<msg timestamp="20230215 13:45:20.098" level="INFO">Waited for Element with selector css=.login-form at state visible</msg>
+<status status="PASS" starttime="20230215 13:45:20.069" endtime="20230215 13:45:20.098"/>
 </kw>
-<status status="PASS" starttime="20230214 22:52:53.476" endtime="20230214 22:52:54.101"/>
+<status status="PASS" starttime="20230215 13:45:19.478" endtime="20230215 13:45:20.098"/>
 </kw>
 <kw name="Fill Credentials" library="AuthActions">
 <arg>${user}</arg>
@@ -171,8 +171,8 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20230214 22:52:54.102" level="INFO">Fills the text 'test@email.com' in the given field.</msg>
-<status status="PASS" starttime="20230214 22:52:54.102" endtime="20230214 22:52:54.626"/>
+<msg timestamp="20230215 13:45:20.099" level="INFO">Fills the text 'test@email.com' in the given field.</msg>
+<status status="PASS" starttime="20230215 13:45:20.099" endtime="20230215 13:45:20.625"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>${INPUT_PASS}</arg>
@@ -180,10 +180,10 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20230214 22:52:54.627" level="INFO">Fills the text '' in the given field.</msg>
-<status status="PASS" starttime="20230214 22:52:54.627" endtime="20230214 22:52:55.178"/>
+<msg timestamp="20230215 13:45:20.626" level="INFO">Fills the text '' in the given field.</msg>
+<status status="PASS" starttime="20230215 13:45:20.626" endtime="20230215 13:45:21.183"/>
 </kw>
-<status status="PASS" starttime="20230214 22:52:54.101" endtime="20230214 22:52:55.178"/>
+<status status="PASS" starttime="20230215 13:45:20.098" endtime="20230215 13:45:21.183"/>
 </kw>
 <kw name="Submit Credentials" library="AuthActions">
 <kw name="Click" library="Browser">
@@ -191,9 +191,9 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<status status="PASS" starttime="20230214 22:52:55.179" endtime="20230214 22:52:55.740"/>
+<status status="PASS" starttime="20230215 13:45:21.184" endtime="20230215 13:45:21.736"/>
 </kw>
-<status status="PASS" starttime="20230214 22:52:55.179" endtime="20230214 22:52:55.740"/>
+<status status="PASS" starttime="20230215 13:45:21.184" endtime="20230215 13:45:21.737"/>
 </kw>
 <kw name="Should Return Required Message" library="AuthActions">
 <arg>Senha obrigatória</arg>
@@ -203,23 +203,23 @@
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns text attribute of the element found by ``selector``.</doc>
-<status status="PASS" starttime="20230214 22:52:55.741" endtime="20230214 22:52:55.763"/>
+<status status="PASS" starttime="20230215 13:45:21.738" endtime="20230215 13:45:21.760"/>
 </kw>
-<status status="PASS" starttime="20230214 22:52:55.741" endtime="20230214 22:52:55.764"/>
+<status status="PASS" starttime="20230215 13:45:21.737" endtime="20230215 13:45:21.760"/>
 </kw>
 <kw name="Finish Section" library="Base" type="TEARDOWN">
 <kw name="Take Screenshot" library="Browser">
 <tag>PageContent</tag>
 <doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
-<msg timestamp="20230214 22:52:55.936" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-2.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20230214 22:52:55.764" endtime="20230214 22:52:55.936"/>
+<msg timestamp="20230215 13:45:21.938" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-2.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230215 13:45:21.760" endtime="20230215 13:45:21.938"/>
 </kw>
-<status status="PASS" starttime="20230214 22:52:55.764" endtime="20230214 22:52:55.936"/>
+<status status="PASS" starttime="20230215 13:45:21.760" endtime="20230215 13:45:21.938"/>
 </kw>
 <tag>required_fields</tag>
-<status status="PASS" starttime="20230214 22:52:52.152" endtime="20230214 22:52:55.936"/>
+<status status="PASS" starttime="20230215 13:45:17.078" endtime="20230215 13:45:21.939"/>
 </test>
-<test id="s1-t3" name="Required fields" line="77">
+<test id="s1-t3" name="Required Fields" line="77">
 <kw name="Start Section" library="Base" type="SETUP">
 <kw name="New Browser" library="Browser">
 <arg>chromium</arg>
@@ -228,28 +228,28 @@
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
-<msg timestamp="20230214 22:52:55.973" level="INFO">{"browser": "chromium", "headless": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 500.0, "timeout": 30000.0, "deprecated_pos_args": [], "tracesDir": "/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/logs/browser/traces/43d57d4d-abcc-4a1e-8609-d4970f281352"}</msg>
-<msg timestamp="20230214 22:52:56.155" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":500,"timeout":30000,"deprecated_pos_args":[],"tracesDir":"/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/logs/browser/traces/43d57d4d-abcc-4a1e-8609-d4970f281352"}</msg>
-<status status="PASS" starttime="20230214 22:52:55.973" endtime="20230214 22:52:56.156"/>
+<msg timestamp="20230215 13:45:21.974" level="INFO">{"browser": "chromium", "headless": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 500.0, "timeout": 30000.0, "deprecated_pos_args": [], "tracesDir": "/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/logs/browser/traces/eb6c8fcd-7a6b-4f47-bd78-79fc347363fb"}</msg>
+<msg timestamp="20230215 13:45:22.136" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":500,"timeout":30000,"deprecated_pos_args":[],"tracesDir":"/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/logs/browser/traces/eb6c8fcd-7a6b-4f47-bd78-79fc347363fb"}</msg>
+<status status="PASS" starttime="20230215 13:45:21.974" endtime="20230215 13:45:22.136"/>
 </kw>
 <kw name="New Page" library="Browser">
 <arg>${BASE_URL}</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Open a new Page.</doc>
-<msg timestamp="20230214 22:52:57.448" level="INFO">Successfully initialized new page object and opened url: https://geeks-web-andre.fly.dev</msg>
-<msg timestamp="20230214 22:52:57.448" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
-<status status="PASS" starttime="20230214 22:52:56.156" endtime="20230214 22:52:57.449"/>
+<msg timestamp="20230215 13:45:24.241" level="INFO">Successfully initialized new page object and opened url: https://geeks-web-andre.fly.dev</msg>
+<msg timestamp="20230215 13:45:24.242" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20230215 13:45:22.136" endtime="20230215 13:45:24.242"/>
 </kw>
-<status status="PASS" starttime="20230214 22:52:55.973" endtime="20230214 22:52:57.450"/>
+<status status="PASS" starttime="20230215 13:45:21.974" endtime="20230215 13:45:24.242"/>
 </kw>
-<kw name="Create Dictionary" library="BuiltIn">
-<var>${user}</var>
-<arg>email=</arg>
-<arg>password=</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20230214 22:52:57.451" level="INFO">${user} = {'email': '', 'password': ''}</msg>
-<status status="PASS" starttime="20230214 22:52:57.450" endtime="20230214 22:52:57.451"/>
+<kw name="Create List" library="BuiltIn">
+<var>@{expected_alerts}</var>
+<arg>E-mail obrigatório</arg>
+<arg>Senha obrigatória</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230215 13:45:24.243" level="INFO">@{expected_alerts} = [ E-mail obrigatório | Senha obrigatória ]</msg>
+<status status="PASS" starttime="20230215 13:45:24.243" endtime="20230215 13:45:24.243"/>
 </kw>
 <kw name="Go To Login Page" library="AuthActions">
 <kw name="Go To" library="Browser">
@@ -257,8 +257,8 @@
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Navigates to the given ``url``.</doc>
-<msg timestamp="20230214 22:52:58.045" level="INFO">Successfully opened URL https://geeks-web-andre.fly.dev</msg>
-<status status="PASS" starttime="20230214 22:52:57.452" endtime="20230214 22:52:58.045"/>
+<msg timestamp="20230215 13:45:24.835" level="INFO">Successfully opened URL https://geeks-web-andre.fly.dev</msg>
+<status status="PASS" starttime="20230215 13:45:24.244" endtime="20230215 13:45:24.835"/>
 </kw>
 <kw name="Wait For Elements State" library="Browser">
 <arg>css=.login-form</arg>
@@ -267,32 +267,10 @@
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<msg timestamp="20230214 22:52:58.076" level="INFO">Waited for Element with selector css=.login-form at state visible</msg>
-<status status="PASS" starttime="20230214 22:52:58.046" endtime="20230214 22:52:58.076"/>
+<msg timestamp="20230215 13:45:24.862" level="INFO">Waited for Element with selector css=.login-form at state visible</msg>
+<status status="PASS" starttime="20230215 13:45:24.835" endtime="20230215 13:45:24.862"/>
 </kw>
-<status status="PASS" starttime="20230214 22:52:57.451" endtime="20230214 22:52:58.076"/>
-</kw>
-<kw name="Fill Credentials" library="AuthActions">
-<arg>${user}</arg>
-<kw name="Fill Text" library="Browser">
-<arg>${INPUT_EMAIL}</arg>
-<arg>${user}[email]</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20230214 22:52:58.077" level="INFO">Fills the text '' in the given field.</msg>
-<status status="PASS" starttime="20230214 22:52:58.077" endtime="20230214 22:52:58.599"/>
-</kw>
-<kw name="Fill Text" library="Browser">
-<arg>${INPUT_PASS}</arg>
-<arg>${user}[password]</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20230214 22:52:58.600" level="INFO">Fills the text '' in the given field.</msg>
-<status status="PASS" starttime="20230214 22:52:58.600" endtime="20230214 22:52:59.147"/>
-</kw>
-<status status="PASS" starttime="20230214 22:52:58.076" endtime="20230214 22:52:59.147"/>
+<status status="PASS" starttime="20230215 13:45:24.243" endtime="20230215 13:45:24.863"/>
 </kw>
 <kw name="Submit Credentials" library="AuthActions">
 <kw name="Click" library="Browser">
@@ -300,48 +278,96 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<status status="PASS" starttime="20230214 22:52:59.148" endtime="20230214 22:52:59.702"/>
+<status status="PASS" starttime="20230215 13:45:24.863" endtime="20230215 13:45:25.396"/>
 </kw>
-<status status="PASS" starttime="20230214 22:52:59.148" endtime="20230214 22:52:59.702"/>
+<status status="PASS" starttime="20230215 13:45:24.863" endtime="20230215 13:45:25.397"/>
 </kw>
-<kw name="Should Return Required Message" library="AuthActions">
-<arg>E-mail obrigatório</arg>
+<kw name="Alert Spans Should Be" library="_SharedActions">
+<arg>${expected_alerts}</arg>
+<kw name="Create List" library="BuiltIn">
+<var>@{got_alerts}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20230215 13:45:25.398" level="INFO">@{got_alerts} = [ ]</msg>
+<status status="PASS" starttime="20230215 13:45:25.398" endtime="20230215 13:45:25.398"/>
+</kw>
+<kw name="Get Elements" library="Browser">
+<var>${spans}</var>
+<arg>xpath=//span[@class="error"]</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns a reference to Playwright [https://playwright.dev/docs/api/class-locator|Locator]
+for all matched elements by ``selector``.</doc>
+<msg timestamp="20230215 13:45:25.410" level="INFO">Found 2 Locators successfully.</msg>
+<msg timestamp="20230215 13:45:25.410" level="INFO">${spans} = ['element=15f76598-cac6-4620-ae83-15eeed1d96e0', 'element=cfe9b01b-e60e-4585-bd1c-b5c1c3dda9aa']</msg>
+<status status="PASS" starttime="20230215 13:45:25.398" endtime="20230215 13:45:25.410"/>
+</kw>
+<for flavor="IN">
+<var>${span}</var>
+<value>@{spans}</value>
+<iter>
+<var name="${span}">element=15f76598-cac6-4620-ae83-15eeed1d96e0</var>
 <kw name="Get Text" library="Browser">
-<arg>css=.error &gt;&gt; text="${required_message}"</arg>
+<var>${text}</var>
+<arg>${span}</arg>
 <tag>Assertion</tag>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns text attribute of the element found by ``selector``.</doc>
-<status status="PASS" starttime="20230214 22:52:59.703" endtime="20230214 22:52:59.726"/>
+<msg timestamp="20230215 13:45:25.429" level="INFO">${text} = E-mail obrigatório</msg>
+<status status="PASS" starttime="20230215 13:45:25.411" endtime="20230215 13:45:25.429"/>
 </kw>
-<status status="PASS" starttime="20230214 22:52:59.703" endtime="20230214 22:52:59.726"/>
+<kw name="Append To List" library="Collections">
+<arg>${got_alerts}</arg>
+<arg>${text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230215 13:45:25.429" endtime="20230215 13:45:25.429"/>
 </kw>
-<kw name="Should Return Required Message" library="AuthActions">
-<arg>Senha obrigatória</arg>
+<status status="PASS" starttime="20230215 13:45:25.411" endtime="20230215 13:45:25.429"/>
+</iter>
+<iter>
+<var name="${span}">element=cfe9b01b-e60e-4585-bd1c-b5c1c3dda9aa</var>
 <kw name="Get Text" library="Browser">
-<arg>css=.error &gt;&gt; text="${required_message}"</arg>
+<var>${text}</var>
+<arg>${span}</arg>
 <tag>Assertion</tag>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns text attribute of the element found by ``selector``.</doc>
-<status status="PASS" starttime="20230214 22:52:59.727" endtime="20230214 22:52:59.735"/>
+<msg timestamp="20230215 13:45:25.438" level="INFO">${text} = Senha obrigatória</msg>
+<status status="PASS" starttime="20230215 13:45:25.430" endtime="20230215 13:45:25.438"/>
 </kw>
-<status status="PASS" starttime="20230214 22:52:59.727" endtime="20230214 22:52:59.735"/>
+<kw name="Append To List" library="Collections">
+<arg>${got_alerts}</arg>
+<arg>${text}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230215 13:45:25.438" endtime="20230215 13:45:25.438"/>
+</kw>
+<status status="PASS" starttime="20230215 13:45:25.430" endtime="20230215 13:45:25.438"/>
+</iter>
+<status status="PASS" starttime="20230215 13:45:25.410" endtime="20230215 13:45:25.439"/>
+</for>
+<kw name="Lists Should Be Equal" library="Collections">
+<arg>${expected_alerts}</arg>
+<arg>${got_alerts}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="PASS" starttime="20230215 13:45:25.439" endtime="20230215 13:45:25.439"/>
+</kw>
+<status status="PASS" starttime="20230215 13:45:25.397" endtime="20230215 13:45:25.439"/>
 </kw>
 <kw name="Finish Section" library="Base" type="TEARDOWN">
 <kw name="Take Screenshot" library="Browser">
 <tag>PageContent</tag>
 <doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
-<msg timestamp="20230214 22:52:59.923" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-3.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20230214 22:52:59.736" endtime="20230214 22:52:59.924"/>
+<msg timestamp="20230215 13:45:25.599" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-3.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230215 13:45:25.439" endtime="20230215 13:45:25.599"/>
 </kw>
-<status status="PASS" starttime="20230214 22:52:59.736" endtime="20230214 22:52:59.924"/>
+<status status="PASS" starttime="20230215 13:45:25.439" endtime="20230215 13:45:25.599"/>
 </kw>
 <tag>required_fields</tag>
-<status status="PASS" starttime="20230214 22:52:55.972" endtime="20230214 22:52:59.924"/>
+<status status="PASS" starttime="20230215 13:45:21.973" endtime="20230215 13:45:25.599"/>
 </test>
 <doc>Login Test Suite</doc>
-<status status="PASS" starttime="20230214 22:52:46.725" endtime="20230214 22:52:59.957"/>
+<status status="PASS" starttime="20230215 13:45:10.982" endtime="20230215 13:45:25.628"/>
 </suite>
 <statistics>
 <total>

@@ -54,33 +54,33 @@ Incorrect Email
     Submit Credentials
     Should Be Type Email
 
-Required email
+Required Email
     [Tags]    required_fields
 
-    ${user}    Create Dictionary    email=    password=pwd123
+    ${user}    Create Dictionary    email=${EMPTY}    password=abc123
 
     Go To Login Page
     Fill Credentials    ${user}
     Submit Credentials
     Should Return Required Message    E-mail obrigatório
 
-Required password
+Required Password
     [Tags]    required_fields
 
-    ${user}    Create Dictionary    email=test@email.com    password=
+    ${user}    Create Dictionary    email=test@email.com    password=${EMPTY}
 
     Go To Login Page
     Fill Credentials    ${user}
     Submit Credentials
     Should Return Required Message    Senha obrigatória
 
-Required fields
+Required Fields
     [Tags]    required_fields
 
-    ${user}    Create Dictionary    email=    password=
+    @{expected_alerts}    Create List
+    ...    E-mail obrigatório
+    ...    Senha obrigatória
 
     Go To Login Page
-    Fill Credentials    ${user}
     Submit Credentials
-    Should Return Required Message    E-mail obrigatório
-    Should Return Required Message    Senha obrigatória
+    Alert Spans Should Be    ${expected_alerts}
