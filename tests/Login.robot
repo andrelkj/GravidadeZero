@@ -62,7 +62,7 @@ Required Email
     Go To Login Page
     Fill Credentials    ${user}
     Submit Credentials
-    Should Return Required Message    E-mail obrigatório
+    Alert Span Should Be    E-mail obrigatório
 
 Required Password
     [Tags]    required_fields
@@ -72,7 +72,7 @@ Required Password
     Go To Login Page
     Fill Credentials    ${user}
     Submit Credentials
-    Should Return Required Message    Senha obrigatória
+    Alert Span Should Be    Senha obrigatória
 
 Required Fields
     [Tags]    required_fields
