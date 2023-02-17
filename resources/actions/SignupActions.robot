@@ -20,3 +20,9 @@ Fill Signup Form
 
 Submit Signut Form
     Click    css=.submit-button >> text="Cadastrar"
+
+User Should Be Registered
+    ${expect_message}    Set Variable
+    ...    css=div p >> text="Agora você faz parte da Getgeeks. Tenha uma ótima experiência."
+
+    Wait For Elements State    ${expect_message}    visible    5
