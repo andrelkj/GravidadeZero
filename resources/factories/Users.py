@@ -39,3 +39,12 @@ def factory_user_login():
         'email': 'test@email.com',
         'password': 'pwd123'
     }
+
+
+def factory_user_be_geek():
+    return {
+        'name': 'Kim',
+        'lastname': 'Dotcom',
+        'email': 'kim@dot.com',
+        'password': 'pwd123'
+    }

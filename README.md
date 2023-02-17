@@ -15,6 +15,7 @@
   - [Loops](#loops)
   - [Keywords](#keywords)
 - [Login.robot](#loginrobot)
+- [BeGeek.robot](#begeekrobot)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
   - [chmod +x run.sh](#chmod-x-runsh)
@@ -373,6 +374,8 @@ Incorrect Email
 **Important:** global variables should be used wisely, but one best practice is to create a global variable for global elements that repeat themselves throughout the code. In this example we created the `${INPUT_PASS}` global variable as well just for a visual purpose.
 
 ---
+
+# BeGeek.robot
 
 # Usefull terminal commands
 
