@@ -27,11 +27,11 @@
 
 # Notes
 
-Here we're going to automate the web application [Getgeeks](https://geeks-web-andre.fly.dev/signup) geratered using Fly that is connect to a PostgreSQL database. We're also using ElephantSQL to manage our database.
+Here we're going to automate the web application [Getgeeks](https://geeks-web-andre.fly.dev/) geratered using Fly that is connect to a PostgreSQL database. We're also using ElephantSQL to manage our database.
 
 We'll use Gherkin to define our test scenarios following Behaviour Driven Development (BDD) standards.
 
-BDD is a colaborative specification technique where development driven scenarios are written considering the final users` point of view in order to give a better undertanding and clear informations to facilitate development and also testing after all. BDD is used to guide the development, not only testing automation and should be defined before starting the development.
+BDD is a colaborative specification technique where development driven scenarios are written considering the final users' point of view in order to give a better undertanding and clear informations to facilitate development and also testing after all. BDD is used to guide the development, not only testing automation and should be defined before starting the development.
 
 **Example:** [Register notes](docs/signup.md)
 
@@ -84,7 +84,7 @@ It's very important to consider the creation of actions for repetitive steps fro
 
 **Note:**
 
-<p>One way of doing it is by considering each step of the BDD as a action.</p>
+<p>One way of doing it is by considering each step of the BDD as an action.</p>
 
 **For example:** [Actions](resources/Actions.robot)
 
@@ -123,7 +123,7 @@ Go to signup form
 
 ### Arguments
 
-Arguments can be used to reduce reuse and facilitate code maintenance once it's necessary to update and/or change only one element. For example:
+Arguments can be used to reduce reusage and facilitate code maintenance once it's necessary to update and/or change only one element. For example:
 
 ```
 Modal Content Should Be
@@ -156,7 +156,7 @@ Duplicate user
 
 ## Factories
 
-Factories are used to avoid the need of entering all testing set of information individually for each element. It works by defining a factory (factory_user) and then defining all arguments (test dough) inside a varible (user) which will be returned as response. **For example:** [Users factory](resources/factories/Users.py)
+Factories are used to avoid the need of entering all testing set of information individually for each element. It works by defining a factory (factory_user) and then defining all arguments (test dough) inside a variable (user) which will be returned as response. **For example:** [Users factory](resources/factories/Users.py)
 
 ```
 # Defining test dough
@@ -230,17 +230,55 @@ And then run the project again now using dynamic mass of test.
 
 ## Template
 
-It is possible to define several steps inside a keyword and then use template to indicate that the test case should follow those steps one at a time following exactly what is defined inside the keyword. This allows us to repeat several cenários changing only the test variable.
+It is possible to define several steps inside a keyword and then use template to indicate that the test case should follow those steps one at a time following exactly what is defined inside the keyword. This allows us to repeat several scenarios changing only the test variables.
 
-**Important:** template will only work if all conditions are exactly equal to one another
+To create a template we first need to define a new keyword with all desired steps:
+
+```
+*** Keywords ***
+Signup With Short Password
+    [Arguments]    ${short_pass}
+
+    ${user}    Create Dictionary
+    ...    name=Test    lastname=User
+    ...    email=test@email.com
+    ...    password=${short_pass}
+
+    Go To Signup Form
+    Fill Signup Form    ${user}
+    Submit Signut Form
+    Alert Span Should Be    Informe uma senha com pelo menos 6 caracteres
+```
+
+And then, call this template inside the test case that should reproduce the template behavior, informing all inputs as well:
+
+```
+Short Password
+    [Tags]    attempt_signup    short_pass
+    [Template]    Signup With Short Password
+    1
+    12
+    123
+    1234
+    12345
+    a
+    a2
+    ab3
+    ab3c
+    a23bc
+    -1
+    acb#1
+```
+
+**Important:** template will only work if all conditions are exactly equal to one another. Another way to add these repetitive structures, is by using suite setups that will be explained better in the Signup.robot section.
 
 ---
 
 # Database.robot
 
-Here we're creating a task that will return the application to default. Meaning that after running all database entered information will be deleted and the application will run as if it was the first time.
+Here we're creating a task that will return the application to default and then configurate all required information to run our tests. Meaning that after running all database entered information will be deleted and the application will run as if it was the first time.
 
-**Important:** always disconnect from data base after finishing the task. (BEST PRACTICE)
+**Important:** always disconnect from the database after finishing the task. (BEST PRACTICE)
 
 **Note:** always consider password_dash instead of password while dealing with databases as it uses encripted passwords
 
@@ -263,7 +301,7 @@ While creating the login test case it won't work because of the password integri
 
 # SignupRequired.robot
 
-The use of templates are not recommended in same cases because it will run all the steps as they come. Using required fields as example the test case will open a new browser tab and start the hole process all over for each conditions, instead of validation all of them as one, even considering that they're all being shown in the same page.
+The use of templates are not recommended in same cases because it will run all the steps as they come. Using required fields as example the test case will open a new browser tab and start the hole process all over for each conditions, instead of validation all of them at once, even considering that they're all being shown in the same page.
 
 One way to deal and improve templates is by defining a hole test suite using test cases and defining all steps inside a keyword. The key here is to use the `Suite Setup` as start point instead of the previous Test Setup. It will allow all test cases to run one after another without the need to close and open tabs every time.
 
@@ -309,7 +347,7 @@ By using `@{name}` robot will consider this as a temporary element. Yet to call 
 
 It is possible to use FOR to create a loop that will be executed until there's no more element available to use
 
-Example:
+**Example:**
 
 ```
 Working with Lists
@@ -324,11 +362,11 @@ Working with Lists
       END
 ```
 
-**Note:** Here all individual list elements a inside the avengers list will be logged into console one by one until there's not more elements available.
+**Note:** Here all individual list elements 'a' inside the avengers list will be logged into console one by one until there's no more elements available.
 
 ## Keywords
 
-Append To List allows to add a new element to the list. Example:
+Append To List allows us to add a new element to the list. Example:
 
 ```
 Working with Lists
@@ -377,7 +415,7 @@ Incorrect Email
 
 # BeGeek.robot
 
-Do Login variable is added in order to facilitate login functionality. The login helper cannot be used inside login test suite because we're validating the login process step by step, then we'll need sepated steps to test all functionality coverage.
+Do Login variable is added in order to facilitate login functionality. The login helper cannot be used inside login test suite because we're validating the login process step by step, then we'll need separated steps to test all functionality coverage.
 
 # Usefull terminal commands
 
