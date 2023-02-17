@@ -1,7 +1,8 @@
 *** Settings ***
 Documentation       Test Helpers
 
-Resource    actions/SignupActions.robot
+Resource            actions/SignupActions.robot
+
 
 *** Keywords ***
 Add User From Database
@@ -10,3 +11,11 @@ Add User From Database
     Connect To Postgres
     Insert User    ${user}
     Disconnect From Database
+
+Do Login
+    [Arguments]    ${user}
+
+    Go To Login Page
+    Fill Credentials    ${user}
+    Submit Credentials
+    User Should Be Logged In    ${user}

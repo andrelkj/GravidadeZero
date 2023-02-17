@@ -377,6 +377,8 @@ Incorrect Email
 
 # BeGeek.robot
 
+Do Login variable is added in order to facilitate login functionality. The login helper cannot be used inside login test suite because we're validating the login process step by step, then we'll need sepated steps to test all functionality coverage.
+
 # Usefull terminal commands
 
 - robot -l NONE tasks/Delorean.robot - runs the file without generating log. It's mostly used for tasks.
