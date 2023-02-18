@@ -18,6 +18,7 @@
 - [BeGeek.robot](#begeekrobot)
   - [Filling type input elements](#filling-type-input-elements)
   - [Filling type select elements](#filling-type-select-elements)
+  - [Submitting geek form and message validation](#submitting-geek-form-and-message-validation)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
   - [chmod +x run.sh](#chmod-x-runsh)
@@ -457,6 +458,8 @@ Fill Geek Form
 
     Fill Text    id=whatsapp    ${geek_profile}[whats]
     Fill Text    id=desc    ${geek_profile}[desc]
+
+    Fill Text    id=cost    ${geek_profile}[cost]
 ```
 
 ## Filling type select elements
@@ -469,7 +472,42 @@ Fill Geek Form
     Select Options By    id=work    value    ${geek_profile}[work]
 ```
 
----
+## Submitting geek form and message validation
+
+First we'll define new keywords for the desired steps:
+
+```
+Submit Geek Form
+    Click    css=button >> text=Quero ser um Geek
+
+Geek Form Should Be Success
+    ${expected_message}    Set Variable
+    ...    Seu cadastro está na nossa lista de geeks. Agora é só ficar de olho no seu WhatsApp.
+
+    Wait For Elements State    css=p >> text=${expected_message}    visible    5
+```
+
+Finally we'll add it to our, now complete, be a geek test case:
+
+```
+*** Test Cases ***
+Be a Geek
+    # Given that I have a common user
+    ${user}    Factory User Be Geek
+
+    # And I log in the plataform Getgeeks
+    Do Login    ${user}
+
+    # When submitting the form to become a Geek (service provider)
+    Go To Geek Form
+    Fill Geek Form    ${user}[geek_profile]
+    Submit Geek Form
+
+    # Then I should see the success message
+    Geek Form Should Be Success
+```
+
+**Note:** the gherkin BDD usage here isn't considering the automation but the expected scenario behavior, that then guide the automation development. Differently from cucumber that needs structured language to define the automation steps, this method gives a more flexible way of steps description without lossing functionality and flow details.
 
 # Usefull terminal commands
 
