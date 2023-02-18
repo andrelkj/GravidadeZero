@@ -419,8 +419,6 @@ Incorrect Email
 
 Do Login variable is added in order to facilitate login functionality. The login helper cannot be used inside login test suite because we're validating the login process step by step, then we'll need separated steps to test all functionality coverage.
 
-## Filling type input elements
-
 For the geek form we'll need to fill 5 different fields, in order to do it properly we'll update our test dough generator factory_user_be_geek by adding the sub-dictionary geek_profile inside Users.py:
 
 ```
@@ -451,7 +449,25 @@ Description's field HTML:
 
 **Note:** here the id selector "desc" is used.
 
+## Filling type input elements
+
+```
+Fill Geek Form
+    [Arguments]    ${geek_profile}
+
+    Fill Text    id=whatsapp    ${geek_profile}[whats]
+    Fill Text    id=desc    ${geek_profile}[desc]
+```
+
 ## Filling type select elements
+
+```
+Fill Geek Form
+    [Arguments]    ${geek_profile}
+
+    Select Options By    id=printer_repair    value    ${geek_profile}[printer_repair]
+    Select Options By    id=work    value    ${geek_profile}[work]
+```
 
 ---
 
