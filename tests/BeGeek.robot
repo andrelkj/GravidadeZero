@@ -16,5 +16,16 @@ Be a Geek
     Do Login    ${user}
 
     # When submitting the form to become a Geek (service provider)
+    Go To Geek Form
+
+    Fill Geek Form    ${user}[geek_profile]
+    Sleep    10
 
     # Then I should see the success message
+
+
+*** Keywords ***
+Go To Geek Form
+    Click    css=a[href="/be-geek"] >> text=Seja um Geek
+
+    Wait For Elements State    css=.be-geek-form    visible    5

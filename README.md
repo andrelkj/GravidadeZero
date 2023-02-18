@@ -16,6 +16,8 @@
   - [Keywords](#keywords)
 - [Login.robot](#loginrobot)
 - [BeGeek.robot](#begeekrobot)
+  - [Filling type input elements](#filling-type-input-elements)
+  - [Filling type select elements](#filling-type-select-elements)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
   - [chmod +x run.sh](#chmod-x-runsh)
@@ -416,6 +418,42 @@ Incorrect Email
 # BeGeek.robot
 
 Do Login variable is added in order to facilitate login functionality. The login helper cannot be used inside login test suite because we're validating the login process step by step, then we'll need separated steps to test all functionality coverage.
+
+## Filling type input elements
+
+For the geek form we'll need to fill 5 different fields, in order to do it properly we'll update our test dough generator factory_user_be_geek by adding the sub-dictionary geek_profile inside Users.py:
+
+```
+def factory_user_be_geek():
+    return {
+        'name': 'Kim',
+        'lastname': 'Dotcom',
+        'email': 'kim@dot.com',
+        'password': 'pwd123',
+        'geek_profile': {
+            'whats': '11999999999',
+            'desc': 'Seu computador está lento? Reiniciando do nada? Talvez seja um vírus, ou algum hardware com defeito. Posso fazer a manutenção no seu PC, formatando, reinstalando o SO, trocando algum componente físico e porque não remover o baidu ou qualquer outro malware.',
+            'printer_repair': 'Sim',
+            'work': 'Remote',
+            'cost': '100'
+        }
+```
+
+To define the elements name we normally use those defined inside the HTML, for example:
+
+Description's field HTML:
+
+```html
+<div class="sc-kstqJO hxBQUd">
+  <label for="desc">Descrição</label><textarea id="desc"></textarea>
+</div>
+```
+
+**Note:** here the id selector "desc" is used.
+
+## Filling type select elements
+
+---
 
 # Usefull terminal commands
 
