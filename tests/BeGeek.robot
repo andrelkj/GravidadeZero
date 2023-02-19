@@ -10,7 +10,7 @@ Test Teardown       Finish Section
 *** Test Cases ***
 Be a Geek
     # Given that I have a common user
-    ${user}    Factory User Be Geek
+    ${user}    Factory User    be_geek
 
     # And I log in the plataform Getgeeks
     Do Login    ${user}
