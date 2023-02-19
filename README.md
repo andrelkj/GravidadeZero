@@ -19,6 +19,7 @@
   - [Filling type input elements](#filling-type-input-elements)
   - [Filling type select elements](#filling-type-select-elements)
   - [Submitting geek form and message validation](#submitting-geek-form-and-message-validation)
+  - [Improvements](#improvements)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
   - [chmod +x run.sh](#chmod-x-runsh)
@@ -508,6 +509,12 @@ Be a Geek
 ```
 
 **Note:** the gherkin BDD usage here isn't considering the automation but the expected scenario behavior, that then guide the automation development. Differently from cucumber that needs structured language to define the automation steps, this method gives a more flexible way of steps description without lossing functionality and flow details.
+
+## Improvements
+
+For every alternative scenario where the user don't actually successfully turn into a geek we need to login for every test case unnecessarily considering that where're already inside the forms page.
+
+To optimize it we'll update our scenarios to new variant scenarios
 
 # Usefull terminal commands
 

@@ -69,7 +69,33 @@ def factory_user(target):
                 'work': 'Remoto',
                 'cost': '150'
             }
-        }
+        },
+        'empty_desc': {
+            'name': 'Dio',
+            'lastname': 'Linux',
+            'email': 'dio@linux.com',
+            'password': 'pwd123',
+            'geek_profile': {
+                'whats': '11999999999',
+                'desc': '',
+                'printer_repair': 'Não',
+                'work': 'Remoto',
+                'cost': '150'
+            }
+        },
+        'empty_whats': {
+            'name': 'Dio',
+            'lastname': 'Linux',
+            'email': 'dio@linux.com',
+            'password': 'pwd123',
+            'geek_profile': {
+                'whats': '',
+                'desc': 'Instalo Distros Ubuntu, Debian, ElementaryOS, PopOS, Linux Mint, Kurumin, Mandrake, Connectiva, Fedora, RedHat, CentOS, Slackware, Genton, Archlinux, Kubuntu, Xubuntu, Suze, Mandriva, Edubuntu, KateOS, Sabayon Linux, Manjaro Linux, BigLinux, ZorinOS, Unity',
+                'printer_repair': 'Não',
+                'work': 'Remoto',
+                'cost': '150'
+            }
+        },
     }
 
     return data[target]
