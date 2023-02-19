@@ -520,6 +520,7 @@ Be a Geek
 - ./run.sh - runs a file inside the actual file path
 - run.bat - runs terminal shortcuts **This works for MS-DOS based terminals**
 - .lower() - python method to turn text onto lower case only
+- fullPage - it's a browser library feature normally used for screenshots, expects true (to show the hole page) or false (to show only a piece of the page)
 
 ## Git
 

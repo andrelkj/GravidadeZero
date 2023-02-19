@@ -5,6 +5,11 @@ Resource            ../Base.robot
 
 
 *** Keywords ***
+Go To Geek Form
+    Click    css=a[href="/be-geek"] >> text=Seja um Geek
+
+    Wait For Elements State    css=.be-geek-form    visible    5
+
 Fill Geek Form
     [Arguments]    ${geek_profile}
 
@@ -24,3 +29,6 @@ Geek Form Should Be Success
     ...    Seu cadastro está na nossa lista de geeks. Agora é só ficar de olho no seu WhatsApp.
 
     Wait For Elements State    css=p >> text=${expected_message}    visible    5
+
+Short Description
+    ${user}    Factory User    short_desc

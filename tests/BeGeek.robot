@@ -2,6 +2,7 @@
 Documentation       BeGeek Test Suite
 
 Resource            ../resources/Base.robot
+Library             Users
 
 Test Setup          Start Section
 Test Teardown       Finish Section
@@ -23,9 +24,24 @@ Be a Geek
     # Then I should see the success message
     Geek Form Should Be Success
 
+Short Description
+    ${user}    Factory User    short_desc
+    Do Login    ${user}
 
-*** Keywords ***
-Go To Geek Form
-    Click    css=a[href="/be-geek"] >> text=Seja um Geek
+    Go To Geek Form
+    Fill Geek Form    ${user}[geek_profile]
+    Submit Geek Form
 
-    Wait For Elements State    css=.be-geek-form    visible    5
+    Alert Span Should Be    A descrição deve ter no minimo 80 caracteres
+
+Lobg Description
+    [Tags]    long_desc
+
+    ${user}    Factory User    long_desc
+    Do Login    ${user}
+
+    Go To Geek Form
+    Fill Geek Form    ${user}[geek_profile]
+    Submit Geek Form
+
+    Alert Span Should Be    A descrição deve ter no máximo 255 caracteres
