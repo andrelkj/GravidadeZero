@@ -22,6 +22,7 @@
   - [Improvements](#improvements)
     - [Test template improvement](#test-template-improvement)
 - [Smoke test](#smoke-test)
+- [Screen Resolution](#screen-resolution)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
   - [chmod +x run.sh](#chmod-x-runsh)
@@ -684,6 +685,12 @@ robot -d ./logs -i smoke tests
 4. Run the smoke test through console
 
 We'll now have an idea about the health of the application to allow or not its evolution
+
+---
+
+# Screen Resolution
+
+Always consider the screen resolution while creating and executing test cases. To optimize it you can consider the lower required resolution so all elements can be displayed and tested properly for diverent devices.
 
 ---
 

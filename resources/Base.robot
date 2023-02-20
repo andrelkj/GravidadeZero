@@ -20,6 +20,7 @@ ${BASE_URL}     https://geeks-web-andre.fly.dev
 Start Session
     New Browser    chromium    headless=false    slowMo=00:00:00.2
     New Page    ${BASE_URL}
+    Set Viewport Size    1440    900
 
 Finish Session
     Take Screenshot    fullPage=true
