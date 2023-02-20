@@ -20,6 +20,7 @@
   - [Filling type select elements](#filling-type-select-elements)
   - [Submitting geek form and message validation](#submitting-geek-form-and-message-validation)
   - [Improvements](#improvements)
+    - [Test template improvement](#test-template-improvement)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
   - [chmod +x run.sh](#chmod-x-runsh)
@@ -586,9 +587,72 @@ Should Not be a Geek
     cost    ${EMPTY}    Valor hora deve ser numérico
 ```
 
+and updated the factory in our users seed function inside database.robot
+
+```
+Users Seed
+    ${user}    Factory User    login
+    Insert User    ${user}
+
+    ${user2}    Factory User    be_geek
+    Insert User    ${user2}
+
+    ${user3}    Factory User    attempt_be_geek
+    Insert User    ${user3}
+```
+
 **Obs.:** we created the `${long_desc}` variable to store a long description text, just for aesthetic reasons.
 
 Using this improved format we'll now test all defined sad paths in the same window, one after other.
+
+### Test template improvement
+
+One problem of using the template in a test case level is that we'll now have several different scenarios (all of them with different inputs and outputs) but only one described test case, meaning that after running all those different scenarios it'll all be considered as an individual test case. To improve it, showing the test status for every of those scenarios we'll define a test template in a suite level.
+
+- First we'll define our template inside the settings section:
+-
+
+```
+*** Settings ***
+Documentation       Attempt BeGeek Test Suite
+
+Resource            ../resources/Base.robot
+Library             Users
+
+Test Setup          Start Session For Attempt Be Geek
+Test Template       Attempt Be a Geek
+```
+
+- Now we define a specific test case for each of our previous variable scenarios:
+
+```
+*** Test Cases ***
+Short desc    desc    Formato o seu PC    A descrição deve ter no minimo 80 caracteres
+Long desc    desc    ${long_desc}    A descrição deve ter no máximo 255 caracteres
+Empty desc    desc    ${EMPTY}    Informe a descrição do seu trabalho
+Whats only ddd    whats    11    O Whatsapp deve ter 11 digitos contando com o DDD
+Whats only number    whats    999999999    O Whatsapp deve ter 11 digitos contando com o DDD
+Empty whats    whats    ${EMPTY}    O Whatsapp deve ter 11 digitos contando com o DDD
+Cost letters    cost    aaaa    Valor hora deve ser numérico
+Cost alpha    cost    aa12    Valor hora deve ser numérico
+Cost special    cost    &!*%ˆ    Valor hora deve ser numérico
+Empty cost    cost    ${EMPTY}    Valor hora deve ser numérico
+```
+
+- After all that we'll change our test setup hook to a suite setup inside the settings section in order to run the test initiator only once for all the test suite.
+
+```
+*** Settings ***
+Documentation       Attempt BeGeek Test Suite
+
+Resource            ../resources/Base.robot
+Library             Users
+
+Suite Setup         Start Session For Attempt Be Geek
+Test Template       Attempt Be a Geek
+```
+
+---
 
 # Usefull terminal commands
 
