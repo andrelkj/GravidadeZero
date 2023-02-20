@@ -21,6 +21,7 @@
   - [Submitting geek form and message validation](#submitting-geek-form-and-message-validation)
   - [Improvements](#improvements)
     - [Test template improvement](#test-template-improvement)
+- [Smoke test](#smoke-test)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
   - [chmod +x run.sh](#chmod-x-runsh)
@@ -517,7 +518,7 @@ For every alternative scenario where the user don't actually successfully turn i
 
 To optimize it we'll update our scenarios to new variant scenarios:
 
-- First we'll create a new test suite AttemptBeGeek.robot that will contain our dynamic keyword
+1. First we'll create a new test suite AttemptBeGeek.robot that will contain our dynamic keyword
 
 ```
 *** Keywords ***
@@ -544,7 +545,7 @@ Start Session For Attempt Be Geek
 
 **Obs.:** This will then be used as test setup hook to initialise the test suite.
 
-- We now link it to our new updated attempt be geek factory
+2. We now link it to our new updated attempt be geek factory
 
 ```
 'attempt_be_geek': {
@@ -562,13 +563,13 @@ Start Session For Attempt Be Geek
 }
 ```
 
-- We'll then add a dictonary to our attempt be a geek function add the key and input_field arguments whom will change the values inside the factory to simulate user attempts to be a geek with invalid forms.
+3. We'll then add a dictonary to our attempt be a geek function add the key and input_field arguments whom will change the values inside the factory to simulate user attempts to be a geek with invalid forms.
 
 ```
     Set To Dictionary    ${user}[geek_profile]    ${key}    ${input_field}
 ```
 
-- After all that we'll finally add our attempt test cases inside the suite using our pre-defined keywords as templateand only informing the test dough
+4. After all that we'll finally add our attempt test cases inside the suite using our pre-defined keywords as templateand only informing the test dough
 
 ```
 *** Test Cases ***
@@ -609,8 +610,7 @@ Using this improved format we'll now test all defined sad paths in the same wind
 
 One problem of using the template in a test case level is that we'll now have several different scenarios (all of them with different inputs and outputs) but only one described test case, meaning that after running all those different scenarios it'll all be considered as an individual test case. To improve it, showing the test status for every of those scenarios we'll define a test template in a suite level.
 
-- First we'll define our template inside the settings section:
--
+1. First we'll define our template inside the settings section:
 
 ```
 *** Settings ***
@@ -623,7 +623,7 @@ Test Setup          Start Session For Attempt Be Geek
 Test Template       Attempt Be a Geek
 ```
 
-- Now we define a specific test case for each of our previous variable scenarios:
+2. Now we define a specific test case for each of our previous variable scenarios:
 
 ```
 *** Test Cases ***
@@ -639,7 +639,7 @@ Cost special    cost    &!*%ˆ    Valor hora deve ser numérico
 Empty cost    cost    ${EMPTY}    Valor hora deve ser numérico
 ```
 
-- After all that we'll change our test setup hook to a suite setup inside the settings section in order to run the test initiator only once for all the test suite.
+3. After all that we'll change our test setup hook to a suite setup inside the settings section in order to run the test initiator only once for all the test suite.
 
 ```
 *** Settings ***
@@ -651,6 +651,39 @@ Library             Users
 Suite Setup         Start Session For Attempt Be Geek
 Test Template       Attempt Be a Geek
 ```
+
+---
+
+# Smoke test
+
+Smoke test isn't a critical test but it allows us to find potencial issues before proceeding to new steps. This test is used for critical scenarios and its purpose is to verify application health before a release or delivery.
+
+To create smoke tests we:
+
+1. Define critical important scenarios (generally speaking, the inicial and/or basic flows of the application that gives access to all other scenarios)
+
+- Register a new user
+- Login
+- Be a Geek
+
+2. We then set a `[Tags]    smoke` to each of those scenarios
+
+```
+*** Test Cases ***
+Register a new user
+    [Tags]    smoke
+    ...
+```
+
+3. Add the indication `-i smoke` to our console shortcut
+
+```
+robot -d ./logs -i smoke tests
+```
+
+4. Run the smoke test through console
+
+We'll now have an idea about the health of the application to allow or not its evolution
 
 ---
 

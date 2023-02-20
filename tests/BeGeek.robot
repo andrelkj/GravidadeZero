@@ -10,6 +10,8 @@ Test Teardown       Finish Session
 
 *** Test Cases ***
 Be a Geek
+    [Tags]    smoke
+
     # Given that I have a common user
     ${user}    Factory User    be_geek
 

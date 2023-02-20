@@ -9,6 +9,7 @@ Test Teardown       Finish Session
 
 *** Test Cases ***
 Register a new user
+    [Tags]    smoke
 # Entering test data mass
     ${user}    Factory User    faker
 
