@@ -514,7 +514,81 @@ Be a Geek
 
 For every alternative scenario where the user don't actually successfully turn into a geek we need to login for every test case unnecessarily considering that where're already inside the forms page.
 
-To optimize it we'll update our scenarios to new variant scenarios
+To optimize it we'll update our scenarios to new variant scenarios:
+
+- First we'll create a new test suite AttemptBeGeek.robot that will contain our dynamic keyword
+
+```
+*** Keywords ***
+Attempt Be a Geek
+    [Arguments]    ${key}    ${input_field}    ${output_message}
+
+    ${user}    Factory User    attempt_be_geek
+
+    Fill Geek Form    ${user}[geek_profile]
+    Submit Geek Form
+    Alert Span Should Be    ${output_message}
+```
+
+and starter session
+
+```
+Start Session For Attempt Be Geek
+    ${user}    Factory User    attempt_be_geek
+
+    Start Session
+    Do Login    ${user}
+    Go To Geek Form
+```
+
+**Obs.:** This will then be used as test setup hook to initialise the test suite.
+
+- We now link it to our new updated attempt be geek factory
+
+```
+'attempt_be_geek': {
+    'name': 'Dio',
+    'lastname': 'Linux',
+    'email': 'dio@linux.com',
+    'password': 'pwd123',
+    'geek_profile': {
+        'whats': '11999999999',
+        'desc': 'Instalo Distros Ubuntu, Debian, ElementaryOS, PopOS, Linux Mint, Kurumin, Mandrake, ConnectivaFedora, RedHat, CentOS, Slackware, Genton, Archlinux, Kubuntu, Xubuntu, Suze, Mandriva, Edubuntu, KateOSSabayon Linux, Manjaro Linux, BigLinux, ZorinOS, Unit',
+        'printer_repair': 'Não',
+        'work': 'Ambos',
+        'cost': '200'
+    }
+}
+```
+
+- We'll then add a dictonary to our attempt be a geek function add the key and input_field arguments whom will change the values inside the factory to simulate user attempts to be a geek with invalid forms.
+
+```
+    Set To Dictionary    ${user}[geek_profile]    ${key}    ${input_field}
+```
+
+- After all that we'll finally add our attempt test cases inside the suite using our pre-defined keywords as templateand only informing the test dough
+
+```
+*** Test Cases ***
+Should Not be a Geek
+    [Template]    Attempt Be a Geek
+
+    desc    Formato o seu PC    A descrição deve ter no minimo 80 caracteres
+    desc    ${long_desc}    A descrição deve ter no máximo 255 caracteres
+    desc    ${EMPTY}    Informe a descrição do seu trabalho
+    whats    11    O Whatsapp deve ter 11 digitos contando com o DDD
+    whats    999999999    O Whatsapp deve ter 11 digitos contando com o DDD
+    whats    ${EMPTY}    O Whatsapp deve ter 11 digitos contando com o DDD
+    cost    aaaa    Valor hora deve ser numérico
+    cost    aa12    Valor hora deve ser numérico
+    cost    &!*%ˆ    Valor hora deve ser numérico
+    cost    ${EMPTY}    Valor hora deve ser numérico
+```
+
+**Obs.:** we created the `${long_desc}` variable to store a long description text, just for aesthetic reasons.
+
+Using this improved format we'll now test all defined sad paths in the same window, one after other.
 
 # Usefull terminal commands
 

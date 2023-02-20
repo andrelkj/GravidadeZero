@@ -3,8 +3,8 @@ Documentation       Login Test Suite
 
 Resource            ../resources/Base.robot
 
-Test Setup          Start Section
-Test Teardown       Finish Section
+Test Setup          Start Session
+Test Teardown       Finish Session
 
 
 *** Test Cases ***

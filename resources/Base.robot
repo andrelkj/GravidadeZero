@@ -17,9 +17,9 @@ ${BASE_URL}     https://geeks-web-andre.fly.dev
 
 
 *** Keywords ***
-Start Section
+Start Session
     New Browser    chromium    headless=false    slowMo=00:00:00.4
     New Page    ${BASE_URL}
 
-Finish Section
+Finish Session
     Take Screenshot    fullPage=true
