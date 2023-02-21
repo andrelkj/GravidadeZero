@@ -28,11 +28,13 @@
 - [Dealing with conditional elements (IFs)](#dealing-with-conditional-elements-ifs)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
+  - [Linux](#linux)
   - [chmod +x run.sh](#chmod-x-runsh)
 - [Challenge 1 - module PRO](#challenge-1---module-pro)
   - [Automate 3 new test cases inside the login suite:](#automate-3-new-test-cases-inside-the-login-suite)
 - [Important links](#important-links)
   - [Pabot](#pabot)
+    - [Pabot screenshot path improvement](#pabot-screenshot-path-improvement)
 
 ---
 
@@ -829,6 +831,11 @@ git commit -m 'message' - commit all staged changes and define a message to the 
 git pull - pull github updates to the local environment
 git push - push local updates to the github environment
 
+## Linux
+
+find ./logs/pabot_results -type f -name "\*.png" - will find all files that have .png extension
+cp $(find ./logs/pabot_results -type f -name "\*.png") ./logs/browser/screenshot - copy the list to the screenshot file
+
 ## chmod +x run.sh
 
 files.sh only runs in linux compatible terminals, for terminals MS-DOS based we need to use a file.bat which will then need additional changes. **For example:**
@@ -890,3 +897,42 @@ Then a required field message is displayed for each field
 - [Pabot Parallel Executor](https://pabot.org/)
 
 Is a parallel executor that runs several tests at once based on the number of available processors. It's important to note that using cloud environment only gives 1 available processor so it won't work for cloud environment.
+
+### Pabot screenshot path improvement
+
+The problem of Pabot is that the Browser and/or Selenium libraries cannot access the screenshot file path so the report won't display the screenshot images.
+
+In order for the screenshots to be displayed correctly we'll rearrange the output files in a way that the browser lib can understand. To do it:
+
+1. We added 4 new preparation steps for the run.sh terminal shortcut that will delete old files and create brand new ones
+
+```
+# delete the old browser file and create a brand new one
+rm -rf ./logs/browser
+mkdir ./logs/browser
+mkdir ./logs/browser/screenshot
+
+# list all type png files from pabot_results and copy it to the new screenshot file
+cp $(find ./logs/pabot_results -type f -name "*.png") ./logs/browser/screenshot
+```
+
+2. We created a new faker [Utility generator](resources/Utility.py) that will create unique ids to each screenshot
+
+```py
+from faker import Faker
+fake = Faker()
+
+
+def screenshot_name():
+    return fake.sha1()
+```
+
+3. And then added this generated id function to a new variable inside our test case closer, defining a new argument filename to set a name to each screenshot file that will receive the random generated id.
+
+```
+After Test
+    ${shot_name}    Screenshot Name
+    Take Screenshot    fullPage=true    filename=${shot_name}
+```
+
+By doing this we now refresh browsers lib screenshot file before each execution, saving all report screenshots inside a brand new file with unique identifiers, making it possible to visualize the screenshots inside the report even when using the pabot.
