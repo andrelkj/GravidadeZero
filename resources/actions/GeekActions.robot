@@ -13,6 +13,8 @@ Go To Geek Form
 Fill Geek Form
     [Arguments]    ${geek_profile}
 
+    Reset Geek Form
+
     Fill Text    id=whatsapp    ${geek_profile}[whats]
     Fill Text    id=desc    ${geek_profile}[desc]
 
@@ -30,5 +32,5 @@ Geek Form Should Be Success
 
     Wait For Elements State    css=p >> text=${expected_message}    visible    5
 
-Short Description
-    ${user}    Factory User    short_desc
+Reset Geek Form
+    Evaluate JavaScript    css=.be-geek-form    document.getElementsByClassName("be-geek-form")[0].reset()

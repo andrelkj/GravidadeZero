@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.1 (Python 3.11.1 on darwin)" generated="20230220 00:45:41.014" rpa="false" schemaversion="3">
-<suite id="s1" name="Tests" source="/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/tests">
-<suite id="s1-s1" name="BeGeek" source="/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/tests/BeGeek.robot">
-<test id="s1-s1-t1" name="Be a Geek" line="12">
-<kw name="Start Session" library="Base" type="SETUP">
+<robot generator="Robot 6.0.1 (Python 3.11.1 on darwin)" generated="20230220 22:51:16.975" rpa="false" schemaversion="3">
+<suite id="s1" name="AttemptBeGeek" source="/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/tests/AttemptBeGeek.robot">
+<kw name="Start Session For Attempt Be Geek" type="SETUP">
+<kw name="Factory User" library="Users">
+<var>${user}</var>
+<arg>attempt_be_geek</arg>
+<msg timestamp="20230220 22:51:17.526" level="INFO">${user} = {'name': 'Dio', 'lastname': 'Linux', 'email': 'dio@linux.com', 'password': 'pwd123', 'geek_profile': {'whats': '11999999999', 'desc': 'Instalo Distros Ubuntu, Debian, ElementaryOS, PopOS, Linux Mint, ...</msg>
+<status status="PASS" starttime="20230220 22:51:17.525" endtime="20230220 22:51:17.526"/>
+</kw>
+<kw name="Start Session" library="Base">
 <kw name="New Browser" library="Browser">
 <arg>chromium</arg>
 <arg>headless=false</arg>
@@ -11,18 +16,18 @@
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
-<msg timestamp="20230220 00:45:41.551" level="INFO">{"browser": "chromium", "headless": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 200.0, "timeout": 30000.0, "deprecated_pos_args": [], "tracesDir": "/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/logs/browser/traces/1fa39695-12de-4dff-8c6d-27844493fa19"}</msg>
-<msg timestamp="20230220 00:45:42.080" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":200,"timeout":30000,"deprecated_pos_args":[],"tracesDir":"/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/logs/browser/traces/1fa39695-12de-4dff-8c6d-27844493fa19"}</msg>
-<status status="PASS" starttime="20230220 00:45:41.551" endtime="20230220 00:45:42.080"/>
+<msg timestamp="20230220 22:51:17.527" level="INFO">{"browser": "chromium", "headless": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 200.0, "timeout": 30000.0, "deprecated_pos_args": [], "tracesDir": "/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/logs/browser/traces/8eae1bd7-604f-4974-b512-d72dcca8055f"}</msg>
+<msg timestamp="20230220 22:51:18.050" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":200,"timeout":30000,"deprecated_pos_args":[],"tracesDir":"/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/logs/browser/traces/8eae1bd7-604f-4974-b512-d72dcca8055f"}</msg>
+<status status="PASS" starttime="20230220 22:51:17.526" endtime="20230220 22:51:18.050"/>
 </kw>
 <kw name="New Page" library="Browser">
 <arg>${BASE_URL}</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Open a new Page.</doc>
-<msg timestamp="20230220 00:45:43.223" level="INFO">Successfully initialized new page object and opened url: https://geeks-web-andre.fly.dev</msg>
-<msg timestamp="20230220 00:45:43.223" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
-<status status="PASS" starttime="20230220 00:45:42.081" endtime="20230220 00:45:43.224"/>
+<msg timestamp="20230220 22:51:19.192" level="INFO">Successfully initialized new page object and opened url: https://geeks-web-andre.fly.dev</msg>
+<msg timestamp="20230220 22:51:19.192" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20230220 22:51:18.050" endtime="20230220 22:51:19.193"/>
 </kw>
 <kw name="Set Viewport Size" library="Browser">
 <arg>1440</arg>
@@ -30,16 +35,10 @@
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Sets current Pages viewport size to specified dimensions.</doc>
-<msg timestamp="20230220 00:45:43.437" level="INFO">Set viewport size to: [object Object]</msg>
-<status status="PASS" starttime="20230220 00:45:43.224" endtime="20230220 00:45:43.438"/>
+<msg timestamp="20230220 22:51:19.426" level="INFO">Set viewport size to: [object Object]</msg>
+<status status="PASS" starttime="20230220 22:51:19.193" endtime="20230220 22:51:19.426"/>
 </kw>
-<status status="PASS" starttime="20230220 00:45:41.551" endtime="20230220 00:45:43.438"/>
-</kw>
-<kw name="Factory User" library="Users">
-<var>${user}</var>
-<arg>be_geek</arg>
-<msg timestamp="20230220 00:45:43.441" level="INFO">${user} = {'name': 'Kim', 'lastname': 'Dotcom', 'email': 'kim@dot.com', 'password': 'pwd123', 'geek_profile': {'whats': '11999999999', 'desc': 'Seu computador está lento? Reiniciando do nada? Talvez seja um vír...</msg>
-<status status="PASS" starttime="20230220 00:45:43.439" endtime="20230220 00:45:43.441"/>
+<status status="PASS" starttime="20230220 22:51:17.526" endtime="20230220 22:51:19.426"/>
 </kw>
 <kw name="Do Login" library="Helpers">
 <arg>${user}</arg>
@@ -49,8 +48,8 @@
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Navigates to the given ``url``.</doc>
-<msg timestamp="20230220 00:45:43.735" level="INFO">Successfully opened URL https://geeks-web-andre.fly.dev</msg>
-<status status="PASS" starttime="20230220 00:45:43.443" endtime="20230220 00:45:43.736"/>
+<msg timestamp="20230220 22:51:19.722" level="INFO">Successfully opened URL https://geeks-web-andre.fly.dev</msg>
+<status status="PASS" starttime="20230220 22:51:19.428" endtime="20230220 22:51:19.722"/>
 </kw>
 <kw name="Wait For Elements State" library="Browser">
 <arg>css=.login-form</arg>
@@ -59,10 +58,10 @@
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<msg timestamp="20230220 00:45:43.772" level="INFO">Waited for Element with selector css=.login-form at state visible</msg>
-<status status="PASS" starttime="20230220 00:45:43.736" endtime="20230220 00:45:43.772"/>
+<msg timestamp="20230220 22:51:19.757" level="INFO">Waited for Element with selector css=.login-form at state visible</msg>
+<status status="PASS" starttime="20230220 22:51:19.723" endtime="20230220 22:51:19.757"/>
 </kw>
-<status status="PASS" starttime="20230220 00:45:43.442" endtime="20230220 00:45:43.772"/>
+<status status="PASS" starttime="20230220 22:51:19.428" endtime="20230220 22:51:19.757"/>
 </kw>
 <kw name="Fill Credentials" library="AuthActions">
 <arg>${user}</arg>
@@ -72,8 +71,8 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20230220 00:45:43.773" level="INFO">Fills the text 'kim@dot.com' in the given field.</msg>
-<status status="PASS" starttime="20230220 00:45:43.773" endtime="20230220 00:45:44.002"/>
+<msg timestamp="20230220 22:51:19.758" level="INFO">Fills the text 'dio@linux.com' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:19.757" endtime="20230220 22:51:20.009"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>${INPUT_PASS}</arg>
@@ -81,10 +80,10 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20230220 00:45:44.003" level="INFO">Fills the text 'pwd123' in the given field.</msg>
-<status status="PASS" starttime="20230220 00:45:44.003" endtime="20230220 00:45:44.258"/>
+<msg timestamp="20230220 22:51:20.010" level="INFO">Fills the text 'pwd123' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:20.009" endtime="20230220 22:51:20.262"/>
 </kw>
-<status status="PASS" starttime="20230220 00:45:43.773" endtime="20230220 00:45:44.259"/>
+<status status="PASS" starttime="20230220 22:51:19.757" endtime="20230220 22:51:20.263"/>
 </kw>
 <kw name="Submit Credentials" library="AuthActions">
 <kw name="Click" library="Browser">
@@ -92,9 +91,9 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<status status="PASS" starttime="20230220 00:45:44.259" endtime="20230220 00:45:44.521"/>
+<status status="PASS" starttime="20230220 22:51:20.263" endtime="20230220 22:51:20.531"/>
 </kw>
-<status status="PASS" starttime="20230220 00:45:44.259" endtime="20230220 00:45:44.521"/>
+<status status="PASS" starttime="20230220 22:51:20.263" endtime="20230220 22:51:20.531"/>
 </kw>
 <kw name="User Should Be Logged In" library="AuthActions">
 <arg>${user}</arg>
@@ -102,15 +101,15 @@
 <var>${element}</var>
 <arg>css=a[href="/profile"]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230220 00:45:44.521" level="INFO">${element} = css=a[href="/profile"]</msg>
-<status status="PASS" starttime="20230220 00:45:44.521" endtime="20230220 00:45:44.521"/>
+<msg timestamp="20230220 22:51:20.531" level="INFO">${element} = css=a[href="/profile"]</msg>
+<status status="PASS" starttime="20230220 22:51:20.531" endtime="20230220 22:51:20.531"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${expected_fullname}</var>
 <arg>${user}[name] ${user}[lastname]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230220 00:45:44.521" level="INFO">${expected_fullname} = Kim Dotcom</msg>
-<status status="PASS" starttime="20230220 00:45:44.521" endtime="20230220 00:45:44.521"/>
+<msg timestamp="20230220 22:51:20.531" level="INFO">${expected_fullname} = Dio Linux</msg>
+<status status="PASS" starttime="20230220 22:51:20.531" endtime="20230220 22:51:20.531"/>
 </kw>
 <kw name="Wait For Elements State" library="Browser">
 <arg>${element}</arg>
@@ -119,8 +118,8 @@
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<msg timestamp="20230220 00:45:44.526" level="INFO">Waited for Element with selector css=a[href="/profile"] at state visible</msg>
-<status status="PASS" starttime="20230220 00:45:44.521" endtime="20230220 00:45:44.526"/>
+<msg timestamp="20230220 22:51:20.535" level="INFO">Waited for Element with selector css=a[href="/profile"] at state visible</msg>
+<status status="PASS" starttime="20230220 22:51:20.531" endtime="20230220 22:51:20.536"/>
 </kw>
 <kw name="Get Text" library="Browser">
 <arg>${element}</arg>
@@ -130,11 +129,11 @@
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns text attribute of the element found by ``selector``.</doc>
-<status status="PASS" starttime="20230220 00:45:44.526" endtime="20230220 00:45:44.538"/>
+<status status="PASS" starttime="20230220 22:51:20.536" endtime="20230220 22:51:20.547"/>
 </kw>
-<status status="PASS" starttime="20230220 00:45:44.521" endtime="20230220 00:45:44.538"/>
+<status status="PASS" starttime="20230220 22:51:20.531" endtime="20230220 22:51:20.547"/>
 </kw>
-<status status="PASS" starttime="20230220 00:45:43.442" endtime="20230220 00:45:44.538"/>
+<status status="PASS" starttime="20230220 22:51:19.427" endtime="20230220 22:51:20.548"/>
 </kw>
 <kw name="Go To Geek Form" library="GeekActions">
 <kw name="Click" library="Browser">
@@ -142,7 +141,7 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<status status="PASS" starttime="20230220 00:45:44.538" endtime="20230220 00:45:44.771"/>
+<status status="PASS" starttime="20230220 22:51:20.548" endtime="20230220 22:51:20.782"/>
 </kw>
 <kw name="Wait For Elements State" library="Browser">
 <arg>css=.be-geek-form</arg>
@@ -151,21 +150,59 @@
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<msg timestamp="20230220 00:45:44.775" level="INFO">Waited for Element with selector css=.be-geek-form at state visible</msg>
-<status status="PASS" starttime="20230220 00:45:44.772" endtime="20230220 00:45:44.775"/>
+<msg timestamp="20230220 22:51:20.785" level="INFO">Waited for Element with selector css=.be-geek-form at state visible</msg>
+<status status="PASS" starttime="20230220 22:51:20.782" endtime="20230220 22:51:20.785"/>
 </kw>
-<status status="PASS" starttime="20230220 00:45:44.538" endtime="20230220 00:45:44.776"/>
+<status status="PASS" starttime="20230220 22:51:20.548" endtime="20230220 22:51:20.785"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:17.525" endtime="20230220 22:51:20.786"/>
+</kw>
+<test id="s1-t1" name="Short desc" line="17">
+<kw name="Attempt Be a Geek">
+<arg>desc</arg>
+<arg>Formato o seu PC</arg>
+<arg>A descrição deve ter no minimo 80 caracteres</arg>
+<kw name="Factory User" library="Users">
+<var>${user}</var>
+<arg>attempt_be_geek</arg>
+<msg timestamp="20230220 22:51:20.788" level="INFO">${user} = {'name': 'Dio', 'lastname': 'Linux', 'email': 'dio@linux.com', 'password': 'pwd123', 'geek_profile': {'whats': '11999999999', 'desc': 'Instalo Distros Ubuntu, Debian, ElementaryOS, PopOS, Linux Mint, ...</msg>
+<status status="PASS" starttime="20230220 22:51:20.788" endtime="20230220 22:51:20.788"/>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<arg>${user}[geek_profile]</arg>
+<arg>${key}</arg>
+<arg>${input_field}</arg>
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<status status="PASS" starttime="20230220 22:51:20.788" endtime="20230220 22:51:20.788"/>
 </kw>
 <kw name="Fill Geek Form" library="GeekActions">
 <arg>${user}[geek_profile]</arg>
+<kw name="Reset Geek Form" library="GeekActions">
+<kw name="Evaluate JavaScript" library="Browser">
+<arg>css=.be-geek-form</arg>
+<arg>document.getElementsByClassName("be-geek-form")[0].reset()</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Executes given javascript on the selected element(s) or on page.</doc>
+<status status="PASS" starttime="20230220 22:51:20.789" endtime="20230220 22:51:20.998"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:20.789" endtime="20230220 22:51:20.999"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230220 22:51:23.001" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230220 22:51:20.999" endtime="20230220 22:51:23.001"/>
+</kw>
 <kw name="Fill Text" library="Browser">
 <arg>id=whatsapp</arg>
 <arg>${geek_profile}[whats]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20230220 00:45:44.776" level="INFO">Fills the text '11999999999' in the given field.</msg>
-<status status="PASS" starttime="20230220 00:45:44.776" endtime="20230220 00:45:44.987"/>
+<msg timestamp="20230220 22:51:23.003" level="INFO">Fills the text '11999999999' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:23.002" endtime="20230220 22:51:23.226"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>id=desc</arg>
@@ -173,8 +210,8 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20230220 00:45:44.988" level="INFO">Fills the text 'Seu computador está lento? Reiniciando do nada? Talvez seja um vírus, ou algum hardware com defeito. Posso fazer a manutenção no seu PC, formatando, reinstalando o SO, trocando algum componente físico e porque não remover o baidu ou qualquer malware.' in the given field.</msg>
-<status status="PASS" starttime="20230220 00:45:44.987" endtime="20230220 00:45:45.201"/>
+<msg timestamp="20230220 22:51:23.228" level="INFO">Fills the text 'Formato o seu PC' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:23.227" endtime="20230220 22:51:23.450"/>
 </kw>
 <kw name="Select Options By" library="Browser">
 <arg>id=printer_repair</arg>
@@ -183,7 +220,7 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Selects options from select element found by ``selector``.</doc>
-<status status="PASS" starttime="20230220 00:45:45.202" endtime="20230220 00:45:45.629"/>
+<status status="PASS" starttime="20230220 22:51:23.451" endtime="20230220 22:51:23.884"/>
 </kw>
 <kw name="Select Options By" library="Browser">
 <arg>id=work</arg>
@@ -192,7 +229,7 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Selects options from select element found by ``selector``.</doc>
-<status status="PASS" starttime="20230220 00:45:45.629" endtime="20230220 00:45:46.055"/>
+<status status="PASS" starttime="20230220 22:51:23.885" endtime="20230220 22:51:24.309"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>id=cost</arg>
@@ -200,10 +237,10 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20230220 00:45:46.056" level="INFO">Fills the text '100' in the given field.</msg>
-<status status="PASS" starttime="20230220 00:45:46.056" endtime="20230220 00:45:46.272"/>
+<msg timestamp="20230220 22:51:24.309" level="INFO">Fills the text '200' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:24.309" endtime="20230220 22:51:24.521"/>
 </kw>
-<status status="PASS" starttime="20230220 00:45:44.776" endtime="20230220 00:45:46.274"/>
+<status status="PASS" starttime="20230220 22:51:20.788" endtime="20230220 22:51:24.521"/>
 </kw>
 <kw name="Submit Geek Form" library="GeekActions">
 <kw name="Click" library="Browser">
@@ -211,360 +248,1126 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<status status="PASS" starttime="20230220 00:45:46.275" endtime="20230220 00:45:46.507"/>
+<status status="PASS" starttime="20230220 22:51:24.522" endtime="20230220 22:51:24.756"/>
 </kw>
-<status status="PASS" starttime="20230220 00:45:46.275" endtime="20230220 00:45:46.507"/>
+<status status="PASS" starttime="20230220 22:51:24.522" endtime="20230220 22:51:24.756"/>
 </kw>
-<kw name="Geek Form Should Be Success" library="GeekActions">
-<kw name="Set Variable" library="BuiltIn">
-<var>${expected_message}</var>
-<arg>Seu cadastro está na nossa lista de geeks. Agora é só ficar de olho no seu WhatsApp.</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230220 00:45:46.508" level="INFO">${expected_message} = Seu cadastro está na nossa lista de geeks. Agora é só ficar de olho no seu WhatsApp.</msg>
-<status status="PASS" starttime="20230220 00:45:46.508" endtime="20230220 00:45:46.508"/>
-</kw>
+<kw name="Alert Span Should Be" library="_SharedActions">
+<arg>${output_message}</arg>
 <kw name="Wait For Elements State" library="Browser">
-<arg>css=p &gt;&gt; text=${expected_message}</arg>
+<arg>css=span[class=error] &gt;&gt; text=${expected_alert}</arg>
 <arg>visible</arg>
 <arg>5</arg>
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<msg timestamp="20230220 00:45:46.516" level="INFO">Waited for Element with selector css=p &gt;&gt; text=Seu cadastro está na nossa lista de geeks. Agora é só ficar de olho no seu WhatsApp. at state visible</msg>
-<status status="PASS" starttime="20230220 00:45:46.508" endtime="20230220 00:45:46.516"/>
+<msg timestamp="20230220 22:51:24.766" level="INFO">Waited for Element with selector css=span[class=error] &gt;&gt; text=A descrição deve ter no minimo 80 caracteres at state visible</msg>
+<status status="PASS" starttime="20230220 22:51:24.757" endtime="20230220 22:51:24.766"/>
 </kw>
-<status status="PASS" starttime="20230220 00:45:46.508" endtime="20230220 00:45:46.516"/>
+<status status="PASS" starttime="20230220 22:51:24.757" endtime="20230220 22:51:24.766"/>
 </kw>
-<kw name="Finish Session" library="Base" type="TEARDOWN">
 <kw name="Take Screenshot" library="Browser">
 <arg>fullPage=true</arg>
 <tag>PageContent</tag>
 <doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
-<msg timestamp="20230220 00:45:46.787" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-1.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20230220 00:45:46.517" endtime="20230220 00:45:46.787"/>
+<msg timestamp="20230220 22:51:24.887" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-1.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230220 22:51:24.766" endtime="20230220 22:51:24.887"/>
 </kw>
-<status status="PASS" starttime="20230220 00:45:46.516" endtime="20230220 00:45:46.787"/>
+<status status="PASS" starttime="20230220 22:51:20.788" endtime="20230220 22:51:24.887"/>
 </kw>
-<tag>smoke</tag>
-<status status="PASS" starttime="20230220 00:45:41.550" endtime="20230220 00:45:46.787"/>
+<status status="PASS" starttime="20230220 22:51:20.786" endtime="20230220 22:51:24.887"/>
 </test>
-<doc>BeGeek Test Suite</doc>
-<status status="PASS" starttime="20230220 00:45:41.021" endtime="20230220 00:45:46.829"/>
-</suite>
-<suite id="s1-s2" name="Login" source="/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/tests/Login.robot">
-<test id="s1-s2-t1" name="User Login" line="11">
-<kw name="Start Session" library="Base" type="SETUP">
-<kw name="New Browser" library="Browser">
-<arg>chromium</arg>
-<arg>headless=false</arg>
-<arg>slowMo=00:00:00.2</arg>
-<tag>BrowserControl</tag>
-<tag>Setter</tag>
-<doc>Create a new playwright Browser with specified options.</doc>
-<msg timestamp="20230220 00:45:46.834" level="INFO">{"browser": "chromium", "headless": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 200.0, "timeout": 30000.0, "deprecated_pos_args": [], "tracesDir": "/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/logs/browser/traces/094f2f60-8aef-4a3f-bf7e-43e027a24bec"}</msg>
-<msg timestamp="20230220 00:45:47.001" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":200,"timeout":30000,"deprecated_pos_args":[],"tracesDir":"/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/logs/browser/traces/094f2f60-8aef-4a3f-bf7e-43e027a24bec"}</msg>
-<status status="PASS" starttime="20230220 00:45:46.834" endtime="20230220 00:45:47.001"/>
-</kw>
-<kw name="New Page" library="Browser">
-<arg>${BASE_URL}</arg>
-<tag>BrowserControl</tag>
-<tag>Setter</tag>
-<doc>Open a new Page.</doc>
-<msg timestamp="20230220 00:45:48.000" level="INFO">Successfully initialized new page object and opened url: https://geeks-web-andre.fly.dev</msg>
-<msg timestamp="20230220 00:45:48.000" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
-<status status="PASS" starttime="20230220 00:45:47.002" endtime="20230220 00:45:48.000"/>
-</kw>
-<kw name="Set Viewport Size" library="Browser">
-<arg>1440</arg>
-<arg>900</arg>
-<tag>BrowserControl</tag>
-<tag>Setter</tag>
-<doc>Sets current Pages viewport size to specified dimensions.</doc>
-<msg timestamp="20230220 00:45:48.230" level="INFO">Set viewport size to: [object Object]</msg>
-<status status="PASS" starttime="20230220 00:45:48.001" endtime="20230220 00:45:48.230"/>
-</kw>
-<status status="PASS" starttime="20230220 00:45:46.833" endtime="20230220 00:45:48.231"/>
-</kw>
+<test id="s1-t2" name="Long desc" line="18">
+<kw name="Attempt Be a Geek">
+<arg>desc</arg>
+<arg>${long_desc}</arg>
+<arg>A descrição deve ter no máximo 255 caracteres</arg>
 <kw name="Factory User" library="Users">
 <var>${user}</var>
-<arg>login</arg>
-<msg timestamp="20230220 00:45:48.233" level="INFO">${user} = {'name': 'Test', 'lastname': 'User', 'email': 'test@email.com', 'password': 'pwd123'}</msg>
-<status status="PASS" starttime="20230220 00:45:48.231" endtime="20230220 00:45:48.233"/>
+<arg>attempt_be_geek</arg>
+<msg timestamp="20230220 22:51:24.891" level="INFO">${user} = {'name': 'Dio', 'lastname': 'Linux', 'email': 'dio@linux.com', 'password': 'pwd123', 'geek_profile': {'whats': '11999999999', 'desc': 'Instalo Distros Ubuntu, Debian, ElementaryOS, PopOS, Linux Mint, ...</msg>
+<status status="PASS" starttime="20230220 22:51:24.891" endtime="20230220 22:51:24.891"/>
 </kw>
-<kw name="Go To Login Page" library="AuthActions">
-<kw name="Go To" library="Browser">
-<arg>${BASE_URL}</arg>
-<tag>BrowserControl</tag>
-<tag>Setter</tag>
-<doc>Navigates to the given ``url``.</doc>
-<msg timestamp="20230220 00:45:48.522" level="INFO">Successfully opened URL https://geeks-web-andre.fly.dev</msg>
-<status status="PASS" starttime="20230220 00:45:48.233" endtime="20230220 00:45:48.522"/>
+<kw name="Set To Dictionary" library="Collections">
+<arg>${user}[geek_profile]</arg>
+<arg>${key}</arg>
+<arg>${input_field}</arg>
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<status status="PASS" starttime="20230220 22:51:24.891" endtime="20230220 22:51:24.891"/>
 </kw>
-<kw name="Wait For Elements State" library="Browser">
-<arg>css=.login-form</arg>
-<arg>visible</arg>
-<arg>5</arg>
-<tag>PageContent</tag>
-<tag>Wait</tag>
-<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<msg timestamp="20230220 00:45:48.549" level="INFO">Waited for Element with selector css=.login-form at state visible</msg>
-<status status="PASS" starttime="20230220 00:45:48.522" endtime="20230220 00:45:48.549"/>
-</kw>
-<status status="PASS" starttime="20230220 00:45:48.233" endtime="20230220 00:45:48.549"/>
-</kw>
-<kw name="Fill Credentials" library="AuthActions">
-<arg>${user}</arg>
-<kw name="Fill Text" library="Browser">
-<arg>${INPUT_EMAIL}</arg>
-<arg>${user}[email]</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20230220 00:45:48.550" level="INFO">Fills the text 'test@email.com' in the given field.</msg>
-<status status="PASS" starttime="20230220 00:45:48.550" endtime="20230220 00:45:48.774"/>
-</kw>
-<kw name="Fill Text" library="Browser">
-<arg>${INPUT_PASS}</arg>
-<arg>${user}[password]</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20230220 00:45:48.774" level="INFO">Fills the text 'pwd123' in the given field.</msg>
-<status status="PASS" starttime="20230220 00:45:48.774" endtime="20230220 00:45:49.021"/>
-</kw>
-<status status="PASS" starttime="20230220 00:45:48.549" endtime="20230220 00:45:49.021"/>
-</kw>
-<kw name="Submit Credentials" library="AuthActions">
-<kw name="Click" library="Browser">
-<arg>css=.submit-button &gt;&gt; text="Entrar"</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Simulates mouse click on the element found by ``selector``.</doc>
-<status status="PASS" starttime="20230220 00:45:49.023" endtime="20230220 00:45:49.276"/>
-</kw>
-<status status="PASS" starttime="20230220 00:45:49.022" endtime="20230220 00:45:49.276"/>
-</kw>
-<kw name="User Should Be Logged In" library="AuthActions">
-<arg>${user}</arg>
-<kw name="Set Variable" library="BuiltIn">
-<var>${element}</var>
-<arg>css=a[href="/profile"]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230220 00:45:49.276" level="INFO">${element} = css=a[href="/profile"]</msg>
-<status status="PASS" starttime="20230220 00:45:49.276" endtime="20230220 00:45:49.276"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${expected_fullname}</var>
-<arg>${user}[name] ${user}[lastname]</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230220 00:45:49.276" level="INFO">${expected_fullname} = Test User</msg>
-<status status="PASS" starttime="20230220 00:45:49.276" endtime="20230220 00:45:49.276"/>
-</kw>
-<kw name="Wait For Elements State" library="Browser">
-<arg>${element}</arg>
-<arg>visible</arg>
-<arg>5</arg>
-<tag>PageContent</tag>
-<tag>Wait</tag>
-<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<msg timestamp="20230220 00:45:49.280" level="INFO">Waited for Element with selector css=a[href="/profile"] at state visible</msg>
-<status status="PASS" starttime="20230220 00:45:49.277" endtime="20230220 00:45:49.280"/>
-</kw>
-<kw name="Get Text" library="Browser">
-<arg>${element}</arg>
-<arg>equal</arg>
-<arg>${expected_fullname}</arg>
-<tag>Assertion</tag>
+<kw name="Fill Geek Form" library="GeekActions">
+<arg>${user}[geek_profile]</arg>
+<kw name="Reset Geek Form" library="GeekActions">
+<kw name="Evaluate JavaScript" library="Browser">
+<arg>css=.be-geek-form</arg>
+<arg>document.getElementsByClassName("be-geek-form")[0].reset()</arg>
 <tag>Getter</tag>
 <tag>PageContent</tag>
-<doc>Returns text attribute of the element found by ``selector``.</doc>
-<status status="PASS" starttime="20230220 00:45:49.280" endtime="20230220 00:45:49.290"/>
-</kw>
-<status status="PASS" starttime="20230220 00:45:49.276" endtime="20230220 00:45:49.290"/>
-</kw>
-<kw name="Finish Session" library="Base" type="TEARDOWN">
-<kw name="Take Screenshot" library="Browser">
-<arg>fullPage=true</arg>
-<tag>PageContent</tag>
-<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
-<msg timestamp="20230220 00:45:49.445" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-2.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20230220 00:45:49.290" endtime="20230220 00:45:49.446"/>
-</kw>
-<status status="PASS" starttime="20230220 00:45:49.290" endtime="20230220 00:45:49.446"/>
-</kw>
-<tag>smoke</tag>
-<status status="PASS" starttime="20230220 00:45:46.833" endtime="20230220 00:45:49.446"/>
-</test>
-<doc>Login Test Suite</doc>
-<status status="PASS" starttime="20230220 00:45:46.830" endtime="20230220 00:45:49.481"/>
-</suite>
-<suite id="s1-s3" name="Signup" source="/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/tests/Signup.robot">
-<test id="s1-s3-t1" name="Register a new user" line="11">
-<kw name="Start Session" library="Base" type="SETUP">
-<kw name="New Browser" library="Browser">
-<arg>chromium</arg>
-<arg>headless=false</arg>
-<arg>slowMo=00:00:00.2</arg>
-<tag>BrowserControl</tag>
 <tag>Setter</tag>
-<doc>Create a new playwright Browser with specified options.</doc>
-<msg timestamp="20230220 00:45:49.496" level="INFO">{"browser": "chromium", "headless": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 200.0, "timeout": 30000.0, "deprecated_pos_args": [], "tracesDir": "/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/logs/browser/traces/8a2608c8-a517-4709-b4ec-24beefdedb2a"}</msg>
-<msg timestamp="20230220 00:45:49.668" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":200,"timeout":30000,"deprecated_pos_args":[],"tracesDir":"/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/logs/browser/traces/8a2608c8-a517-4709-b4ec-24beefdedb2a"}</msg>
-<status status="PASS" starttime="20230220 00:45:49.496" endtime="20230220 00:45:49.668"/>
+<doc>Executes given javascript on the selected element(s) or on page.</doc>
+<status status="PASS" starttime="20230220 22:51:24.891" endtime="20230220 22:51:25.099"/>
 </kw>
-<kw name="New Page" library="Browser">
-<arg>${BASE_URL}</arg>
-<tag>BrowserControl</tag>
-<tag>Setter</tag>
-<doc>Open a new Page.</doc>
-<msg timestamp="20230220 00:45:50.494" level="INFO">Successfully initialized new page object and opened url: https://geeks-web-andre.fly.dev</msg>
-<msg timestamp="20230220 00:45:50.494" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
-<status status="PASS" starttime="20230220 00:45:49.668" endtime="20230220 00:45:50.495"/>
+<status status="PASS" starttime="20230220 22:51:24.891" endtime="20230220 22:51:25.100"/>
 </kw>
-<kw name="Set Viewport Size" library="Browser">
-<arg>1440</arg>
-<arg>900</arg>
-<tag>BrowserControl</tag>
-<tag>Setter</tag>
-<doc>Sets current Pages viewport size to specified dimensions.</doc>
-<msg timestamp="20230220 00:45:50.729" level="INFO">Set viewport size to: [object Object]</msg>
-<status status="PASS" starttime="20230220 00:45:50.495" endtime="20230220 00:45:50.729"/>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230220 22:51:27.102" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230220 22:51:25.100" endtime="20230220 22:51:27.102"/>
 </kw>
-<status status="PASS" starttime="20230220 00:45:49.495" endtime="20230220 00:45:50.730"/>
-</kw>
-<kw name="Factory User" library="Users">
-<var>${user}</var>
-<arg>faker</arg>
-<msg timestamp="20230220 00:45:50.731" level="INFO">${user} = {'name': 'Isaac', 'lastname': 'Wheeler', 'email': 'jacob56@gmail.com', 'password': 'pwd123'}</msg>
-<status status="PASS" starttime="20230220 00:45:50.730" endtime="20230220 00:45:50.731"/>
-</kw>
-<kw name="Set Suite Variable" library="BuiltIn">
-<arg>${user}</arg>
-<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
-<msg timestamp="20230220 00:45:50.732" level="INFO">${user} = {'name': 'Isaac', 'lastname': 'Wheeler', 'email': 'jacob56@gmail.com', 'password': 'pwd123'}</msg>
-<status status="PASS" starttime="20230220 00:45:50.732" endtime="20230220 00:45:50.732"/>
-</kw>
-<kw name="Go To Signup Form" library="SignupActions">
-<kw name="Go To" library="Browser">
-<arg>${BASE_URL}/signup</arg>
-<tag>BrowserControl</tag>
-<tag>Setter</tag>
-<doc>Navigates to the given ``url``.</doc>
-<msg timestamp="20230220 00:45:51.027" level="INFO">Successfully opened URL https://geeks-web-andre.fly.dev/signup</msg>
-<status status="PASS" starttime="20230220 00:45:50.733" endtime="20230220 00:45:51.027"/>
-</kw>
-<kw name="Wait For Elements State" library="Browser">
-<arg>css=.signup-form h1 &gt;&gt; text="Cadastro"</arg>
-<arg>visible</arg>
-<arg>5</arg>
-<tag>PageContent</tag>
-<tag>Wait</tag>
-<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<msg timestamp="20230220 00:45:51.055" level="INFO">Waited for Element with selector css=.signup-form h1 &gt;&gt; text="Cadastro" at state visible</msg>
-<status status="PASS" starttime="20230220 00:45:51.027" endtime="20230220 00:45:51.055"/>
-</kw>
-<status status="PASS" starttime="20230220 00:45:50.733" endtime="20230220 00:45:51.055"/>
-</kw>
-<kw name="Fill Signup Form" library="SignupActions">
-<arg>${user}</arg>
 <kw name="Fill Text" library="Browser">
-<arg>input[id="name"]</arg>
-<arg>${user}[name]</arg>
+<arg>id=whatsapp</arg>
+<arg>${geek_profile}[whats]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20230220 00:45:51.056" level="INFO">Fills the text 'Isaac' in the given field.</msg>
-<status status="PASS" starttime="20230220 00:45:51.056" endtime="20230220 00:45:51.279"/>
+<msg timestamp="20230220 22:51:27.105" level="INFO">Fills the text '11999999999' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:27.104" endtime="20230220 22:51:27.328"/>
 </kw>
 <kw name="Fill Text" library="Browser">
-<arg>input[id="lastname"]</arg>
-<arg>${user}[lastname]</arg>
+<arg>id=desc</arg>
+<arg>${geek_profile}[desc]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20230220 00:45:51.280" level="INFO">Fills the text 'Wheeler' in the given field.</msg>
-<status status="PASS" starttime="20230220 00:45:51.279" endtime="20230220 00:45:51.499"/>
+<msg timestamp="20230220 22:51:27.330" level="INFO">Fills the text 'Instalo Distros Ubuntu, Debian, ElementaryOS, PopOS, Linux Mint, Kurumin, Mandrake, Connectiva, Fedora, RedHat, CentOS, Slackware, Genton, Archlinux, Kubuntu, Xubuntu, Suze, Mandriva, Edubuntu, KateOS, Sabayon Linux, Manjaro Linux, BigLinux, ZorinOS, Unity' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:27.330" endtime="20230220 22:51:27.549"/>
+</kw>
+<kw name="Select Options By" library="Browser">
+<arg>id=printer_repair</arg>
+<arg>text</arg>
+<arg>${geek_profile}[printer_repair]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" starttime="20230220 22:51:27.549" endtime="20230220 22:51:27.978"/>
+</kw>
+<kw name="Select Options By" library="Browser">
+<arg>id=work</arg>
+<arg>text</arg>
+<arg>${geek_profile}[work]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" starttime="20230220 22:51:27.979" endtime="20230220 22:51:28.406"/>
 </kw>
 <kw name="Fill Text" library="Browser">
-<arg>input[id="email"]</arg>
-<arg>${user}[email]</arg>
+<arg>id=cost</arg>
+<arg>${geek_profile}[cost]</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20230220 00:45:51.500" level="INFO">Fills the text 'jacob56@gmail.com' in the given field.</msg>
-<status status="PASS" starttime="20230220 00:45:51.499" endtime="20230220 00:45:51.715"/>
+<msg timestamp="20230220 22:51:28.406" level="INFO">Fills the text '200' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:28.406" endtime="20230220 22:51:28.618"/>
 </kw>
-<kw name="Fill Text" library="Browser">
-<arg>input[id="password"]</arg>
-<arg>${user}[password]</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20230220 00:45:51.716" level="INFO">Fills the text 'pwd123' in the given field.</msg>
-<status status="PASS" starttime="20230220 00:45:51.716" endtime="20230220 00:45:51.971"/>
+<status status="PASS" starttime="20230220 22:51:24.891" endtime="20230220 22:51:28.618"/>
 </kw>
-<status status="PASS" starttime="20230220 00:45:51.056" endtime="20230220 00:45:51.972"/>
-</kw>
-<kw name="Submit Signut Form" library="SignupActions">
+<kw name="Submit Geek Form" library="GeekActions">
 <kw name="Click" library="Browser">
-<arg>css=.submit-button &gt;&gt; text="Cadastrar"</arg>
+<arg>css=button &gt;&gt; text=Quero ser um Geek</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<status status="PASS" starttime="20230220 00:45:51.973" endtime="20230220 00:45:52.236"/>
+<status status="PASS" starttime="20230220 22:51:28.619" endtime="20230220 22:51:28.856"/>
 </kw>
-<status status="PASS" starttime="20230220 00:45:51.972" endtime="20230220 00:45:52.237"/>
+<status status="PASS" starttime="20230220 22:51:28.619" endtime="20230220 22:51:28.857"/>
 </kw>
-<kw name="User Should Be Registered" library="SignupActions">
-<kw name="Set Variable" library="BuiltIn">
-<var>${expect_message}</var>
-<arg>css=div p &gt;&gt; text="Agora você faz parte da Getgeeks. Tenha uma ótima experiência."</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230220 00:45:52.237" level="INFO">${expect_message} = css=div p &gt;&gt; text="Agora você faz parte da Getgeeks. Tenha uma ótima experiência."</msg>
-<status status="PASS" starttime="20230220 00:45:52.237" endtime="20230220 00:45:52.237"/>
-</kw>
+<kw name="Alert Span Should Be" library="_SharedActions">
+<arg>${output_message}</arg>
 <kw name="Wait For Elements State" library="Browser">
-<arg>${expect_message}</arg>
+<arg>css=span[class=error] &gt;&gt; text=${expected_alert}</arg>
 <arg>visible</arg>
 <arg>5</arg>
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<msg timestamp="20230220 00:45:52.243" level="INFO">Waited for Element with selector css=div p &gt;&gt; text="Agora você faz parte da Getgeeks. Tenha uma ótima experiência." at state visible</msg>
-<status status="PASS" starttime="20230220 00:45:52.238" endtime="20230220 00:45:52.243"/>
+<msg timestamp="20230220 22:51:28.867" level="INFO">Waited for Element with selector css=span[class=error] &gt;&gt; text=A descrição deve ter no máximo 255 caracteres at state visible</msg>
+<status status="PASS" starttime="20230220 22:51:28.858" endtime="20230220 22:51:28.867"/>
 </kw>
-<status status="PASS" starttime="20230220 00:45:52.237" endtime="20230220 00:45:52.243"/>
+<status status="PASS" starttime="20230220 22:51:28.857" endtime="20230220 22:51:28.867"/>
 </kw>
-<kw name="Finish Session" library="Base" type="TEARDOWN">
 <kw name="Take Screenshot" library="Browser">
 <arg>fullPage=true</arg>
 <tag>PageContent</tag>
 <doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
-<msg timestamp="20230220 00:45:52.495" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-3.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20230220 00:45:52.244" endtime="20230220 00:45:52.495"/>
+<msg timestamp="20230220 22:51:28.983" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-2.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230220 22:51:28.867" endtime="20230220 22:51:28.983"/>
 </kw>
-<status status="PASS" starttime="20230220 00:45:52.244" endtime="20230220 00:45:52.495"/>
+<status status="PASS" starttime="20230220 22:51:24.891" endtime="20230220 22:51:28.983"/>
 </kw>
-<tag>smoke</tag>
-<status status="PASS" starttime="20230220 00:45:49.494" endtime="20230220 00:45:52.495"/>
+<status status="PASS" starttime="20230220 22:51:24.890" endtime="20230220 22:51:28.983"/>
 </test>
-<doc>Signup Test Suite</doc>
-<status status="PASS" starttime="20230220 00:45:49.481" endtime="20230220 00:45:52.536"/>
-</suite>
-<status status="PASS" starttime="20230220 00:45:41.015" endtime="20230220 00:45:52.537"/>
+<test id="s1-t3" name="Empty desc" line="19">
+<kw name="Attempt Be a Geek">
+<arg>desc</arg>
+<arg>${EMPTY}</arg>
+<arg>Informe a descrição do seu trabalho</arg>
+<kw name="Factory User" library="Users">
+<var>${user}</var>
+<arg>attempt_be_geek</arg>
+<msg timestamp="20230220 22:51:28.988" level="INFO">${user} = {'name': 'Dio', 'lastname': 'Linux', 'email': 'dio@linux.com', 'password': 'pwd123', 'geek_profile': {'whats': '11999999999', 'desc': 'Instalo Distros Ubuntu, Debian, ElementaryOS, PopOS, Linux Mint, ...</msg>
+<status status="PASS" starttime="20230220 22:51:28.988" endtime="20230220 22:51:28.988"/>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<arg>${user}[geek_profile]</arg>
+<arg>${key}</arg>
+<arg>${input_field}</arg>
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<status status="PASS" starttime="20230220 22:51:28.988" endtime="20230220 22:51:28.988"/>
+</kw>
+<kw name="Fill Geek Form" library="GeekActions">
+<arg>${user}[geek_profile]</arg>
+<kw name="Reset Geek Form" library="GeekActions">
+<kw name="Evaluate JavaScript" library="Browser">
+<arg>css=.be-geek-form</arg>
+<arg>document.getElementsByClassName("be-geek-form")[0].reset()</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Executes given javascript on the selected element(s) or on page.</doc>
+<status status="PASS" starttime="20230220 22:51:28.989" endtime="20230220 22:51:29.196"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:28.988" endtime="20230220 22:51:29.196"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230220 22:51:31.198" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230220 22:51:29.197" endtime="20230220 22:51:31.199"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>id=whatsapp</arg>
+<arg>${geek_profile}[whats]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230220 22:51:31.201" level="INFO">Fills the text '11999999999' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:31.200" endtime="20230220 22:51:31.420"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>id=desc</arg>
+<arg>${geek_profile}[desc]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230220 22:51:31.421" level="INFO">Fills the text '' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:31.421" endtime="20230220 22:51:31.642"/>
+</kw>
+<kw name="Select Options By" library="Browser">
+<arg>id=printer_repair</arg>
+<arg>text</arg>
+<arg>${geek_profile}[printer_repair]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" starttime="20230220 22:51:31.642" endtime="20230220 22:51:32.072"/>
+</kw>
+<kw name="Select Options By" library="Browser">
+<arg>id=work</arg>
+<arg>text</arg>
+<arg>${geek_profile}[work]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" starttime="20230220 22:51:32.073" endtime="20230220 22:51:32.499"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>id=cost</arg>
+<arg>${geek_profile}[cost]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230220 22:51:32.501" level="INFO">Fills the text '200' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:32.500" endtime="20230220 22:51:32.719"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:28.988" endtime="20230220 22:51:32.720"/>
+</kw>
+<kw name="Submit Geek Form" library="GeekActions">
+<kw name="Click" library="Browser">
+<arg>css=button &gt;&gt; text=Quero ser um Geek</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230220 22:51:32.721" endtime="20230220 22:51:32.952"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:32.720" endtime="20230220 22:51:32.953"/>
+</kw>
+<kw name="Alert Span Should Be" library="_SharedActions">
+<arg>${output_message}</arg>
+<kw name="Wait For Elements State" library="Browser">
+<arg>css=span[class=error] &gt;&gt; text=${expected_alert}</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20230220 22:51:32.964" level="INFO">Waited for Element with selector css=span[class=error] &gt;&gt; text=Informe a descrição do seu trabalho at state visible</msg>
+<status status="PASS" starttime="20230220 22:51:32.954" endtime="20230220 22:51:32.964"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:32.953" endtime="20230220 22:51:32.964"/>
+</kw>
+<kw name="Take Screenshot" library="Browser">
+<arg>fullPage=true</arg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<msg timestamp="20230220 22:51:33.082" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-3.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230220 22:51:32.964" endtime="20230220 22:51:33.082"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:28.987" endtime="20230220 22:51:33.082"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:28.986" endtime="20230220 22:51:33.083"/>
+</test>
+<test id="s1-t4" name="Whats only ddd" line="20">
+<kw name="Attempt Be a Geek">
+<arg>whats</arg>
+<arg>11</arg>
+<arg>O Whatsapp deve ter 11 digitos contando com o DDD</arg>
+<kw name="Factory User" library="Users">
+<var>${user}</var>
+<arg>attempt_be_geek</arg>
+<msg timestamp="20230220 22:51:33.088" level="INFO">${user} = {'name': 'Dio', 'lastname': 'Linux', 'email': 'dio@linux.com', 'password': 'pwd123', 'geek_profile': {'whats': '11999999999', 'desc': 'Instalo Distros Ubuntu, Debian, ElementaryOS, PopOS, Linux Mint, ...</msg>
+<status status="PASS" starttime="20230220 22:51:33.087" endtime="20230220 22:51:33.088"/>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<arg>${user}[geek_profile]</arg>
+<arg>${key}</arg>
+<arg>${input_field}</arg>
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<status status="PASS" starttime="20230220 22:51:33.088" endtime="20230220 22:51:33.088"/>
+</kw>
+<kw name="Fill Geek Form" library="GeekActions">
+<arg>${user}[geek_profile]</arg>
+<kw name="Reset Geek Form" library="GeekActions">
+<kw name="Evaluate JavaScript" library="Browser">
+<arg>css=.be-geek-form</arg>
+<arg>document.getElementsByClassName("be-geek-form")[0].reset()</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Executes given javascript on the selected element(s) or on page.</doc>
+<status status="PASS" starttime="20230220 22:51:33.088" endtime="20230220 22:51:33.295"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:33.088" endtime="20230220 22:51:33.296"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230220 22:51:35.298" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230220 22:51:33.296" endtime="20230220 22:51:35.299"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>id=whatsapp</arg>
+<arg>${geek_profile}[whats]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230220 22:51:35.301" level="INFO">Fills the text '11' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:35.300" endtime="20230220 22:51:35.522"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>id=desc</arg>
+<arg>${geek_profile}[desc]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230220 22:51:35.524" level="INFO">Fills the text 'Instalo Distros Ubuntu, Debian, ElementaryOS, PopOS, Linux Mint, Kurumin, Mandrake, Connectiva, Fedora, RedHat, CentOS, Slackware, Genton, Archlinux, Kubuntu, Xubuntu, Suze, Mandriva, Edubuntu, KateOS, Sabayon Linux, Manjaro Linux, BigLinux, ZorinOS, Unit' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:35.523" endtime="20230220 22:51:35.743"/>
+</kw>
+<kw name="Select Options By" library="Browser">
+<arg>id=printer_repair</arg>
+<arg>text</arg>
+<arg>${geek_profile}[printer_repair]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" starttime="20230220 22:51:35.743" endtime="20230220 22:51:36.171"/>
+</kw>
+<kw name="Select Options By" library="Browser">
+<arg>id=work</arg>
+<arg>text</arg>
+<arg>${geek_profile}[work]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" starttime="20230220 22:51:36.171" endtime="20230220 22:51:36.598"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>id=cost</arg>
+<arg>${geek_profile}[cost]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230220 22:51:36.600" level="INFO">Fills the text '200' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:36.599" endtime="20230220 22:51:36.816"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:33.088" endtime="20230220 22:51:36.817"/>
+</kw>
+<kw name="Submit Geek Form" library="GeekActions">
+<kw name="Click" library="Browser">
+<arg>css=button &gt;&gt; text=Quero ser um Geek</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230220 22:51:36.818" endtime="20230220 22:51:37.051"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:36.817" endtime="20230220 22:51:37.052"/>
+</kw>
+<kw name="Alert Span Should Be" library="_SharedActions">
+<arg>${output_message}</arg>
+<kw name="Wait For Elements State" library="Browser">
+<arg>css=span[class=error] &gt;&gt; text=${expected_alert}</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20230220 22:51:37.061" level="INFO">Waited for Element with selector css=span[class=error] &gt;&gt; text=O Whatsapp deve ter 11 digitos contando com o DDD at state visible</msg>
+<status status="PASS" starttime="20230220 22:51:37.053" endtime="20230220 22:51:37.061"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:37.052" endtime="20230220 22:51:37.061"/>
+</kw>
+<kw name="Take Screenshot" library="Browser">
+<arg>fullPage=true</arg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<msg timestamp="20230220 22:51:37.178" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-4.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230220 22:51:37.062" endtime="20230220 22:51:37.178"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:33.087" endtime="20230220 22:51:37.178"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:33.085" endtime="20230220 22:51:37.178"/>
+</test>
+<test id="s1-t5" name="Whats only number" line="21">
+<kw name="Attempt Be a Geek">
+<arg>whats</arg>
+<arg>999999999</arg>
+<arg>O Whatsapp deve ter 11 digitos contando com o DDD</arg>
+<kw name="Factory User" library="Users">
+<var>${user}</var>
+<arg>attempt_be_geek</arg>
+<msg timestamp="20230220 22:51:37.181" level="INFO">${user} = {'name': 'Dio', 'lastname': 'Linux', 'email': 'dio@linux.com', 'password': 'pwd123', 'geek_profile': {'whats': '11999999999', 'desc': 'Instalo Distros Ubuntu, Debian, ElementaryOS, PopOS, Linux Mint, ...</msg>
+<status status="PASS" starttime="20230220 22:51:37.181" endtime="20230220 22:51:37.181"/>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<arg>${user}[geek_profile]</arg>
+<arg>${key}</arg>
+<arg>${input_field}</arg>
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<status status="PASS" starttime="20230220 22:51:37.181" endtime="20230220 22:51:37.181"/>
+</kw>
+<kw name="Fill Geek Form" library="GeekActions">
+<arg>${user}[geek_profile]</arg>
+<kw name="Reset Geek Form" library="GeekActions">
+<kw name="Evaluate JavaScript" library="Browser">
+<arg>css=.be-geek-form</arg>
+<arg>document.getElementsByClassName("be-geek-form")[0].reset()</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Executes given javascript on the selected element(s) or on page.</doc>
+<status status="PASS" starttime="20230220 22:51:37.182" endtime="20230220 22:51:37.391"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:37.182" endtime="20230220 22:51:37.392"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230220 22:51:39.394" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230220 22:51:37.392" endtime="20230220 22:51:39.394"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>id=whatsapp</arg>
+<arg>${geek_profile}[whats]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230220 22:51:39.396" level="INFO">Fills the text '999999999' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:39.395" endtime="20230220 22:51:39.617"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>id=desc</arg>
+<arg>${geek_profile}[desc]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230220 22:51:39.618" level="INFO">Fills the text 'Instalo Distros Ubuntu, Debian, ElementaryOS, PopOS, Linux Mint, Kurumin, Mandrake, Connectiva, Fedora, RedHat, CentOS, Slackware, Genton, Archlinux, Kubuntu, Xubuntu, Suze, Mandriva, Edubuntu, KateOS, Sabayon Linux, Manjaro Linux, BigLinux, ZorinOS, Unit' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:39.617" endtime="20230220 22:51:39.838"/>
+</kw>
+<kw name="Select Options By" library="Browser">
+<arg>id=printer_repair</arg>
+<arg>text</arg>
+<arg>${geek_profile}[printer_repair]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" starttime="20230220 22:51:39.839" endtime="20230220 22:51:40.267"/>
+</kw>
+<kw name="Select Options By" library="Browser">
+<arg>id=work</arg>
+<arg>text</arg>
+<arg>${geek_profile}[work]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" starttime="20230220 22:51:40.268" endtime="20230220 22:51:40.693"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>id=cost</arg>
+<arg>${geek_profile}[cost]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230220 22:51:40.694" level="INFO">Fills the text '200' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:40.693" endtime="20230220 22:51:40.913"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:37.181" endtime="20230220 22:51:40.913"/>
+</kw>
+<kw name="Submit Geek Form" library="GeekActions">
+<kw name="Click" library="Browser">
+<arg>css=button &gt;&gt; text=Quero ser um Geek</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230220 22:51:40.915" endtime="20230220 22:51:41.155"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:40.914" endtime="20230220 22:51:41.155"/>
+</kw>
+<kw name="Alert Span Should Be" library="_SharedActions">
+<arg>${output_message}</arg>
+<kw name="Wait For Elements State" library="Browser">
+<arg>css=span[class=error] &gt;&gt; text=${expected_alert}</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20230220 22:51:41.164" level="INFO">Waited for Element with selector css=span[class=error] &gt;&gt; text=O Whatsapp deve ter 11 digitos contando com o DDD at state visible</msg>
+<status status="PASS" starttime="20230220 22:51:41.156" endtime="20230220 22:51:41.164"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:41.156" endtime="20230220 22:51:41.164"/>
+</kw>
+<kw name="Take Screenshot" library="Browser">
+<arg>fullPage=true</arg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<msg timestamp="20230220 22:51:41.288" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-5.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230220 22:51:41.165" endtime="20230220 22:51:41.288"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:37.181" endtime="20230220 22:51:41.288"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:37.180" endtime="20230220 22:51:41.288"/>
+</test>
+<test id="s1-t6" name="Empty whats" line="22">
+<kw name="Attempt Be a Geek">
+<arg>whats</arg>
+<arg>${EMPTY}</arg>
+<arg>O Whatsapp deve ter 11 digitos contando com o DDD</arg>
+<kw name="Factory User" library="Users">
+<var>${user}</var>
+<arg>attempt_be_geek</arg>
+<msg timestamp="20230220 22:51:41.291" level="INFO">${user} = {'name': 'Dio', 'lastname': 'Linux', 'email': 'dio@linux.com', 'password': 'pwd123', 'geek_profile': {'whats': '11999999999', 'desc': 'Instalo Distros Ubuntu, Debian, ElementaryOS, PopOS, Linux Mint, ...</msg>
+<status status="PASS" starttime="20230220 22:51:41.291" endtime="20230220 22:51:41.291"/>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<arg>${user}[geek_profile]</arg>
+<arg>${key}</arg>
+<arg>${input_field}</arg>
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<status status="PASS" starttime="20230220 22:51:41.291" endtime="20230220 22:51:41.291"/>
+</kw>
+<kw name="Fill Geek Form" library="GeekActions">
+<arg>${user}[geek_profile]</arg>
+<kw name="Reset Geek Form" library="GeekActions">
+<kw name="Evaluate JavaScript" library="Browser">
+<arg>css=.be-geek-form</arg>
+<arg>document.getElementsByClassName("be-geek-form")[0].reset()</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Executes given javascript on the selected element(s) or on page.</doc>
+<status status="PASS" starttime="20230220 22:51:41.292" endtime="20230220 22:51:41.500"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:41.292" endtime="20230220 22:51:41.500"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230220 22:51:43.503" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230220 22:51:41.500" endtime="20230220 22:51:43.503"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>id=whatsapp</arg>
+<arg>${geek_profile}[whats]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230220 22:51:43.505" level="INFO">Fills the text '' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:43.504" endtime="20230220 22:51:43.728"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>id=desc</arg>
+<arg>${geek_profile}[desc]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230220 22:51:43.729" level="INFO">Fills the text 'Instalo Distros Ubuntu, Debian, ElementaryOS, PopOS, Linux Mint, Kurumin, Mandrake, Connectiva, Fedora, RedHat, CentOS, Slackware, Genton, Archlinux, Kubuntu, Xubuntu, Suze, Mandriva, Edubuntu, KateOS, Sabayon Linux, Manjaro Linux, BigLinux, ZorinOS, Unit' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:43.729" endtime="20230220 22:51:43.949"/>
+</kw>
+<kw name="Select Options By" library="Browser">
+<arg>id=printer_repair</arg>
+<arg>text</arg>
+<arg>${geek_profile}[printer_repair]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" starttime="20230220 22:51:43.950" endtime="20230220 22:51:44.376"/>
+</kw>
+<kw name="Select Options By" library="Browser">
+<arg>id=work</arg>
+<arg>text</arg>
+<arg>${geek_profile}[work]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" starttime="20230220 22:51:44.377" endtime="20230220 22:51:44.807"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>id=cost</arg>
+<arg>${geek_profile}[cost]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230220 22:51:44.809" level="INFO">Fills the text '200' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:44.808" endtime="20230220 22:51:45.025"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:41.291" endtime="20230220 22:51:45.026"/>
+</kw>
+<kw name="Submit Geek Form" library="GeekActions">
+<kw name="Click" library="Browser">
+<arg>css=button &gt;&gt; text=Quero ser um Geek</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230220 22:51:45.027" endtime="20230220 22:51:45.271"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:45.026" endtime="20230220 22:51:45.272"/>
+</kw>
+<kw name="Alert Span Should Be" library="_SharedActions">
+<arg>${output_message}</arg>
+<kw name="Wait For Elements State" library="Browser">
+<arg>css=span[class=error] &gt;&gt; text=${expected_alert}</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20230220 22:51:45.281" level="INFO">Waited for Element with selector css=span[class=error] &gt;&gt; text=O Whatsapp deve ter 11 digitos contando com o DDD at state visible</msg>
+<status status="PASS" starttime="20230220 22:51:45.273" endtime="20230220 22:51:45.281"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:45.272" endtime="20230220 22:51:45.282"/>
+</kw>
+<kw name="Take Screenshot" library="Browser">
+<arg>fullPage=true</arg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<msg timestamp="20230220 22:51:45.395" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-6.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230220 22:51:45.282" endtime="20230220 22:51:45.395"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:41.291" endtime="20230220 22:51:45.395"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:41.290" endtime="20230220 22:51:45.395"/>
+</test>
+<test id="s1-t7" name="Cost letters" line="23">
+<kw name="Attempt Be a Geek">
+<arg>cost</arg>
+<arg>aaaa</arg>
+<arg>Valor hora deve ser numérico</arg>
+<kw name="Factory User" library="Users">
+<var>${user}</var>
+<arg>attempt_be_geek</arg>
+<msg timestamp="20230220 22:51:45.398" level="INFO">${user} = {'name': 'Dio', 'lastname': 'Linux', 'email': 'dio@linux.com', 'password': 'pwd123', 'geek_profile': {'whats': '11999999999', 'desc': 'Instalo Distros Ubuntu, Debian, ElementaryOS, PopOS, Linux Mint, ...</msg>
+<status status="PASS" starttime="20230220 22:51:45.398" endtime="20230220 22:51:45.398"/>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<arg>${user}[geek_profile]</arg>
+<arg>${key}</arg>
+<arg>${input_field}</arg>
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<status status="PASS" starttime="20230220 22:51:45.398" endtime="20230220 22:51:45.399"/>
+</kw>
+<kw name="Fill Geek Form" library="GeekActions">
+<arg>${user}[geek_profile]</arg>
+<kw name="Reset Geek Form" library="GeekActions">
+<kw name="Evaluate JavaScript" library="Browser">
+<arg>css=.be-geek-form</arg>
+<arg>document.getElementsByClassName("be-geek-form")[0].reset()</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Executes given javascript on the selected element(s) or on page.</doc>
+<status status="PASS" starttime="20230220 22:51:45.399" endtime="20230220 22:51:45.612"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:45.399" endtime="20230220 22:51:45.612"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230220 22:51:47.614" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230220 22:51:45.612" endtime="20230220 22:51:47.615"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>id=whatsapp</arg>
+<arg>${geek_profile}[whats]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230220 22:51:47.615" level="INFO">Fills the text '11999999999' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:47.615" endtime="20230220 22:51:47.835"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>id=desc</arg>
+<arg>${geek_profile}[desc]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230220 22:51:47.837" level="INFO">Fills the text 'Instalo Distros Ubuntu, Debian, ElementaryOS, PopOS, Linux Mint, Kurumin, Mandrake, Connectiva, Fedora, RedHat, CentOS, Slackware, Genton, Archlinux, Kubuntu, Xubuntu, Suze, Mandriva, Edubuntu, KateOS, Sabayon Linux, Manjaro Linux, BigLinux, ZorinOS, Unit' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:47.836" endtime="20230220 22:51:48.054"/>
+</kw>
+<kw name="Select Options By" library="Browser">
+<arg>id=printer_repair</arg>
+<arg>text</arg>
+<arg>${geek_profile}[printer_repair]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" starttime="20230220 22:51:48.055" endtime="20230220 22:51:48.479"/>
+</kw>
+<kw name="Select Options By" library="Browser">
+<arg>id=work</arg>
+<arg>text</arg>
+<arg>${geek_profile}[work]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" starttime="20230220 22:51:48.480" endtime="20230220 22:51:48.906"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>id=cost</arg>
+<arg>${geek_profile}[cost]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230220 22:51:48.907" level="INFO">Fills the text 'aaaa' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:48.907" endtime="20230220 22:51:49.125"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:45.399" endtime="20230220 22:51:49.126"/>
+</kw>
+<kw name="Submit Geek Form" library="GeekActions">
+<kw name="Click" library="Browser">
+<arg>css=button &gt;&gt; text=Quero ser um Geek</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230220 22:51:49.127" endtime="20230220 22:51:49.371"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:49.126" endtime="20230220 22:51:49.372"/>
+</kw>
+<kw name="Alert Span Should Be" library="_SharedActions">
+<arg>${output_message}</arg>
+<kw name="Wait For Elements State" library="Browser">
+<arg>css=span[class=error] &gt;&gt; text=${expected_alert}</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20230220 22:51:49.381" level="INFO">Waited for Element with selector css=span[class=error] &gt;&gt; text=Valor hora deve ser numérico at state visible</msg>
+<status status="PASS" starttime="20230220 22:51:49.373" endtime="20230220 22:51:49.381"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:49.372" endtime="20230220 22:51:49.382"/>
+</kw>
+<kw name="Take Screenshot" library="Browser">
+<arg>fullPage=true</arg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<msg timestamp="20230220 22:51:49.496" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-7.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230220 22:51:49.382" endtime="20230220 22:51:49.496"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:45.398" endtime="20230220 22:51:49.496"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:45.397" endtime="20230220 22:51:49.496"/>
+</test>
+<test id="s1-t8" name="Cost alpha" line="24">
+<kw name="Attempt Be a Geek">
+<arg>cost</arg>
+<arg>aa12</arg>
+<arg>Valor hora deve ser numérico</arg>
+<kw name="Factory User" library="Users">
+<var>${user}</var>
+<arg>attempt_be_geek</arg>
+<msg timestamp="20230220 22:51:49.499" level="INFO">${user} = {'name': 'Dio', 'lastname': 'Linux', 'email': 'dio@linux.com', 'password': 'pwd123', 'geek_profile': {'whats': '11999999999', 'desc': 'Instalo Distros Ubuntu, Debian, ElementaryOS, PopOS, Linux Mint, ...</msg>
+<status status="PASS" starttime="20230220 22:51:49.499" endtime="20230220 22:51:49.499"/>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<arg>${user}[geek_profile]</arg>
+<arg>${key}</arg>
+<arg>${input_field}</arg>
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<status status="PASS" starttime="20230220 22:51:49.499" endtime="20230220 22:51:49.499"/>
+</kw>
+<kw name="Fill Geek Form" library="GeekActions">
+<arg>${user}[geek_profile]</arg>
+<kw name="Reset Geek Form" library="GeekActions">
+<kw name="Evaluate JavaScript" library="Browser">
+<arg>css=.be-geek-form</arg>
+<arg>document.getElementsByClassName("be-geek-form")[0].reset()</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Executes given javascript on the selected element(s) or on page.</doc>
+<status status="PASS" starttime="20230220 22:51:49.499" endtime="20230220 22:51:49.708"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:49.499" endtime="20230220 22:51:49.708"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230220 22:51:51.712" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230220 22:51:49.709" endtime="20230220 22:51:51.712"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>id=whatsapp</arg>
+<arg>${geek_profile}[whats]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230220 22:51:51.714" level="INFO">Fills the text '11999999999' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:51.713" endtime="20230220 22:51:51.934"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>id=desc</arg>
+<arg>${geek_profile}[desc]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230220 22:51:51.935" level="INFO">Fills the text 'Instalo Distros Ubuntu, Debian, ElementaryOS, PopOS, Linux Mint, Kurumin, Mandrake, Connectiva, Fedora, RedHat, CentOS, Slackware, Genton, Archlinux, Kubuntu, Xubuntu, Suze, Mandriva, Edubuntu, KateOS, Sabayon Linux, Manjaro Linux, BigLinux, ZorinOS, Unit' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:51.934" endtime="20230220 22:51:52.153"/>
+</kw>
+<kw name="Select Options By" library="Browser">
+<arg>id=printer_repair</arg>
+<arg>text</arg>
+<arg>${geek_profile}[printer_repair]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" starttime="20230220 22:51:52.153" endtime="20230220 22:51:52.579"/>
+</kw>
+<kw name="Select Options By" library="Browser">
+<arg>id=work</arg>
+<arg>text</arg>
+<arg>${geek_profile}[work]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" starttime="20230220 22:51:52.579" endtime="20230220 22:51:53.005"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>id=cost</arg>
+<arg>${geek_profile}[cost]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230220 22:51:53.006" level="INFO">Fills the text 'aa12' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:53.005" endtime="20230220 22:51:53.224"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:49.499" endtime="20230220 22:51:53.224"/>
+</kw>
+<kw name="Submit Geek Form" library="GeekActions">
+<kw name="Click" library="Browser">
+<arg>css=button &gt;&gt; text=Quero ser um Geek</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230220 22:51:53.225" endtime="20230220 22:51:53.469"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:53.225" endtime="20230220 22:51:53.470"/>
+</kw>
+<kw name="Alert Span Should Be" library="_SharedActions">
+<arg>${output_message}</arg>
+<kw name="Wait For Elements State" library="Browser">
+<arg>css=span[class=error] &gt;&gt; text=${expected_alert}</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20230220 22:51:53.478" level="INFO">Waited for Element with selector css=span[class=error] &gt;&gt; text=Valor hora deve ser numérico at state visible</msg>
+<status status="PASS" starttime="20230220 22:51:53.471" endtime="20230220 22:51:53.478"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:53.470" endtime="20230220 22:51:53.479"/>
+</kw>
+<kw name="Take Screenshot" library="Browser">
+<arg>fullPage=true</arg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<msg timestamp="20230220 22:51:53.591" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-8.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230220 22:51:53.479" endtime="20230220 22:51:53.591"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:49.499" endtime="20230220 22:51:53.592"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:49.498" endtime="20230220 22:51:53.592"/>
+</test>
+<test id="s1-t9" name="Cost special" line="25">
+<kw name="Attempt Be a Geek">
+<arg>cost</arg>
+<arg>&amp;!*%ˆ</arg>
+<arg>Valor hora deve ser numérico</arg>
+<kw name="Factory User" library="Users">
+<var>${user}</var>
+<arg>attempt_be_geek</arg>
+<msg timestamp="20230220 22:51:53.594" level="INFO">${user} = {'name': 'Dio', 'lastname': 'Linux', 'email': 'dio@linux.com', 'password': 'pwd123', 'geek_profile': {'whats': '11999999999', 'desc': 'Instalo Distros Ubuntu, Debian, ElementaryOS, PopOS, Linux Mint, ...</msg>
+<status status="PASS" starttime="20230220 22:51:53.594" endtime="20230220 22:51:53.594"/>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<arg>${user}[geek_profile]</arg>
+<arg>${key}</arg>
+<arg>${input_field}</arg>
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<status status="PASS" starttime="20230220 22:51:53.594" endtime="20230220 22:51:53.594"/>
+</kw>
+<kw name="Fill Geek Form" library="GeekActions">
+<arg>${user}[geek_profile]</arg>
+<kw name="Reset Geek Form" library="GeekActions">
+<kw name="Evaluate JavaScript" library="Browser">
+<arg>css=.be-geek-form</arg>
+<arg>document.getElementsByClassName("be-geek-form")[0].reset()</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Executes given javascript on the selected element(s) or on page.</doc>
+<status status="PASS" starttime="20230220 22:51:53.595" endtime="20230220 22:51:53.803"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:53.595" endtime="20230220 22:51:53.803"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230220 22:51:55.805" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230220 22:51:53.803" endtime="20230220 22:51:55.806"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>id=whatsapp</arg>
+<arg>${geek_profile}[whats]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230220 22:51:55.807" level="INFO">Fills the text '11999999999' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:55.806" endtime="20230220 22:51:56.027"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>id=desc</arg>
+<arg>${geek_profile}[desc]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230220 22:51:56.029" level="INFO">Fills the text 'Instalo Distros Ubuntu, Debian, ElementaryOS, PopOS, Linux Mint, Kurumin, Mandrake, Connectiva, Fedora, RedHat, CentOS, Slackware, Genton, Archlinux, Kubuntu, Xubuntu, Suze, Mandriva, Edubuntu, KateOS, Sabayon Linux, Manjaro Linux, BigLinux, ZorinOS, Unit' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:56.028" endtime="20230220 22:51:56.244"/>
+</kw>
+<kw name="Select Options By" library="Browser">
+<arg>id=printer_repair</arg>
+<arg>text</arg>
+<arg>${geek_profile}[printer_repair]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" starttime="20230220 22:51:56.245" endtime="20230220 22:51:56.670"/>
+</kw>
+<kw name="Select Options By" library="Browser">
+<arg>id=work</arg>
+<arg>text</arg>
+<arg>${geek_profile}[work]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" starttime="20230220 22:51:56.670" endtime="20230220 22:51:57.096"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>id=cost</arg>
+<arg>${geek_profile}[cost]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230220 22:51:57.097" level="INFO">Fills the text '&amp;!*%ˆ' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:57.097" endtime="20230220 22:51:57.316"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:53.595" endtime="20230220 22:51:57.317"/>
+</kw>
+<kw name="Submit Geek Form" library="GeekActions">
+<kw name="Click" library="Browser">
+<arg>css=button &gt;&gt; text=Quero ser um Geek</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230220 22:51:57.318" endtime="20230220 22:51:57.553"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:57.318" endtime="20230220 22:51:57.554"/>
+</kw>
+<kw name="Alert Span Should Be" library="_SharedActions">
+<arg>${output_message}</arg>
+<kw name="Wait For Elements State" library="Browser">
+<arg>css=span[class=error] &gt;&gt; text=${expected_alert}</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20230220 22:51:57.562" level="INFO">Waited for Element with selector css=span[class=error] &gt;&gt; text=Valor hora deve ser numérico at state visible</msg>
+<status status="PASS" starttime="20230220 22:51:57.555" endtime="20230220 22:51:57.563"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:57.554" endtime="20230220 22:51:57.563"/>
+</kw>
+<kw name="Take Screenshot" library="Browser">
+<arg>fullPage=true</arg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<msg timestamp="20230220 22:51:57.688" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-9.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-9.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230220 22:51:57.563" endtime="20230220 22:51:57.688"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:53.594" endtime="20230220 22:51:57.688"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:53.593" endtime="20230220 22:51:57.688"/>
+</test>
+<test id="s1-t10" name="Empty cost" line="26">
+<kw name="Attempt Be a Geek">
+<arg>cost</arg>
+<arg>${EMPTY}</arg>
+<arg>Valor hora deve ser numérico</arg>
+<kw name="Factory User" library="Users">
+<var>${user}</var>
+<arg>attempt_be_geek</arg>
+<msg timestamp="20230220 22:51:57.691" level="INFO">${user} = {'name': 'Dio', 'lastname': 'Linux', 'email': 'dio@linux.com', 'password': 'pwd123', 'geek_profile': {'whats': '11999999999', 'desc': 'Instalo Distros Ubuntu, Debian, ElementaryOS, PopOS, Linux Mint, ...</msg>
+<status status="PASS" starttime="20230220 22:51:57.691" endtime="20230220 22:51:57.691"/>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<arg>${user}[geek_profile]</arg>
+<arg>${key}</arg>
+<arg>${input_field}</arg>
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<status status="PASS" starttime="20230220 22:51:57.691" endtime="20230220 22:51:57.691"/>
+</kw>
+<kw name="Fill Geek Form" library="GeekActions">
+<arg>${user}[geek_profile]</arg>
+<kw name="Reset Geek Form" library="GeekActions">
+<kw name="Evaluate JavaScript" library="Browser">
+<arg>css=.be-geek-form</arg>
+<arg>document.getElementsByClassName("be-geek-form")[0].reset()</arg>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Executes given javascript on the selected element(s) or on page.</doc>
+<status status="PASS" starttime="20230220 22:51:57.691" endtime="20230220 22:51:57.898"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:57.691" endtime="20230220 22:51:57.899"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230220 22:51:59.899" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230220 22:51:57.899" endtime="20230220 22:51:59.900"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>id=whatsapp</arg>
+<arg>${geek_profile}[whats]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230220 22:51:59.901" level="INFO">Fills the text '11999999999' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:51:59.900" endtime="20230220 22:52:00.121"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>id=desc</arg>
+<arg>${geek_profile}[desc]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230220 22:52:00.123" level="INFO">Fills the text 'Instalo Distros Ubuntu, Debian, ElementaryOS, PopOS, Linux Mint, Kurumin, Mandrake, Connectiva, Fedora, RedHat, CentOS, Slackware, Genton, Archlinux, Kubuntu, Xubuntu, Suze, Mandriva, Edubuntu, KateOS, Sabayon Linux, Manjaro Linux, BigLinux, ZorinOS, Unit' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:52:00.122" endtime="20230220 22:52:00.341"/>
+</kw>
+<kw name="Select Options By" library="Browser">
+<arg>id=printer_repair</arg>
+<arg>text</arg>
+<arg>${geek_profile}[printer_repair]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" starttime="20230220 22:52:00.342" endtime="20230220 22:52:00.764"/>
+</kw>
+<kw name="Select Options By" library="Browser">
+<arg>id=work</arg>
+<arg>text</arg>
+<arg>${geek_profile}[work]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Selects options from select element found by ``selector``.</doc>
+<status status="PASS" starttime="20230220 22:52:00.765" endtime="20230220 22:52:01.189"/>
+</kw>
+<kw name="Fill Text" library="Browser">
+<arg>id=cost</arg>
+<arg>${geek_profile}[cost]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230220 22:52:01.190" level="INFO">Fills the text '' in the given field.</msg>
+<status status="PASS" starttime="20230220 22:52:01.190" endtime="20230220 22:52:01.407"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:57.691" endtime="20230220 22:52:01.408"/>
+</kw>
+<kw name="Submit Geek Form" library="GeekActions">
+<kw name="Click" library="Browser">
+<arg>css=button &gt;&gt; text=Quero ser um Geek</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230220 22:52:01.409" endtime="20230220 22:52:01.655"/>
+</kw>
+<status status="PASS" starttime="20230220 22:52:01.408" endtime="20230220 22:52:01.656"/>
+</kw>
+<kw name="Alert Span Should Be" library="_SharedActions">
+<arg>${output_message}</arg>
+<kw name="Wait For Elements State" library="Browser">
+<arg>css=span[class=error] &gt;&gt; text=${expected_alert}</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<msg timestamp="20230220 22:52:01.664" level="INFO">Waited for Element with selector css=span[class=error] &gt;&gt; text=Valor hora deve ser numérico at state visible</msg>
+<status status="PASS" starttime="20230220 22:52:01.657" endtime="20230220 22:52:01.664"/>
+</kw>
+<status status="PASS" starttime="20230220 22:52:01.656" endtime="20230220 22:52:01.665"/>
+</kw>
+<kw name="Take Screenshot" library="Browser">
+<arg>fullPage=true</arg>
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<msg timestamp="20230220 22:52:01.779" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-10.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230220 22:52:01.665" endtime="20230220 22:52:01.779"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:57.690" endtime="20230220 22:52:01.779"/>
+</kw>
+<status status="PASS" starttime="20230220 22:51:57.689" endtime="20230220 22:52:01.779"/>
+</test>
+<doc>Attempt BeGeek Test Suite</doc>
+<status status="PASS" starttime="20230220 22:51:16.976" endtime="20230220 22:52:01.781"/>
 </suite>
 <statistics>
 <total>
-<stat pass="3" fail="0" skip="0">All Tests</stat>
+<stat pass="10" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="3" fail="0" skip="0">smoke</stat>
 </tag>
 <suite>
-<stat pass="3" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s1" name="BeGeek">Tests.BeGeek</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s2" name="Login">Tests.Login</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s3" name="Signup">Tests.Signup</stat>
+<stat pass="10" fail="0" skip="0" id="s1" name="AttemptBeGeek">AttemptBeGeek</stat>
 </suite>
 </statistics>
 <errors>

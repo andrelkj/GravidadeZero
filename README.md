@@ -23,6 +23,7 @@
     - [Test template improvement](#test-template-improvement)
 - [Smoke test](#smoke-test)
 - [Screen Resolution](#screen-resolution)
+- [Clearing HTML forms](#clearing-html-forms)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
   - [chmod +x run.sh](#chmod-x-runsh)
@@ -691,6 +692,51 @@ We'll now have an idea about the health of the application to allow or not its e
 # Screen Resolution
 
 Always consider the screen resolution while creating and executing test cases. To optimize it you can consider the lower required resolution so all elements can be displayed and tested properly for diverent devices.
+
+We define which resolution we want by adding the function `Set Viewport Size    1440    900` inside our test initiator
+
+# Clearing HTML forms
+
+While executing our tests inside /be-geek to register a new geek all forms information is being kept before the library actually inserts its input. Here this is not a problem because the factory overwrite the old data from the necessary fields, but the ideal scenario is to clear the forms for each new test case scenario.
+
+In order to do this we have a JavaScript function that find and clear web applications forms data by class name `document.getElementsByClassName("be-geek-form")[0].reset();`. Although robot cannot read JavaScript so we'll add a keyword (Execute JavaScript) so robot can use the function properly.
+
+1. We'll create a new action called Reset Geek Form
+
+Used inside the course (OUTDATED)
+
+```
+Reset Geek Form
+    Execute JavaScript    document.getElementsByClassName("be-geek-form")[0].reset();
+```
+
+Up to date alternative method
+
+```
+Reset Geek Form
+    Evaluate JavaScript    css=.be-geek-form    document.getElementsByClassName("be-geek-form")[0].reset()
+```
+
+**Important:** Execute JavaScript method was outdated so I updated it to the Evaluate JavaScript method entering the selector and then the JS function.
+
+2. Then we're going to call this new keyword inside the Fill Geek Form action
+
+```
+Fill Geek Form
+    [Arguments]    ${geek_profile}
+
+    Reset Geek Form
+
+    Fill Text    id=whatsapp    ${geek_profile}[whats]
+    Fill Text    id=desc    ${geek_profile}[desc]
+
+    Select Options By    id=printer_repair    text    ${geek_profile}[printer_repair]
+    Select Options By    id=work    text    ${geek_profile}[work]
+
+    Fill Text    id=cost    ${geek_profile}[cost]
+```
+
+This way every time that a form is filled all previous data is cleared before entering the new data.
 
 ---
 
