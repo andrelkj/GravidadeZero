@@ -9,6 +9,7 @@
   - [Factories](#factories)
     - [Faker Library](#faker-library)
   - [Template](#template)
+- [Base.robot](#baserobot)
 - [Database.robot](#databaserobot)
 - [SignupRequired.robot](#signuprequiredrobot)
 - [Temp.robot](#temprobot)
@@ -282,6 +283,30 @@ Short Password
 **Important:** template will only work if all conditions are exactly equal to one another. Another way to add these repetitive structures, is by using suite setups that will be explained better in the Signup.robot section.
 
 ---
+
+# Base.robot
+
+Here's all the base data for testing
+
+It's possible to add dynamic variables to Robot's Command Line Interface (CLI) by defining a variable and calling it with -v VARIABLE:value inside the console:
+
+1. Here we first defined the variables inside de [Base File](resources/Base.robot)
+
+```
+*** Keywords ***
+Start Session
+    New Browser    ${BROWSER}    headless=${HEADLESS}    slowMo=00:00:00.3
+    New Page    ${BASE_URL}
+    Set Viewport Size    1440    900
+```
+
+2. Then added it to our console shortcut inside our [Terminal Shortcut File](run.sh) with -v
+
+```
+robot -d ./logs -v BROWSER:chromium -v HEADLESS:true -i smoke tests
+```
+
+**Note:** This is important while running continuos testing with Jenkins but will only work while running the application through the terminal. Running this with VS Code for example will return error because ${BROWSER} and ${HEADLESS} variables aren't defined inside the code.
 
 # Database.robot
 
@@ -792,6 +817,7 @@ By doing it the select fields will be selected only if there's a valid option fo
 - run.bat - runs terminal shortcuts **This works for MS-DOS based terminals**
 - .lower() - python method to turn text onto lower case only
 - fullPage - it's a browser library feature normally used for screenshots, expects true (to show the hole page) or false (to show only a piece of the page)
+- robot -v BROWSER:chromium -v HEADLESS:true - define a variable and gives a value to it
 
 ## Git
 

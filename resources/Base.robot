@@ -18,7 +18,9 @@ ${BASE_URL}     https://geeks-web-andre.fly.dev
 
 *** Keywords ***
 Start Session
-    New Browser    chromium    headless=false    slowMo=00:00:00.3
+    # This error happens because ${BROWSER} and ${HEADLESS} variables are defined during console execution
+    New Browser    ${BROWSER}    headless=${HEADLESS}    slowMo=00:00:00.3
+    # New Browser    chromium    headless=false    slowMo=00:00:00.3
     New Page    ${BASE_URL}
     Set Viewport Size    1440    900
 
