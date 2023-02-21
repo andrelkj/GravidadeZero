@@ -24,6 +24,7 @@
 - [Smoke test](#smoke-test)
 - [Screen Resolution](#screen-resolution)
 - [Clearing HTML forms](#clearing-html-forms)
+- [Dealing with conditional elements (IFs)](#dealing-with-conditional-elements-ifs)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
   - [chmod +x run.sh](#chmod-x-runsh)
@@ -695,6 +696,8 @@ Always consider the screen resolution while creating and executing test cases. T
 
 We define which resolution we want by adding the function `Set Viewport Size    1440    900` inside our test initiator
 
+---
+
 # Clearing HTML forms
 
 While executing our tests inside /be-geek to register a new geek all forms information is being kept before the library actually inserts its input. Here this is not a problem because the factory overwrite the old data from the necessary fields, but the ideal scenario is to clear the forms for each new test case scenario.
@@ -737,6 +740,43 @@ Fill Geek Form
 ```
 
 This way every time that a form is filled all previous data is cleared before entering the new data.
+
+---
+
+# Dealing with conditional elements (IFs)
+
+Until this point we've created a bunch of test case considering all basic inputs but we now need to deal with the conditional selectors, for example:
+
+> For the print_repair select element. While true the user is classified as supreme geek, while false the user is classified as a normal geek only so...
+>
+> - If print_repair is true or equal to "Sim" then user is a supreme geek;
+> - If print_repair is false or equal to "Não" then user is a normal geek;
+> - If there's no option selected the span message "Por favor, informe se você é um Geek Supremo" is displayed
+
+1. We created 2 new test cases to test submiting empty select fields to our [Attempt Be Geek Suite](tests/AttemptBeGeek.robot):
+
+```
+*** Test Cases ***
+...
+No printer repair    printer_repair    ${EMPTY}    Por favor, informe se você é um Geek Supremo
+No word    work    ${EMPTY}    Por favor, selecione o modelo de trabalho
+```
+
+**OBS.:** using the `${EMPTY}` variable in here it's not recommended once it will also remove the standard option leaving and empty field, instead of the normal Select option that can lead to future bugs in the application.
+
+In order to improve this empty field we'll define a conditional statement inside the [Fill Geek Form](resources/actions/GeekActions.robot) action:
+
+```
+    IF    '${geek_profile}[printer_repair]'
+        Select Options By    id=printer_repair    text    ${geek_profile}[printer_repair]
+    END
+
+    IF    ${geek_profile}[work]
+        Select Options By    id=work    text    ${geek_profile}[work]
+    END
+```
+
+By doing it the select fields will be selected only if there's a valid option for it and if not this steps is not considered, we skip it to the next step.
 
 ---
 
