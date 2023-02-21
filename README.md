@@ -32,6 +32,7 @@
 - [Challenge 1 - module PRO](#challenge-1---module-pro)
   - [Automate 3 new test cases inside the login suite:](#automate-3-new-test-cases-inside-the-login-suite)
 - [Important links](#important-links)
+  - [Pabot](#pabot)
 
 ---
 
@@ -883,3 +884,9 @@ Then a required field message is displayed for each field
 - [ElephantSQL](https://api.elephantsql.com/console/51ccfaa2-d261-4503-b858-da3b75125790/browser?#)
 - [QAcademy course](https://app.qacademy.io/area/produto/item/149046)
 - [Faker Library](https://pypi.org/project/Faker/)
+
+## Pabot
+
+- [Pabot Parallel Executor](https://pabot.org/)
+
+Is a parallel executor that runs several tests at once based on the number of available processors. It's important to note that using cloud environment only gives 1 available processor so it won't work for cloud environment.
