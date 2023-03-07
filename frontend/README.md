@@ -855,6 +855,8 @@ Here all backend testing and database connection will be analysed and validated 
 
 Thunder client is a VS Code extention used to manage and test server queries without the need of an external application like Postman and/or Insomnia.
 
+**IMPORTANT:** Thunder Client execute requirements and validations but it cannot deal with data workload properly so it will be converted to robot as well for automated testing. Although Thunder Client can still be usefull and interesting for API Testing.
+
 ### Collections
 
 All start by creating a collection like the "Getgeeks" created in here.
