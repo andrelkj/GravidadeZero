@@ -35,6 +35,14 @@
 - [Important links](#important-links)
   - [Pabot](#pabot)
     - [Pabot screenshot path improvement](#pabot-screenshot-path-improvement)
+- [API Testing](#api-testing)
+  - [Thunder Client](#thunder-client)
+    - [Collections](#collections)
+    - [HTML Methods](#html-methods)
+    - [Status Codes](#status-codes)
+    - [Tests](#tests)
+      - [Validating token](#validating-token)
+      - [Front-end x back-end](#front-end-x-back-end)
 
 ---
 
@@ -936,3 +944,67 @@ After Test
 ```
 
 By doing this we now refresh browsers lib screenshot file before each execution, saving all report screenshots inside a brand new file with unique identifiers, making it possible to visualize the screenshots inside the report even when using the pabot.
+
+---
+
+# API Testing
+
+Here all backend testing and database connection will be analysed and validated though plataforms lile Postman, Insomnia and/or, as used here, Thunder Client (VS Code extention). The principle of API testing it to validate servers requirements linking it to the GUI's expected behaviour.
+
+## Thunder Client
+
+Thunder client is a VS Code extention used to manage and test server queries without the need of an external application like Postman and/or Insomnia.
+
+### Collections
+
+All start by creating a collection like the "Getgeeks" created in here.
+
+To create a collection:
+
+1. Open the Collections tab;
+2. Select the 3 lines buttom on the right of the filter field;
+3. Select to create a New Collection or to Import an existing according to your needs.
+
+**Obs.:** selecting the "..." button on the right of a collection will display it's possible options/actions.
+
+### HTML Methods
+
+All HTML requests use methods in order to understand what it should actually do. Some of these requests are:
+
+- GET
+- POST
+- PUT
+- DELETE
+
+**Note:** all new created request come with GET as standart, change it to your needs.
+
+### Status Codes
+
+[Mozilla Web Docs - Status Code](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Status?_gl=1*1uzgpt1*_ga*MTQyNjEyMjEwMi4xNjcxNDYzODUw*_ga_37GXT4VGQK*MTY3ODA3NjI5MC42NS4xLjE2NzgwNzcxNDYuMC4wLjA.)
+
+1. Informative responses (100 - 199)
+2. Success responses (200 - 299)
+3. Redirectioning (300-399)
+4. Client errors (400 - 499)
+5. Server errors (500 - 599)
+
+**Notes:**
+200 - OK, everything was executed correctly
+400 - Credentials and/or information do not exist o
+401 - Credentials and/or information exists but is not authorized or is invalid
+
+**OBS.:** devtools can be used in web applications in order to get all required requests information
+
+### Tests
+
+#### Validating token
+
+Token validation is possible by verifying token's character count (in this case 140) and then using the function .lengh indicating the json token inside the tests tab from thunder client: `json.token.length` and the value of character it should receive (140 characters in our case)
+
+In addition to it we can also validate if the token is expired or not by using `json.expires_in` with the value of days until it expires (10d for the application we're considering)
+
+To call the elemts it's very simple we just need to look for it's name displayed inside the response, then consider the output type and describing the functions we want it to use after the . like in the where we're creating our own json queries.
+
+#### Front-end x back-end
+
+API validation is important eventhough the front-end already validate and blocks API requirements when the informations or inputs don't meet expectancies, this is important because eventhough that the application works fine, when sharing or delivering the API forward to a customer or client it must consider all succesfull and alternative scenarios validations to behave as expected.
