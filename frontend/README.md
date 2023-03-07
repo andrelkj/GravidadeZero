@@ -26,15 +26,8 @@
 - [Screen Resolution](#screen-resolution)
 - [Clearing HTML forms](#clearing-html-forms)
 - [Dealing with conditional elements (IFs)](#dealing-with-conditional-elements-ifs)
-- [Usefull terminal commands](#usefull-terminal-commands)
-  - [Git](#git)
-  - [Linux](#linux)
-  - [chmod +x run.sh](#chmod-x-runsh)
 - [Challenge 1 - module PRO](#challenge-1---module-pro)
   - [Automate 3 new test cases inside the login suite:](#automate-3-new-test-cases-inside-the-login-suite)
-- [Important links](#important-links)
-  - [Pabot](#pabot)
-    - [Pabot screenshot path improvement](#pabot-screenshot-path-improvement)
 - [API Testing](#api-testing)
   - [Thunder Client](#thunder-client)
     - [Collections](#collections)
@@ -43,6 +36,14 @@
     - [Tests](#tests)
       - [Validating token](#validating-token)
       - [Front-end x back-end](#front-end-x-back-end)
+- [Usefull terminal commands](#usefull-terminal-commands)
+  - [Git](#git)
+  - [Linux](#linux)
+  - [chmod +x run.sh](#chmod-x-runsh)
+- [Important links](#important-links)
+  - [Pabot](#pabot)
+    - [Pabot screenshot path improvement](#pabot-screenshot-path-improvement)
+  - [Typora](#typora)
 
 ---
 
@@ -816,53 +817,6 @@ By doing it the select fields will be selected only if there's a valid option fo
 
 ---
 
-# Usefull terminal commands
-
-- robot -l NONE tasks/Delorean.robot - runs the file without generating log. It's mostly used for tasks.
-- robot --help - show all possible commands with detailed description
-- robot -o NONE - runs the file without generating output
-- robot -r NONE - runs the file witout generating report
-- robot -i tags_name - runs only test cases that contains the defined tag
-- chmod +x run.sh - gives file "run.sh" permition to be executed. Turns the file executable. **Works for linux based terminals**
-- ./run.sh - runs a file inside the actual file path
-- run.bat - runs terminal shortcuts **This works for MS-DOS based terminals**
-- .lower() - python method to turn text onto lower case only
-- fullPage - it's a browser library feature normally used for screenshots, expects true (to show the hole page) or false (to show only a piece of the page)
-- robot -v BROWSER:chromium -v HEADLESS:true - define a variable and gives a value to it
-
-## Git
-
-git init - initialize the git repository
-git status - return repository and files status
-git add . - add all pending changes to the staged file
-git commit -m 'message' - commit all staged changes and define a message to the commit
-git pull - pull github updates to the local environment
-git push - push local updates to the github environment
-
-## Linux
-
-find ./logs/pabot_results -type f -name "\*.png" - will find all files that have .png extension
-cp $(find ./logs/pabot_results -type f -name "\*.png") ./logs/browser/screenshot - copy the list to the screenshot file
-
-## chmod +x run.sh
-
-files.sh only runs in linux compatible terminals, for terminals MS-DOS based we need to use a file.bat which will then need additional changes. **For example:**
-
-Files path uses \ instead of /:
-
-```
-robot -l NONE -o NONE -r NONE tasks\Delorean.robot
-robot -d ./logs tests\Signup.robot
-```
-
-And also a different way of calling it:
-
-```
-run.bat
-```
-
----
-
 # Challenge 1 - module PRO
 
 ## Automate 3 new test cases inside the login suite:
@@ -890,60 +844,6 @@ When both email and password fields are empty
 And I submit the login button
 Then a required field message is displayed for each field
 "E-mail obrigatório" and "Senha obrigatório"
-
----
-
-# Important links
-
-- [Web application](https://geeks-web-andre.fly.dev/signup)
-- [ElephantSQL](https://api.elephantsql.com/console/51ccfaa2-d261-4503-b858-da3b75125790/browser?#)
-- [QAcademy course](https://app.qacademy.io/area/produto/item/149046)
-- [Faker Library](https://pypi.org/project/Faker/)
-
-## Pabot
-
-- [Pabot Parallel Executor](https://pabot.org/)
-
-Is a parallel executor that runs several tests at once based on the number of available processors. It's important to note that using cloud environment only gives 1 available processor so it won't work for cloud environment.
-
-### Pabot screenshot path improvement
-
-The problem of Pabot is that the Browser and/or Selenium libraries cannot access the screenshot file path so the report won't display the screenshot images.
-
-In order for the screenshots to be displayed correctly we'll rearrange the output files in a way that the browser lib can understand. To do it:
-
-1. We added 4 new preparation steps for the run.sh terminal shortcut that will delete old files and create brand new ones
-
-```
-# delete the old browser file and create a brand new one
-rm -rf ./logs/browser
-mkdir ./logs/browser
-mkdir ./logs/browser/screenshot
-
-# list all type png files from pabot_results and copy it to the new screenshot file
-cp $(find ./logs/pabot_results -type f -name "*.png") ./logs/browser/screenshot
-```
-
-2. We created a new faker [Utility generator](resources/Utility.py) that will create unique ids to each screenshot
-
-```py
-from faker import Faker
-fake = Faker()
-
-
-def screenshot_name():
-    return fake.sha1()
-```
-
-3. And then added this generated id function to a new variable inside our test case closer, defining a new argument filename to set a name to each screenshot file that will receive the random generated id.
-
-```
-After Test
-    ${shot_name}    Screenshot Name
-    Take Screenshot    fullPage=true    filename=${shot_name}
-```
-
-By doing this we now refresh browsers lib screenshot file before each execution, saving all report screenshots inside a brand new file with unique identifiers, making it possible to visualize the screenshots inside the report even when using the pabot.
 
 ---
 
@@ -1008,3 +908,111 @@ To call the elemts it's very simple we just need to look for it's name displayed
 #### Front-end x back-end
 
 API validation is important eventhough the front-end already validate and blocks API requirements when the informations or inputs don't meet expectancies, this is important because eventhough that the application works fine, when sharing or delivering the API forward to a customer or client it must consider all succesfull and alternative scenarios validations to behave as expected.
+
+---
+
+# Usefull terminal commands
+
+- robot -l NONE tasks/Delorean.robot - runs the file without generating log. It's mostly used for tasks.
+- robot --help - show all possible commands with detailed description
+- robot -o NONE - runs the file without generating output
+- robot -r NONE - runs the file witout generating report
+- robot -i tags_name - runs only test cases that contains the defined tag
+- chmod +x run.sh - gives file "run.sh" permition to be executed. Turns the file executable. **Works for linux based terminals**
+- ./run.sh - runs a file inside the actual file path
+- run.bat - runs terminal shortcuts **This works for MS-DOS based terminals**
+- .lower() - python method to turn text onto lower case only
+- fullPage - it's a browser library feature normally used for screenshots, expects true (to show the hole page) or false (to show only a piece of the page)
+- robot -v BROWSER:chromium -v HEADLESS:true - define a variable and gives a value to it
+
+## Git
+
+git init - initialize the git repository
+git status - return repository and files status
+git add . - add all pending changes to the staged file
+git commit -m 'message' - commit all staged changes and define a message to the commit
+git pull - pull github updates to the local environment
+git push - push local updates to the github environment
+
+## Linux
+
+find ./logs/pabot_results -type f -name "\*.png" - will find all files that have .png extension
+cp $(find ./logs/pabot_results -type f -name "\*.png") ./logs/browser/screenshot - copy the list to the screenshot file
+
+## chmod +x run.sh
+
+files.sh only runs in linux compatible terminals, for terminals MS-DOS based we need to use a file.bat which will then need additional changes. **For example:**
+
+Files path uses \ instead of /:
+
+```
+robot -l NONE -o NONE -r NONE tasks\Delorean.robot
+robot -d ./logs tests\Signup.robot
+```
+
+And also a different way of calling it:
+
+```
+run.bat
+```
+
+---
+
+# Important links
+
+- [Web application](https://geeks-web-andre.fly.dev/signup)
+- [ElephantSQL](https://api.elephantsql.com/console/51ccfaa2-d261-4503-b858-da3b75125790/browser?#)
+- [QAcademy course](https://app.qacademy.io/area/produto/item/149046)
+- [Faker Library](https://pypi.org/project/Faker/)
+- [Typora md editor](https://typora.io/)
+
+## Pabot
+
+- [Pabot Parallel Executor](https://pabot.org/)
+
+Is a parallel executor that runs several tests at once based on the number of available processors. It's important to note that using cloud environment only gives 1 available processor so it won't work for cloud environment.
+
+### Pabot screenshot path improvement
+
+The problem of Pabot is that the Browser and/or Selenium libraries cannot access the screenshot file path so the report won't display the screenshot images.
+
+In order for the screenshots to be displayed correctly we'll rearrange the output files in a way that the browser lib can understand. To do it:
+
+1. We added 4 new preparation steps for the run.sh terminal shortcut that will delete old files and create brand new ones
+
+```
+# delete the old browser file and create a brand new one
+rm -rf ./logs/browser
+mkdir ./logs/browser
+mkdir ./logs/browser/screenshot
+
+# list all type png files from pabot_results and copy it to the new screenshot file
+cp $(find ./logs/pabot_results -type f -name "*.png") ./logs/browser/screenshot
+```
+
+2. We created a new faker [Utility generator](resources/Utility.py) that will create unique ids to each screenshot
+
+```py
+from faker import Faker
+fake = Faker()
+
+
+def screenshot_name():
+    return fake.sha1()
+```
+
+3. And then added this generated id function to a new variable inside our test case closer, defining a new argument filename to set a name to each screenshot file that will receive the random generated id.
+
+```
+After Test
+    ${shot_name}    Screenshot Name
+    Take Screenshot    fullPage=true    filename=${shot_name}
+```
+
+By doing this we now refresh browsers lib screenshot file before each execution, saving all report screenshots inside a brand new file with unique identifiers, making it possible to visualize the screenshots inside the report even when using the pabot.
+
+## Typora
+
+[Typora](https://typora.io/) is a paid md files editor that allows easier ways to create readable and writable md notes
+
+**Obs.:** i'm not using it in here because it's now paid
