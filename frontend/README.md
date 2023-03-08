@@ -36,10 +36,13 @@
     - [Tests](#tests)
       - [Validating token](#validating-token)
       - [Front-end x back-end](#front-end-x-back-end)
+  - [Automating API Tests with robot](#automating-api-tests-with-robot)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
   - [Linux](#linux)
   - [chmod +x run.sh](#chmod-x-runsh)
+  - [Request Library](#request-library)
+  - [json=${variable} - convert the request content-type to json](#jsonvariable---convert-the-request-content-type-to-json)
 - [Important links](#important-links)
   - [Pabot](#pabot)
     - [Pabot screenshot path improvement](#pabot-screenshot-path-improvement)
@@ -911,7 +914,76 @@ To call the elemts it's very simple we just need to look for it's name displayed
 
 API validation is important eventhough the front-end already validate and blocks API requirements when the informations or inputs don't meet expectancies, this is important because eventhough that the application works fine, when sharing or delivering the API forward to a customer or client it must consider all succesfull and alternative scenarios validations to behave as expected.
 
----
+## Automating API Tests with robot
+
+The API tests created until now we're basically done manually throw Thunder Client, although it's possible to automate them using robot as well, in order to do it:
+
+1. First of all we'll need to use a library that will allow us to send our HTTP requests from robot. In here we'll be using the library [HTTP RequestsLibrary (Python)](https://github.com/MarketSquare/robotframework-requests#readme)
+
+**OBS.:** this can be found by filtering HTTP resources inside [Robot Framework webpage](https://robotframework.org/)
+
+2. We'll then import the installed library to our [Sessions test file](../backend/users/tests/Sessions.robot) where we're going to define the automation.
+
+```
+*** Settings ***
+Documentation       Session route test suite
+
+Library    RequestsLibrary
+```
+
+3. We add our requests with all the body and header data from the API and also inform the path in it:
+
+```
+*** Test Cases ***
+User session
+  ${payload}    Create Dictionary    email=test2@email.com    password=pwd123
+  ${header}    Create Dictionary    Content-Type=application/json
+
+  POST    ${API_USERS}/sessions    data=${payload}    headers=${header}
+```
+
+4. After all we'll add our validations:
+
+```
+*** Test Cases ***
+    ...
+
+    Status Should Be    200    ${response}
+```
+
+**OBS.:** header variable won't be needed here because the Request Library have a function json that already converts information to json, eliminating the need to inform the header's content-type. Considering it we'll remore the header and change the data function for the new json one.
+
+The new test case will be:
+
+```
+*** Test Cases ***
+User session
+    ${payload}    Create Dictionary    email=test2@email.com    password=pwd123
+
+    ${response}    POST    ${API_USERS}/sessions    json=${payload}
+
+    Status Should Be    200    ${response}
+```
+
+5. And all the other validations as well:
+
+```
+*** Test Cases ***
+User session
+    ${payload}    Create Dictionary    email=test2@email.com    password=pwd123
+
+    ${response}    POST    ${API_USERS}/sessions    json=${payload}
+
+    Status Should Be    200    ${response}
+
+    ${size}    Get Length    ${response.json()}[token]
+    ${expected_size}    Convert To Integer    140
+
+    Should Be Equal    ${expected_size}    ${size}
+    Should Be Equal    10d    ${response.json()}[expires_in]
+```
+
+**OBS.:** it's important to consider using ${expected_size} integer convertion once the Get Length function returns a integer number of characters and Should Be Equal function expects a string by default.
 
 # Usefull terminal commands
 
@@ -958,7 +1030,9 @@ And also a different way of calling it:
 run.bat
 ```
 
----
+## Request Library
+
+## json=${variable} - convert the request content-type to json
 
 # Important links
 
