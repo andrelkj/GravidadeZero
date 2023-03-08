@@ -2,6 +2,7 @@
 Documentation       Session route test suite
 
 Library             RequestsLibrary
+Library             Browser
 
 
 *** Variables ***
@@ -12,7 +13,7 @@ ${API_USERS}    https://geeks-api-andre.fly.dev
 User session
     ${payload}    Create Dictionary    email=test2@email.com    password=pwd123
 
-    ${response}    POST    ${API_USERS}/sessions    json=${payload}
+    ${response}    POST    ${API_USERS}/sessions    json=${payload}    expected_status=any
 
     Status Should Be    200    ${response}
 
@@ -24,3 +25,59 @@ User session
 
     Should Be Equal    ${expected_size}    ${size}
     Should Be Equal    10d    ${response.json()}[expires_in]
+
+Wrong password
+    ${payload}    Create Dictionary    email=test2@email.com    password=abc123
+
+    ${response}    POST    ${API_USERS}/sessions    json=${payload}    expected_status=any
+
+    Status Should Be    401    ${response}
+    Should Be Equal    Unauthorized    ${response.json()}[error]
+
+User not found
+    ${payload}    Create Dictionary    email=test2@error.com    password=abc123
+
+    ${response}    POST    ${API_USERS}/sessions    json=${payload}    expected_status=any
+
+    Status Should Be    401    ${response}
+    Should Be Equal    Unauthorized    ${response.json()}[error]
+
+Incorrect email
+    ${payload}    Create Dictionary    email=test2#error.com    password=abc123
+
+    ${response}    POST    ${API_USERS}/sessions    json=${payload}    expected_status=any
+
+    Status Should Be    400    ${response}
+    Should Be Equal    Incorrect email    ${response.json()}[error]
+
+Empty email
+    ${payload}    Create Dictionary    email=${EMPTY}    password=abc123
+
+    ${response}    POST    ${API_USERS}/sessions    json=${payload}    expected_status=any
+
+    Status Should Be    400    ${response}
+    Should Be Equal    Required email    ${response.json()}[error]
+
+Without email
+    ${payload}    Create Dictionary    password=abc123
+
+    ${response}    POST    ${API_USERS}/sessions    json=${payload}    expected_status=any
+
+    Status Should Be    400    ${response}
+    Should Be Equal    Required email    ${response.json()}[error]
+
+Empty pass
+    ${payload}    Create Dictionary    email=test2@email.com    password=${EMPTY}
+
+    ${response}    POST    ${API_USERS}/sessions    json=${payload}    expected_status=any
+
+    Status Should Be    400    ${response}
+    Should Be Equal    Required pass    ${response.json()}[error]
+
+Without pass
+    ${payload}    Create Dictionary    email=test2@email.com
+
+    ${response}    POST    ${API_USERS}/sessions    json=${payload}    expected_status=any
+
+    Status Should Be    400    ${response}
+    Should Be Equal    Required pass    ${response.json()}[error]

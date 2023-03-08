@@ -37,6 +37,7 @@
       - [Validating token](#validating-token)
       - [Front-end x back-end](#front-end-x-back-end)
   - [Automating API Tests with robot](#automating-api-tests-with-robot)
+    - [Alternative scenarios (sad paths)](#alternative-scenarios-sad-paths)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
   - [Linux](#linux)
@@ -984,6 +985,16 @@ User session
 ```
 
 **OBS.:** it's important to consider using ${expected_size} integer convertion once the Get Length function returns a integer number of characters and Should Be Equal function expects a string by default.
+
+### Alternative scenarios (sad paths)
+
+Request Library returns error whenever the request response differs from status 200 causing the execution to end before the actual validation, in order to allow the validation of alternative scenarios (that are intended to return errors) we need to add a new argument `expected_status=any` to the response:
+
+```
+${response}    POST    ${API_USERS}/sessions    json=${payload}    expected_status=any
+```
+
+This allows us to move on to the next steps of the test regardless of response status.
 
 # Usefull terminal commands
 
