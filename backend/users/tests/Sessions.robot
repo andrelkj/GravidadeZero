@@ -1,8 +1,18 @@
 *** Settings ***
 Documentation       Session route test suite
 
-Resource    ../resources/Base.robot
-Resource    ../resources/routes/SessionsRoute.robot
+Resource            ../resources/Base.robot
+Resource            ../resources/routes/SessionsRoute.robot
+
+
+*** Variables ***
+&{inv_pass}         email=test@email.com    password=abc123
+&{inv_email}        email=test#email.com    password=abc123
+&{email_404}        email=test@error.com    password=abc123
+&{empty_email}      email=${EMPTY}    password=abc123
+&{wo_email}         password=abc123
+&{empty_pass}       email=test@email.com    password=${EMPTY}
+&{wo_pass}          email=test@email.com
 
 
 *** Test Cases ***
@@ -22,58 +32,23 @@ User session
     Should Be Equal    ${expected_size}    ${size}
     Should Be Equal    10d    ${response.json()}[expires_in]
 
-Wrong password
-    ${payload}    Create Dictionary    email=test2@email.com    password=abc123
+Should Not Get Token
+    [Template]    Attempt POST Session
+
+    ${inv_pass}    401    Unauthorized
+    ${inv_email}    400    Incorrect email
+    ${email_404}    401    Unauthorized
+    ${empty_email}    400    Required email
+    ${wo_email}    400    Required email
+    ${empty_pass}    400    Required pass
+    ${wo_pass}    400    Required pass
+
+
+*** Keywords ***
+Attempt POST Session
+    [Arguments]    ${payload}    ${status_code}    ${error_message}
 
     ${response}    POST Session    ${payload}
 
-    Status Should Be    401    ${response}
-    Should Be Equal    Unauthorized    ${response.json()}[error]
-
-User not found
-    ${payload}    Create Dictionary    email=test2@error.com    password=abc123
-
-    ${response}    POST Session    ${payload}
-
-    Status Should Be    401    ${response}
-    Should Be Equal    Unauthorized    ${response.json()}[error]
-
-Incorrect email
-    ${payload}    Create Dictionary    email=test2#error.com    password=abc123
-
-    ${response}    POST Session    ${payload}
-
-    Status Should Be    400    ${response}
-    Should Be Equal    Incorrect email    ${response.json()}[error]
-
-Empty email
-    ${payload}    Create Dictionary    email=${EMPTY}    password=abc123
-
-    ${response}    POST Session    ${payload}
-
-    Status Should Be    400    ${response}
-    Should Be Equal    Required email    ${response.json()}[error]
-
-Without email
-    ${payload}    Create Dictionary    password=abc123
-
-    ${response}    POST Session    ${payload}
-
-    Status Should Be    400    ${response}
-    Should Be Equal    Required email    ${response.json()}[error]
-
-Empty pass
-    ${payload}    Create Dictionary    email=test2@email.com    password=${EMPTY}
-
-    ${response}    POST Session    ${payload}
-
-    Status Should Be    400    ${response}
-    Should Be Equal    Required pass    ${response.json()}[error]
-
-Without pass
-    ${payload}    Create Dictionary    email=test2@email.com
-
-    ${response}    POST Session    ${payload}
-
-    Status Should Be    400    ${response}
-    Should Be Equal    Required pass    ${response.json()}[error]
+    Status Should Be    ${status_code}    ${response}
+    Should Be Equal    ${error_message}    ${response.json()}[error]

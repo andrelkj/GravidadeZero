@@ -38,6 +38,7 @@
       - [Front-end x back-end](#front-end-x-back-end)
   - [Automating API Tests with robot](#automating-api-tests-with-robot)
     - [Alternative scenarios (sad paths)](#alternative-scenarios-sad-paths)
+  - [Sessions.robot](#sessionsrobot)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
   - [Linux](#linux)
@@ -995,6 +996,12 @@ ${response}    POST    ${API_USERS}/sessions    json=${payload}    expected_stat
 ```
 
 This allows us to move on to the next steps of the test regardless of response status.
+
+## Sessions.robot
+
+To use the template we'll create variables to each of our test cases inputs. Here we're using the & in order to use each variable as a dictionary for our test cases
+
+---
 
 # Usefull terminal commands
 
