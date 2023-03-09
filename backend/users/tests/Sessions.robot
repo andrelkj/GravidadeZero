@@ -17,12 +17,19 @@ Resource            ../resources/routes/SessionsRoute.robot
 
 *** Test Cases ***
 User session
-    ${payload}    Create Dictionary    email=test@email.com    password=pwd123
+# Given that I have a registered user
+    ${payload}    Create Dictionary    name=Kate Bishop    email=kate@hotmail.com    password=pwd123
+    POST User    ${payload}
 
+    ${payload}    Create Dictionary    email=kate@hotmail.com    password=pwd123
+
+# When executing a POST request to /session
     ${response}    POST Session    ${payload}
 
+# Then the status code should be 200
     Status Should Be    200    ${response}
 
+# And the token should be generated
     # Gets the token length and store it inside the size variable to furter validation
     ${size}    Get Length    ${response.json()}[token]
 
@@ -30,6 +37,8 @@ User session
     ${expected_size}    Convert To Integer    140
 
     Should Be Equal    ${expected_size}    ${size}
+
+# And the generated token should expire in 10 days
     Should Be Equal    10d    ${response.json()}[expires_in]
 
 Should Not Get Token
