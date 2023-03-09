@@ -1,19 +1,15 @@
 *** Settings ***
 Documentation       Session route test suite
 
-Library             RequestsLibrary
-Library             Browser
-
-
-*** Variables ***
-${API_USERS}    https://geeks-api-andre.fly.dev
+Resource    ../resources/Base.robot
+Resource    ../resources/routes/SessionsRoute.robot
 
 
 *** Test Cases ***
 User session
-    ${payload}    Create Dictionary    email=test2@email.com    password=pwd123
+    ${payload}    Create Dictionary    email=test@email.com    password=pwd123
 
-    ${response}    POST    ${API_USERS}/sessions    json=${payload}    expected_status=any
+    ${response}    POST Session    ${payload}
 
     Status Should Be    200    ${response}
 
@@ -29,7 +25,7 @@ User session
 Wrong password
     ${payload}    Create Dictionary    email=test2@email.com    password=abc123
 
-    ${response}    POST    ${API_USERS}/sessions    json=${payload}    expected_status=any
+    ${response}    POST Session    ${payload}
 
     Status Should Be    401    ${response}
     Should Be Equal    Unauthorized    ${response.json()}[error]
@@ -37,7 +33,7 @@ Wrong password
 User not found
     ${payload}    Create Dictionary    email=test2@error.com    password=abc123
 
-    ${response}    POST    ${API_USERS}/sessions    json=${payload}    expected_status=any
+    ${response}    POST Session    ${payload}
 
     Status Should Be    401    ${response}
     Should Be Equal    Unauthorized    ${response.json()}[error]
@@ -45,7 +41,7 @@ User not found
 Incorrect email
     ${payload}    Create Dictionary    email=test2#error.com    password=abc123
 
-    ${response}    POST    ${API_USERS}/sessions    json=${payload}    expected_status=any
+    ${response}    POST Session    ${payload}
 
     Status Should Be    400    ${response}
     Should Be Equal    Incorrect email    ${response.json()}[error]
@@ -53,7 +49,7 @@ Incorrect email
 Empty email
     ${payload}    Create Dictionary    email=${EMPTY}    password=abc123
 
-    ${response}    POST    ${API_USERS}/sessions    json=${payload}    expected_status=any
+    ${response}    POST Session    ${payload}
 
     Status Should Be    400    ${response}
     Should Be Equal    Required email    ${response.json()}[error]
@@ -61,7 +57,7 @@ Empty email
 Without email
     ${payload}    Create Dictionary    password=abc123
 
-    ${response}    POST    ${API_USERS}/sessions    json=${payload}    expected_status=any
+    ${response}    POST Session    ${payload}
 
     Status Should Be    400    ${response}
     Should Be Equal    Required email    ${response.json()}[error]
@@ -69,7 +65,7 @@ Without email
 Empty pass
     ${payload}    Create Dictionary    email=test2@email.com    password=${EMPTY}
 
-    ${response}    POST    ${API_USERS}/sessions    json=${payload}    expected_status=any
+    ${response}    POST Session    ${payload}
 
     Status Should Be    400    ${response}
     Should Be Equal    Required pass    ${response.json()}[error]
@@ -77,7 +73,7 @@ Empty pass
 Without pass
     ${payload}    Create Dictionary    email=test2@email.com
 
-    ${response}    POST    ${API_USERS}/sessions    json=${payload}    expected_status=any
+    ${response}    POST Session    ${payload}
 
     Status Should Be    400    ${response}
     Should Be Equal    Required pass    ${response.json()}[error]
