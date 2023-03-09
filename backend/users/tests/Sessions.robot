@@ -18,10 +18,10 @@ Resource            ../resources/routes/SessionsRoute.robot
 *** Test Cases ***
 User session
 # Given that I have a registered user
-    ${payload}    Create Dictionary    name=Kate Bishop    email=kate@hotmail.com    password=pwd123
+    ${payload}    Factory User Session    signup
     POST User    ${payload}
 
-    ${payload}    Create Dictionary    email=kate@hotmail.com    password=pwd123
+    ${payload}    Factory User Session    login
 
 # When executing a POST request to /session
     ${response}    POST Session    ${payload}
