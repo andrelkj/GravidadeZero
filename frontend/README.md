@@ -39,6 +39,7 @@
   - [Automating API Tests with robot](#automating-api-tests-with-robot)
     - [Alternative scenarios (sad paths)](#alternative-scenarios-sad-paths)
   - [Sessions.robot](#sessionsrobot)
+  - [Users.robot](#usersrobot)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
   - [Linux](#linux)
@@ -1000,6 +1001,10 @@ This allows us to move on to the next steps of the test regardless of response s
 ## Sessions.robot
 
 To use the template we'll create variables to each of our test cases inputs. Here we're using the & in order to use each variable as a dictionary for our test cases
+
+## Users.robot
+
+While adding a new user we need to keep in mind that the user can only be registered once. This means that using the same payload won't work. One option to it is using faker to generate random payloads which causes massive information input inside the database, making it impracticable. Another option is to create Delorean that refresh the database before every execution as we did for the front-end, although as where dealing with API requests, there's an even better way to do it by defining DELETE requests to the API while executing it.
 
 ---
 
