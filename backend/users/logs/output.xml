@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.1 (Python 3.11.1 on darwin)" generated="20230312 21:35:29.952" rpa="false" schemaversion="3">
+<robot generator="Robot 6.0.1 (Python 3.11.1 on darwin)" generated="20230312 23:09:49.126" rpa="false" schemaversion="3">
 <suite id="s1" name="Users" source="/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/backend/users/tests/Users.robot">
 <test id="s1-t1" name="Add new user" line="8">
 <kw name="Factory New User" library="Users">
 <var>${user}</var>
-<msg timestamp="20230312 21:35:29.996" level="INFO">${user} = {'name': 'Clint Barton', 'email': 'barton@shield.com', 'password': 'pwd123'}</msg>
-<status status="PASS" starttime="20230312 21:35:29.996" endtime="20230312 21:35:29.996"/>
+<msg timestamp="20230312 23:09:49.170" level="INFO">${user} = {'name': 'Clint Barton', 'email': 'barton@shield.com', 'password': 'pwd123'}</msg>
+<status status="PASS" starttime="20230312 23:09:49.170" endtime="20230312 23:09:49.170"/>
 </kw>
+<kw name="Remove User" library="Helpers">
+<arg>${user}</arg>
 <kw name="Create Dictionary" library="BuiltIn">
 <var>${payload}</var>
 <arg>email=${user}[email]</arg>
 <arg>password=${user}[password]</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20230312 21:35:29.997" level="INFO">${payload} = {'email': 'barton@shield.com', 'password': 'pwd123'}</msg>
-<status status="PASS" starttime="20230312 21:35:29.996" endtime="20230312 21:35:29.997"/>
+<msg timestamp="20230312 23:09:49.171" level="INFO">${payload} = {'email': 'barton@shield.com', 'password': 'pwd123'}</msg>
+<status status="PASS" starttime="20230312 23:09:49.171" endtime="20230312 23:09:49.171"/>
 </kw>
 <kw name="POST Session" library="SessionsRoute">
 <var>${response}</var>
@@ -24,21 +26,21 @@
 <arg>json=${payload}</arg>
 <arg>expected_status=any</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20230312 21:35:30.254" level="INFO">POST Request : url=https://geeks-api-andre.fly.dev/sessions 
+<msg timestamp="20230312 23:09:49.257" level="INFO">POST Request : url=https://geeks-api-andre.fly.dev/sessions 
  path_url=/sessions 
  headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '52', 'Content-Type': 'application/json'} 
  body=b'{"email": "barton@shield.com", "password": "pwd123"}' 
  </msg>
-<msg timestamp="20230312 21:35:30.255" level="INFO">POST Response : url=https://geeks-api-andre.fly.dev/sessions 
+<msg timestamp="20230312 23:09:49.257" level="INFO">POST Response : url=https://geeks-api-andre.fly.dev/sessions 
  status=200, reason=OK 
- headers={'x-powered-by': 'Express', 'access-control-allow-origin': '*', 'content-type': 'application/json; charset=utf-8', 'content-encoding': 'gzip', 'etag': 'W/"16c-lQBdfsvYbhTQzYlxcAampaJieFg"', 'date': 'Mon, 13 Mar 2023 00:35:30 GMT', 'connection': 'keep-alive', 'keep-alive': 'timeout=5', 'transfer-encoding': 'chunked', 'server': 'Fly/00340618 (2023-03-12)', 'via': '1.1 fly.io', 'fly-request-id': '01GVC69K9H5S3W5SNY3DKZW1ZW-gru'} 
- body={"user":{"id":305,"email":"barton@shield.com","password_hash":"$2b$08$oyWRv5yfriq830exTTtXw.frbEJa3sxhP6e1N.GyGG/TjzDd2NuSm","name":"Clint Barton","avatar":null,"whatsapp":null,"is_geek":false},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzA1LCJpYXQiOjE2Nzg2Njc3MzAsImV4cCI6MTY3OTUzMTczMH0.1wTE0Dfgiqf6_0aEMXeGhOeCLY0X8hZ43YLVfBwjb1g","expires_in":"10d"} 
+ headers={'x-powered-by': 'Express', 'access-control-allow-origin': '*', 'content-type': 'application/json; charset=utf-8', 'content-encoding': 'gzip', 'etag': 'W/"16c-udOK8M5F6DOS1Vz15EX6Kh+TQxc"', 'date': 'Mon, 13 Mar 2023 02:09:49 GMT', 'connection': 'keep-alive', 'keep-alive': 'timeout=5', 'transfer-encoding': 'chunked', 'server': 'Fly/00340618 (2023-03-12)', 'via': '1.1 fly.io', 'fly-request-id': '01GVCBP9NN5M7GFEZVK618CG9C-gru'} 
+ body={"user":{"id":309,"email":"barton@shield.com","password_hash":"$2b$08$ZLBYFl6hgbjxLKYo.qokcej7VMWfjDjF5PJ0t4Wy2xaCAOhJIXPLq","name":"Clint Barton","avatar":null,"whatsapp":null,"is_geek":false},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzA5LCJpYXQiOjE2Nzg2NzMzODksImV4cCI6MTY3OTUzNzM4OX0.OuaNAE2ffbmVopkIqNhZz2uo6rvN1lNGeyJ68Vt-zeM","expires_in":"10d"} 
  </msg>
-<msg timestamp="20230312 21:35:30.255" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20230312 21:35:29.997" endtime="20230312 21:35:30.255"/>
+<msg timestamp="20230312 23:09:49.257" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230312 23:09:49.171" endtime="20230312 23:09:49.257"/>
 </kw>
-<msg timestamp="20230312 21:35:30.256" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20230312 21:35:29.997" endtime="20230312 21:35:30.256"/>
+<msg timestamp="20230312 23:09:49.257" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230312 23:09:49.171" endtime="20230312 23:09:49.257"/>
 </kw>
 <if>
 <branch type="IF" condition="&quot;200&quot; in &quot;${response}&quot;">
@@ -46,8 +48,8 @@
 <var>${token}</var>
 <arg>Bearer ${response.json()}[token]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230312 21:35:30.258" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzA1LCJpYXQiOjE2Nzg2Njc3MzAsImV4cCI6MTY3OTUzMTczMH0.1wTE0Dfgiqf6_0aEMXeGhOeCLY0X8hZ43YLVfBwjb1g</msg>
-<status status="PASS" starttime="20230312 21:35:30.257" endtime="20230312 21:35:30.258"/>
+<msg timestamp="20230312 23:09:49.257" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzA5LCJpYXQiOjE2Nzg2NzMzODksImV4cCI6MTY3OTUzNzM4OX0.OuaNAE2ffbmVopkIqNhZz2uo6rvN1lNGeyJ68Vt-zeM</msg>
+<status status="PASS" starttime="20230312 23:09:49.257" endtime="20230312 23:09:49.257"/>
 </kw>
 <kw name="DELETE User" library="UsersRoute">
 <arg>${token}</arg>
@@ -55,8 +57,8 @@
 <var>${headers}</var>
 <arg>Authorization=${token}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20230312 21:35:30.259" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzA1LCJpYXQiOjE2Nzg2Njc3MzAsImV4cCI6MTY3OTUzMTczMH0.1wTE0Dfgiqf6_0aEMXeGhOeCLY0X8hZ43YLVfBwjb1g'}</msg>
-<status status="PASS" starttime="20230312 21:35:30.258" endtime="20230312 21:35:30.259"/>
+<msg timestamp="20230312 23:09:49.258" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzA5LCJpYXQiOjE2Nzg2NzMzODksImV4cCI6MTY3OTUzNzM4OX0.OuaNAE2ffbmVopkIqNhZz2uo6rvN1lNGeyJ68Vt-zeM'}</msg>
+<status status="PASS" starttime="20230312 23:09:49.258" endtime="20230312 23:09:49.258"/>
 </kw>
 <kw name="DELETE" library="RequestsLibrary">
 <var>${response}</var>
@@ -64,25 +66,27 @@
 <arg>headers=${headers}</arg>
 <arg>expected_status=any</arg>
 <doc>Sends a DELETE request.</doc>
-<msg timestamp="20230312 21:35:30.402" level="INFO">DELETE Request : url=https://geeks-api-andre.fly.dev/users 
+<msg timestamp="20230312 23:09:49.371" level="INFO">DELETE Request : url=https://geeks-api-andre.fly.dev/users 
  path_url=/users 
- headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzA1LCJpYXQiOjE2Nzg2Njc3MzAsImV4cCI6MTY3OTUzMTczMH0.1wTE0Dfgiqf6_0aEMXeGhOeCLY0X8hZ43YLVfBwjb1g', 'Content-Length': '0'} 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzA5LCJpYXQiOjE2Nzg2NzMzODksImV4cCI6MTY3OTUzNzM4OX0.OuaNAE2ffbmVopkIqNhZz2uo6rvN1lNGeyJ68Vt-zeM', 'Content-Length': '0'} 
  body=None 
  </msg>
-<msg timestamp="20230312 21:35:30.402" level="INFO">DELETE Response : url=https://geeks-api-andre.fly.dev/users 
+<msg timestamp="20230312 23:09:49.371" level="INFO">DELETE Response : url=https://geeks-api-andre.fly.dev/users 
  status=204, reason=No Content 
- headers={'x-powered-by': 'Express', 'access-control-allow-origin': '*', 'date': 'Mon, 13 Mar 2023 00:35:30 GMT', 'connection': 'keep-alive', 'keep-alive': 'timeout=5', 'server': 'Fly/00340618 (2023-03-12)', 'via': '1.1 fly.io', 'fly-request-id': '01GVC69KDQBG0BDEVW7WAMKT04-gru'} 
+ headers={'x-powered-by': 'Express', 'access-control-allow-origin': '*', 'date': 'Mon, 13 Mar 2023 02:09:49 GMT', 'connection': 'keep-alive', 'keep-alive': 'timeout=5', 'server': 'Fly/00340618 (2023-03-12)', 'via': '1.1 fly.io', 'fly-request-id': '01GVCBP9S0JN69JPXNS1J5EBSC-gru'} 
  body=None 
  </msg>
-<msg timestamp="20230312 21:35:30.402" level="INFO">${response} = &lt;Response [204]&gt;</msg>
-<status status="PASS" starttime="20230312 21:35:30.259" endtime="20230312 21:35:30.402"/>
+<msg timestamp="20230312 23:09:49.371" level="INFO">${response} = &lt;Response [204]&gt;</msg>
+<status status="PASS" starttime="20230312 23:09:49.258" endtime="20230312 23:09:49.371"/>
 </kw>
-<status status="PASS" starttime="20230312 21:35:30.258" endtime="20230312 21:35:30.403"/>
+<status status="PASS" starttime="20230312 23:09:49.258" endtime="20230312 23:09:49.372"/>
 </kw>
-<status status="PASS" starttime="20230312 21:35:30.256" endtime="20230312 21:35:30.403"/>
+<status status="PASS" starttime="20230312 23:09:49.257" endtime="20230312 23:09:49.372"/>
 </branch>
-<status status="PASS" starttime="20230312 21:35:30.256" endtime="20230312 21:35:30.403"/>
+<status status="PASS" starttime="20230312 23:09:49.257" endtime="20230312 23:09:49.372"/>
 </if>
+<status status="PASS" starttime="20230312 23:09:49.170" endtime="20230312 23:09:49.372"/>
+</kw>
 <kw name="POST User" library="UsersRoute">
 <var>${response}</var>
 <arg>${user}</arg>
@@ -92,32 +96,32 @@
 <arg>json=${payload}</arg>
 <arg>expected_status=any</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20230312 21:35:30.506" level="INFO">POST Request : url=https://geeks-api-andre.fly.dev/users 
+<msg timestamp="20230312 23:09:49.479" level="INFO">POST Request : url=https://geeks-api-andre.fly.dev/users 
  path_url=/users 
  headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '76', 'Content-Type': 'application/json'} 
  body=b'{"name": "Clint Barton", "email": "barton@shield.com", "password": "pwd123"}' 
  </msg>
-<msg timestamp="20230312 21:35:30.506" level="INFO">POST Response : url=https://geeks-api-andre.fly.dev/users 
+<msg timestamp="20230312 23:09:49.480" level="INFO">POST Response : url=https://geeks-api-andre.fly.dev/users 
  status=201, reason=Created 
- headers={'x-powered-by': 'Express', 'access-control-allow-origin': '*', 'content-type': 'application/json; charset=utf-8', 'content-encoding': 'gzip', 'etag': 'W/"a-eLk2gPt+G4N2qsQyBQmKMU6Ee7k"', 'date': 'Mon, 13 Mar 2023 00:35:30 GMT', 'connection': 'keep-alive', 'keep-alive': 'timeout=5', 'transfer-encoding': 'chunked', 'server': 'Fly/00340618 (2023-03-12)', 'via': '1.1 fly.io', 'fly-request-id': '01GVC69KH6AR7BZEM01BHH6PSF-gru'} 
- body={"id":306} 
+ headers={'x-powered-by': 'Express', 'access-control-allow-origin': '*', 'content-type': 'application/json; charset=utf-8', 'content-encoding': 'gzip', 'etag': 'W/"a-GkDMv+AoeYc+PkkDpoTibn2inKc"', 'date': 'Mon, 13 Mar 2023 02:09:49 GMT', 'connection': 'keep-alive', 'keep-alive': 'timeout=5', 'transfer-encoding': 'chunked', 'server': 'Fly/00340618 (2023-03-12)', 'via': '1.1 fly.io', 'fly-request-id': '01GVCBP9W26T4R0NKX7CQ43BRS-gru'} 
+ body={"id":310} 
  </msg>
-<msg timestamp="20230312 21:35:30.506" level="INFO">${response} = &lt;Response [201]&gt;</msg>
-<status status="PASS" starttime="20230312 21:35:30.404" endtime="20230312 21:35:30.506"/>
+<msg timestamp="20230312 23:09:49.480" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20230312 23:09:49.372" endtime="20230312 23:09:49.480"/>
 </kw>
-<msg timestamp="20230312 21:35:30.507" level="INFO">${response} = &lt;Response [201]&gt;</msg>
-<status status="PASS" starttime="20230312 21:35:30.403" endtime="20230312 21:35:30.507"/>
+<msg timestamp="20230312 23:09:49.481" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20230312 23:09:49.372" endtime="20230312 23:09:49.481"/>
 </kw>
 <kw name="Status Should Be" library="RequestsLibrary">
 <arg>201</arg>
 <arg>${response}</arg>
 <doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" starttime="20230312 21:35:30.507" endtime="20230312 21:35:30.507"/>
+<status status="PASS" starttime="20230312 23:09:49.481" endtime="20230312 23:09:49.482"/>
 </kw>
-<status status="PASS" starttime="20230312 21:35:29.996" endtime="20230312 21:35:30.508"/>
+<status status="PASS" starttime="20230312 23:09:49.170" endtime="20230312 23:09:49.482"/>
 </test>
 <doc>Users route test suite</doc>
-<status status="PASS" starttime="20230312 21:35:29.953" endtime="20230312 21:35:30.508"/>
+<status status="PASS" starttime="20230312 23:09:49.127" endtime="20230312 23:09:49.483"/>
 </suite>
 <statistics>
 <total>
