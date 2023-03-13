@@ -40,6 +40,7 @@
     - [Alternative scenarios (sad paths)](#alternative-scenarios-sad-paths)
   - [Sessions.robot](#sessionsrobot)
   - [Users.robot](#usersrobot)
+    - [Validating ID](#validating-id)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
   - [Linux](#linux)
@@ -1055,7 +1056,23 @@ END
 
 **OBS.:** this way once the user exists, validation will be executed, if not return the status code
 
-**Question:** the user shouldn't be removed from database after execution?
+### Validating ID
+
+After considering the user token we now should have an id for each registered user, and then we should be able to validate it, although this id should be a positive number then we'll validate it as well:
+
+1. First we've created a variable to store the received id from API's response:
+
+```
+${user_id}    Set Variable    ${response.json()}[id]
+```
+
+2. Then we added the condition that the id should be greater than 0:
+
+```
+Should Be True    ${user_id} > 0
+```
+
+**OBS.:** this is important to validade when considering the usage of those IDs in the application, negative and/or alphanumeric values for ID may cause problems while using it.
 
 ---
 
