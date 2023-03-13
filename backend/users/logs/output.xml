@@ -1,57 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.1 (Python 3.11.1 on darwin)" generated="20230309 16:53:42.287" rpa="false" schemaversion="3">
+<robot generator="Robot 6.0.1 (Python 3.11.1 on darwin)" generated="20230312 21:35:29.952" rpa="false" schemaversion="3">
 <suite id="s1" name="Users" source="/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/backend/users/tests/Users.robot">
-<test id="s1-t1" name="Add new user" line="7">
+<test id="s1-t1" name="Add new user" line="8">
 <kw name="Factory New User" library="Users">
-<var>${payload}</var>
-<msg timestamp="20230309 16:53:42.318" level="INFO">${payload} = {'name': 'Clint Barton', 'email': 'clint@shield.com', 'password': 'pwd123'}</msg>
-<status status="PASS" starttime="20230309 16:53:42.318" endtime="20230309 16:53:42.318"/>
+<var>${user}</var>
+<msg timestamp="20230312 21:35:29.996" level="INFO">${user} = {'name': 'Clint Barton', 'email': 'barton@shield.com', 'password': 'pwd123'}</msg>
+<status status="PASS" starttime="20230312 21:35:29.996" endtime="20230312 21:35:29.996"/>
 </kw>
-<kw name="POST User" library="UsersRoute">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${payload}</var>
+<arg>email=${user}[email]</arg>
+<arg>password=${user}[password]</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230312 21:35:29.997" level="INFO">${payload} = {'email': 'barton@shield.com', 'password': 'pwd123'}</msg>
+<status status="PASS" starttime="20230312 21:35:29.996" endtime="20230312 21:35:29.997"/>
+</kw>
+<kw name="POST Session" library="SessionsRoute">
 <var>${response}</var>
 <arg>${payload}</arg>
+<kw name="POST" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${API_USERS}/sessions</arg>
+<arg>json=${payload}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request.</doc>
+<msg timestamp="20230312 21:35:30.254" level="INFO">POST Request : url=https://geeks-api-andre.fly.dev/sessions 
+ path_url=/sessions 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '52', 'Content-Type': 'application/json'} 
+ body=b'{"email": "barton@shield.com", "password": "pwd123"}' 
+ </msg>
+<msg timestamp="20230312 21:35:30.255" level="INFO">POST Response : url=https://geeks-api-andre.fly.dev/sessions 
+ status=200, reason=OK 
+ headers={'x-powered-by': 'Express', 'access-control-allow-origin': '*', 'content-type': 'application/json; charset=utf-8', 'content-encoding': 'gzip', 'etag': 'W/"16c-lQBdfsvYbhTQzYlxcAampaJieFg"', 'date': 'Mon, 13 Mar 2023 00:35:30 GMT', 'connection': 'keep-alive', 'keep-alive': 'timeout=5', 'transfer-encoding': 'chunked', 'server': 'Fly/00340618 (2023-03-12)', 'via': '1.1 fly.io', 'fly-request-id': '01GVC69K9H5S3W5SNY3DKZW1ZW-gru'} 
+ body={"user":{"id":305,"email":"barton@shield.com","password_hash":"$2b$08$oyWRv5yfriq830exTTtXw.frbEJa3sxhP6e1N.GyGG/TjzDd2NuSm","name":"Clint Barton","avatar":null,"whatsapp":null,"is_geek":false},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzA1LCJpYXQiOjE2Nzg2Njc3MzAsImV4cCI6MTY3OTUzMTczMH0.1wTE0Dfgiqf6_0aEMXeGhOeCLY0X8hZ43YLVfBwjb1g","expires_in":"10d"} 
+ </msg>
+<msg timestamp="20230312 21:35:30.255" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230312 21:35:29.997" endtime="20230312 21:35:30.255"/>
+</kw>
+<msg timestamp="20230312 21:35:30.256" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230312 21:35:29.997" endtime="20230312 21:35:30.256"/>
+</kw>
+<if>
+<branch type="IF" condition="&quot;200&quot; in &quot;${response}&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${token}</var>
+<arg>Bearer ${response.json()}[token]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230312 21:35:30.258" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzA1LCJpYXQiOjE2Nzg2Njc3MzAsImV4cCI6MTY3OTUzMTczMH0.1wTE0Dfgiqf6_0aEMXeGhOeCLY0X8hZ43YLVfBwjb1g</msg>
+<status status="PASS" starttime="20230312 21:35:30.257" endtime="20230312 21:35:30.258"/>
+</kw>
+<kw name="DELETE User" library="UsersRoute">
+<arg>${token}</arg>
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${headers}</var>
+<arg>Authorization=${token}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230312 21:35:30.259" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzA1LCJpYXQiOjE2Nzg2Njc3MzAsImV4cCI6MTY3OTUzMTczMH0.1wTE0Dfgiqf6_0aEMXeGhOeCLY0X8hZ43YLVfBwjb1g'}</msg>
+<status status="PASS" starttime="20230312 21:35:30.258" endtime="20230312 21:35:30.259"/>
+</kw>
+<kw name="DELETE" library="RequestsLibrary">
+<var>${response}</var>
+<arg>${API_USERS}/users</arg>
+<arg>headers=${headers}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a DELETE request.</doc>
+<msg timestamp="20230312 21:35:30.402" level="INFO">DELETE Request : url=https://geeks-api-andre.fly.dev/users 
+ path_url=/users 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MzA1LCJpYXQiOjE2Nzg2Njc3MzAsImV4cCI6MTY3OTUzMTczMH0.1wTE0Dfgiqf6_0aEMXeGhOeCLY0X8hZ43YLVfBwjb1g', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20230312 21:35:30.402" level="INFO">DELETE Response : url=https://geeks-api-andre.fly.dev/users 
+ status=204, reason=No Content 
+ headers={'x-powered-by': 'Express', 'access-control-allow-origin': '*', 'date': 'Mon, 13 Mar 2023 00:35:30 GMT', 'connection': 'keep-alive', 'keep-alive': 'timeout=5', 'server': 'Fly/00340618 (2023-03-12)', 'via': '1.1 fly.io', 'fly-request-id': '01GVC69KDQBG0BDEVW7WAMKT04-gru'} 
+ body=None 
+ </msg>
+<msg timestamp="20230312 21:35:30.402" level="INFO">${response} = &lt;Response [204]&gt;</msg>
+<status status="PASS" starttime="20230312 21:35:30.259" endtime="20230312 21:35:30.402"/>
+</kw>
+<status status="PASS" starttime="20230312 21:35:30.258" endtime="20230312 21:35:30.403"/>
+</kw>
+<status status="PASS" starttime="20230312 21:35:30.256" endtime="20230312 21:35:30.403"/>
+</branch>
+<status status="PASS" starttime="20230312 21:35:30.256" endtime="20230312 21:35:30.403"/>
+</if>
+<kw name="POST User" library="UsersRoute">
+<var>${response}</var>
+<arg>${user}</arg>
 <kw name="POST" library="RequestsLibrary">
 <var>${response}</var>
 <arg>${API_USERS}/users</arg>
 <arg>json=${payload}</arg>
 <arg>expected_status=any</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20230309 16:53:42.383" level="INFO">POST Request : url=https://geeks-api-andre.fly.dev/users 
+<msg timestamp="20230312 21:35:30.506" level="INFO">POST Request : url=https://geeks-api-andre.fly.dev/users 
  path_url=/users 
- headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '75', 'Content-Type': 'application/json'} 
- body=b'{"name": "Clint Barton", "email": "clint@shield.com", "password": "pwd123"}' 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '76', 'Content-Type': 'application/json'} 
+ body=b'{"name": "Clint Barton", "email": "barton@shield.com", "password": "pwd123"}' 
  </msg>
-<msg timestamp="20230309 16:53:42.383" level="INFO">POST Response : url=https://geeks-api-andre.fly.dev/users 
- status=400, reason=Bad Request 
- headers={'x-powered-by': 'Express', 'access-control-allow-origin': '*', 'content-type': 'application/json; charset=utf-8', 'content-encoding': 'gzip', 'etag': 'W/"1f-lFUySNKwX3L5eGEwGcNcUoVKWhE"', 'date': 'Thu, 09 Mar 2023 19:53:42 GMT', 'connection': 'keep-alive', 'keep-alive': 'timeout=5', 'transfer-encoding': 'chunked', 'server': 'Fly/a6bdeb7e (2023-03-07)', 'via': '1.1 fly.io', 'fly-request-id': '01GV3YZEPZD15FXJ7ZPJAMSSJX-gru'} 
- body={"error":"User already exists"} 
+<msg timestamp="20230312 21:35:30.506" level="INFO">POST Response : url=https://geeks-api-andre.fly.dev/users 
+ status=201, reason=Created 
+ headers={'x-powered-by': 'Express', 'access-control-allow-origin': '*', 'content-type': 'application/json; charset=utf-8', 'content-encoding': 'gzip', 'etag': 'W/"a-eLk2gPt+G4N2qsQyBQmKMU6Ee7k"', 'date': 'Mon, 13 Mar 2023 00:35:30 GMT', 'connection': 'keep-alive', 'keep-alive': 'timeout=5', 'transfer-encoding': 'chunked', 'server': 'Fly/00340618 (2023-03-12)', 'via': '1.1 fly.io', 'fly-request-id': '01GVC69KH6AR7BZEM01BHH6PSF-gru'} 
+ body={"id":306} 
  </msg>
-<msg timestamp="20230309 16:53:42.383" level="INFO">${response} = &lt;Response [400]&gt;</msg>
-<status status="PASS" starttime="20230309 16:53:42.318" endtime="20230309 16:53:42.383"/>
+<msg timestamp="20230312 21:35:30.506" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20230312 21:35:30.404" endtime="20230312 21:35:30.506"/>
 </kw>
-<msg timestamp="20230309 16:53:42.384" level="INFO">${response} = &lt;Response [400]&gt;</msg>
-<status status="PASS" starttime="20230309 16:53:42.318" endtime="20230309 16:53:42.384"/>
+<msg timestamp="20230312 21:35:30.507" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20230312 21:35:30.403" endtime="20230312 21:35:30.507"/>
 </kw>
 <kw name="Status Should Be" library="RequestsLibrary">
 <arg>201</arg>
 <arg>${response}</arg>
 <doc>Fails if response status code is different than the expected.</doc>
-<msg timestamp="20230309 16:53:42.384" level="FAIL">Url: https://geeks-api-andre.fly.dev/users Expected status: 400 != 201</msg>
-<status status="FAIL" starttime="20230309 16:53:42.384" endtime="20230309 16:53:42.385"/>
+<status status="PASS" starttime="20230312 21:35:30.507" endtime="20230312 21:35:30.507"/>
 </kw>
-<status status="FAIL" starttime="20230309 16:53:42.317" endtime="20230309 16:53:42.386">Url: https://geeks-api-andre.fly.dev/users Expected status: 400 != 201</status>
+<status status="PASS" starttime="20230312 21:35:29.996" endtime="20230312 21:35:30.508"/>
 </test>
 <doc>Users route test suite</doc>
-<status status="FAIL" starttime="20230309 16:53:42.287" endtime="20230309 16:53:42.386"/>
+<status status="PASS" starttime="20230312 21:35:29.953" endtime="20230312 21:35:30.508"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Users">Users</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Users">Users</stat>
 </suite>
 </statistics>
 <errors>

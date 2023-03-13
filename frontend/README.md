@@ -1006,6 +1006,57 @@ To use the template we'll create variables to each of our test cases inputs. Her
 
 While adding a new user we need to keep in mind that the user can only be registered once. This means that using the same payload won't work. One option to it is using faker to generate random payloads which causes massive information input inside the database, making it impracticable. Another option is to create Delorean that refresh the database before every execution as we did for the front-end, although as where dealing with API requests, there's an even better way to do it by defining DELETE requests to the API while executing it.
 
+In order to do it:
+1. First we execute the deletion manually to visualize the API Request
+2. From the request we get the token that is generated while the user is created, it will give each created user one specific id
+3. After all that we add new steps to our [User.robot](../backend/users/tests/Users.robot) suite to identify the token and execute the delete request
+
+**OBS.:** it's possible to visualize the id analysing the encoder web token with [JWT](https://jwt.io/)
+
+And then we add all that to our test case:
+1. We define a new dictionary to fill the email and password with New User factory's data:
+
+```
+*** Test Cases ***
+Add new user
+    ${user}    Factory New User
+
+    # Getting the user token
+    ${payload}    Create Dictionary    email=${user}[email]    password=${user}[password]
+    ${response}    POST Session    ${payload}
+```
+
+2. We get the token from API's body as json:
+
+```
+${token}    Set Variable    Bearer ${response.json()}[token]
+```
+
+3. Define what is the desired action/request to the API, validating it's response:
+
+```
+DELETE User    ${token}
+
+${response}    POST User    ${user}
+Status Should Be    201    ${response}
+```
+
+4. Once this scenario will only happen for existing users, we'll add our delete request to a condition statement allowing validation only if the user actually exists:
+
+```
+IF  "200" in "${response}"
+    # We also need to inform the Bearer carrier as well
+    ${token}    Set Variable    Bearer ${response.json()}[token]
+
+    # Delete from /user
+    DELETE User    ${token}
+END
+```
+
+**OBS.:** this way once the user exists, validation will be executed, if not return the status code
+
+**Question:** the user shouldn't be removed from database after execution?
+
 ---
 
 # Usefull terminal commands
@@ -1015,6 +1066,7 @@ While adding a new user we need to keep in mind that the user can only be regist
 - robot -o NONE - runs the file without generating output
 - robot -r NONE - runs the file witout generating report
 - robot -i tags_name - runs only test cases that contains the defined tag
+- robot -e tags_name - excludes tests that contains the defined tag
 - chmod +x run.sh - gives file "run.sh" permition to be executed. Turns the file executable. **Works for linux based terminals**
 - ./run.sh - runs a file inside the actual file path
 - run.bat - runs terminal shortcuts **This works for MS-DOS based terminals**
@@ -1064,6 +1116,7 @@ run.bat
 - [QAcademy course](https://app.qacademy.io/area/produto/item/149046)
 - [Faker Library](https://pypi.org/project/Faker/)
 - [Typora md editor](https://typora.io/)
+- [JSON Web Tokens](https://jwt.io/)
 
 ## Pabot
 
