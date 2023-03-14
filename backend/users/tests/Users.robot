@@ -16,3 +16,12 @@ Add new user
     # get the id value from API's response and store it inside a variable
     ${user_id}    Set Variable    ${response.json()}[id]
     Should Be True    ${user_id} > 0
+
+Get user data
+    ${user}    Factory Get User
+    # Remove User    ${user}
+    POST User    ${user}
+
+    ${token}    Get Token    ${user}
+    ${response}    GET User    ${token}
+    Status Should Be    200    ${response}

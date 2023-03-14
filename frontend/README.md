@@ -41,6 +41,8 @@
   - [Sessions.robot](#sessionsrobot)
   - [Users.robot](#usersrobot)
     - [Validating ID](#validating-id)
+    - [POST Request](#post-request)
+    - [GET Request](#get-request)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
   - [Linux](#linux)
@@ -1073,6 +1075,31 @@ Should Be True    ${user_id} > 0
 ```
 
 **OBS.:** this is important to validade when considering the usage of those IDs in the application, negative and/or alphanumeric values for ID may cause problems while using it.
+
+### POST Request
+
+A POST Request to the API will allow us to insert new information to the database by executing the defined actions. For POST Requests we need to enter the body so the information can be created
+
+### GET Request
+
+A GET Request to a route from the API will try to return infos from the desired path. Differently from the POST Request, executing a GET Request don't need body information yet we still need to identify the user id through the header's authorization token
+
+To get the token from devtools:
+1. With a logged user, go to application
+2. Find the session storage, you'll find the token and all user informations
+
+**Note:** Looking into POST header's response or executing the login through API requests will return the authentication token as well.
+
+To define it inside the GET Request:
+1. Go to Auth tab inside the request
+2. Select the Authentication carrier (in this case Bearer)
+3. Paste the token
+
+**OBS.:** token identification is necessary for allowing user access through the application.
+
+While executing the GET Request its important to keep in mind that already registered users won't be registered again instead the method will only log in and return all users information.
+
+**IMPORTANT:** password changes can break the test so we need to have password data control in order to make it work properly. One way to deal with scenarios that have constant password changes is to add the `Remove User    ${user}` function to the test case, this way everytime the test case runs a new user is created before actually executing its steps. Here we're useing standard passwords so this won't be needed.
 
 ---
 
