@@ -43,6 +43,7 @@
     - [Validating ID](#validating-id)
     - [POST Request](#post-request)
     - [GET Request](#get-request)
+      - [Validating user infos](#validating-user-infos)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
   - [Linux](#linux)
@@ -1100,6 +1101,23 @@ To define it inside the GET Request:
 While executing the GET Request its important to keep in mind that already registered users won't be registered again instead the method will only log in and return all users information.
 
 **IMPORTANT:** password changes can break the test so we need to have password data control in order to make it work properly. One way to deal with scenarios that have constant password changes is to add the `Remove User    ${user}` function to the test case, this way everytime the test case runs a new user is created before actually executing its steps. Here we're useing standard passwords so this won't be needed.
+
+#### Validating user infos
+
+Inside GET HTML method we can also validate users information. Considering all the standard expected fields we define the expected response versus the actual returned data:
+
+```
+Should Be Equal As Strings    ${user}[name]    ${response.json()}[name]
+Should Be Equal As Strings    ${user}[email]    ${response.json()}[email]
+
+Should Be Equal As Strings    None    ${response.json()}[whatsapp]
+Should Be Equal As Strings    None    ${response.json()}[avatar]
+Should Be Equal As Strings    False    ${response.json()}[is_geek]
+```
+
+**OBS.:** it's important to remember that whatsapp and avatar data is null for standard, considering the response is a string value we use the expected responses as none, and False for is_geek once it is the standard responsem.
+
+`Dictionary Should Contain Value    ${response.json()}   ${user}[name]` keyword can also be used for fields validation, although it just validate if the field exists inside users information. It's not a best practice to use it once the actual field value isn't being validated.
 
 ---
 
