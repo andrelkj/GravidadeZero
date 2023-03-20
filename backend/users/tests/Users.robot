@@ -32,3 +32,22 @@ Get user data
     Should Be Equal As Strings    None    ${response.json()}[whatsapp]
     Should Be Equal As Strings    None    ${response.json()}[avatar]
     Should Be Equal As Strings    False    ${response.json()}[is_geek]
+
+Remove user
+    # Given that the user exists in the system
+    ${user}    Factory Remove User
+    # Remove User    ${user}
+    POST User    ${user}
+
+    # And I have this user token
+    ${token}    Get Token    ${user}
+
+    # When executing a delete request to /users
+    ${response}    DELETE User    ${token}
+
+    # Status code 204 (no contet) should be returned
+    Status Should Be    204    ${response}
+
+    # And while executing a new GET request to /users with the same token should return status code 404 (not found)
+    ${response}    GET User    ${token}
+    Status Should Be    404    ${response}

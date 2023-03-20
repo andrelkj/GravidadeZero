@@ -14,6 +14,14 @@ def factory_get_user():
         'password': 'pwd123'
     }
 
+def factory_remove_user():
+    
+    return {
+        'name': 'Thaddeus Ross',
+        'email': 'ross@gmail.com',
+        'password': 'pwd123'
+    }
+
 def factory_user_session(target):
     name = 'Kate Bishop'
     email = 'kate@hotmail.com'
