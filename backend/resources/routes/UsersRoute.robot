@@ -11,7 +11,6 @@ POST User
     ${response}    POST    ${API_USERS}/users    json=${payload}    expected_status=any
     RETURN    ${response}
 
-
 DELETE User
     [Arguments]    ${token}
 
@@ -19,7 +18,6 @@ DELETE User
 
     ${response}    DELETE    ${API_USERS}/users    headers=${headers}    expected_status=any
     RETURN    ${response}
-
 
 GET User
     [Arguments]    ${token}
@@ -29,7 +27,6 @@ GET User
     ${response}    GET    ${API_USERS}/users    headers=${headers}    expected_status=any
     RETURN    ${response}
 
-
 PUT User
     [Arguments]    ${token}    ${payload}
 
@@ -37,4 +34,3 @@ PUT User
 
     ${response}    PUT    ${API_USERS}/users    json=${payload}    headers=${headers}    expected_status=any
     RETURN    ${response}
-

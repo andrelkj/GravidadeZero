@@ -45,7 +45,8 @@
     - [GET Request](#get-request)
       - [Validating user infos](#validating-user-infos)
     - [DELETE Request](#delete-request)
-    - [Updating user infos with PUT request](#updating-user-infos-with-put-request)
+    - [PUT Request](#put-request)
+  - [Validating geek creation](#validating-geek-creation)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
   - [Linux](#linux)
@@ -491,6 +492,7 @@ def factory_user_be_geek():
             'work': 'Remote',
             'cost': '100'
         }
+    }
 ```
 
 To define the elements name we normally use those defined inside the HTML, for example:
@@ -1154,7 +1156,7 @@ Remove user
 
 **OBS.:** A new factory was created exclusive for the remove user test case.
 
-### Updating user infos with PUT request
+### PUT Request
 
 PUT request allows entry of data either to create or change data from users. Desired content should the entered inside the body of the request and it will replace as well as the user token so all previous existing information of it will be replaced for the new one inside the PUT request body.
 
@@ -1185,6 +1187,21 @@ We send a new GET request to validate all new changes
 ```
 
 **OBS.:** PUT requests operates similarly to POST requests, we just need the token to identify what should be changed.
+
+
+## Validating geek creation
+
+Here we're going to validate the creation of geek user inside the application. Geeks are service providers that will add informations that allow people to reach them old for their services.
+
+Here we basically:
+
+1. Created the [Geek test suite](../backend/tests/Geeks.robot)
+2. Created a new [GeekRoute](../backend/resources/routes/GeeksRoute.robot) to manage our geeks test suite requests
+3. Created a new factory to geek users with will generate all our inputs
+4. We then clear our user in order to restart the API
+5. Then we send POST and GET requests with users token in order to create and validate users data
+
+**OBS.:** values like cost may need convertion once it needs to be identical in order to pass the test. Here we're going to convert both user data and API response with `${expected_float}    Convert To Number    ${user}[geek_profile][cost]` and `${got_float}    Convert To Number    ${response.json()}[cost]`.
 
 ---
 
