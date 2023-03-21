@@ -44,6 +44,8 @@
     - [POST Request](#post-request)
     - [GET Request](#get-request)
       - [Validating user infos](#validating-user-infos)
+    - [DELETE Request](#delete-request)
+    - [Updating user infos with PUT request](#updating-user-infos-with-put-request)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
   - [Linux](#linux)
@@ -1011,6 +1013,7 @@ To use the template we'll create variables to each of our test cases inputs. Her
 While adding a new user we need to keep in mind that the user can only be registered once. This means that using the same payload won't work. One option to it is using faker to generate random payloads which causes massive information input inside the database, making it impracticable. Another option is to create Delorean that refresh the database before every execution as we did for the front-end, although as where dealing with API requests, there's an even better way to do it by defining DELETE requests to the API while executing it.
 
 In order to do it:
+
 1. First we execute the deletion manually to visualize the API Request
 2. From the request we get the token that is generated while the user is created, it will give each created user one specific id
 3. After all that we add new steps to our [User.robot](../backend/users/tests/Users.robot) suite to identify the token and execute the delete request
@@ -1018,6 +1021,7 @@ In order to do it:
 **OBS.:** it's possible to visualize the id analysing the encoder web token with [JWT](https://jwt.io/)
 
 And then we add all that to our test case:
+
 1. We define a new dictionary to fill the email and password with New User factory's data:
 
 ```
@@ -1086,12 +1090,14 @@ A POST Request to the API will allow us to insert new information to the databas
 A GET Request to a route from the API will try to return infos from the desired path. Differently from the POST Request, executing a GET Request don't need body information yet we still need to identify the user id through the header's authorization token
 
 To get the token from devtools:
+
 1. With a logged user, go to application
 2. Find the session storage, you'll find the token and all user informations
 
 **Note:** Looking into POST header's response or executing the login through API requests will return the authentication token as well.
 
 To define it inside the GET Request:
+
 1. Go to Auth tab inside the request
 2. Select the Authentication carrier (in this case Bearer)
 3. Paste the token
@@ -1118,6 +1124,67 @@ Should Be Equal As Strings    False    ${response.json()}[is_geek]
 **OBS.:** it's important to remember that whatsapp and avatar data is null for standard, considering the response is a string value we use the expected responses as none, and False for is_geek once it is the standard responsem.
 
 `Dictionary Should Contain Value    ${response.json()}   ${user}[name]` keyword can also be used for fields validation, although it just validate if the field exists inside users information. It's not a best practice to use it once the actual field value isn't being validated.
+
+### DELETE Request
+
+Delete request user authenticator in order to identify which element should be deleted. It's successful execution returns a status code 204 (No Content), although it do not garantee that the user ou data was actually deleted so we need additional validation steps to confirm that.
+
+One way of verifying it the user was deleted for sure is calling the GET request once more with the same (deleted user) token authenticator. If all behave as expected and the user was successful deleted then a status code 404 (not found) will be returned
+
+```
+Remove user
+    # Given that the user exists in the system
+    ${user}    Factory Remove User
+    # Remove User    ${user}
+    POST User    ${user}
+
+    # And I have this user token
+    ${token}    Get Token    ${user}
+
+    # When executing a delete request to /users
+    ${response}    DELETE User    ${token}
+
+    # Status code 204 (no contet) should be returned
+    Status Should Be    204    ${response}
+
+    # And while executing a new GET request to /users with the same token should return status code 404 (not found)
+    ${response}    GET User    ${token}
+    Status Should Be    404    ${response}
+```
+
+**OBS.:** A new factory was created exclusive for the remove user test case.
+
+### Updating user infos with PUT request
+
+PUT request allows entry of data either to create or change data from users. Desired content should the entered inside the body of the request and it will replace as well as the user token so all previous existing information of it will be replaced for the new one inside the PUT request body.
+
+After allowing PUT request execution
+
+```
+    ${user}    Factory Update User
+    POST User    ${user}[before]
+
+    ${token}    Get Token    ${user}[before]
+
+    ${response}    PUT User    ${token}    ${user}[after]
+
+    Status Should Be    200    ${response}
+```
+
+We send a new GET request to validate all new changes
+
+```
+    ${response}    GET User    ${token}
+
+    Should Be Equal As Strings    ${user}[after][name]    ${response.json()}[name]
+    Should Be Equal As Strings    ${user}[after][email]    ${response.json()}[email]
+
+    Should Be Equal As Strings    ${user}[after][whatsapp]    ${response.json()}[whatsapp]
+    Should Be Equal As Strings    ${user}[after][avatar]    ${response.json()}[avatar]
+    Should Be Equal As Strings    False    ${response.json()}[is_geek]
+```
+
+**OBS.:** PUT requests operates similarly to POST requests, we just need the token to identify what should be changed.
 
 ---
 
