@@ -12,3 +12,11 @@ POST Geek
 
     ${response}    POST    ${API_GEEKS}/geeks    json=${payload}    headers=${headers}    expected_status=any
     RETURN    ${response}
+
+GET Geeks
+    [Arguments]    ${token}
+
+    ${headers}    Create Dictionary    Authorization=${token}
+
+    ${response}    GET    ${API_GEEKS}/geeks    headers=${headers}    expected_status=any
+    RETURN    ${response}

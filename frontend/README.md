@@ -46,7 +46,9 @@
       - [Validating user infos](#validating-user-infos)
     - [DELETE Request](#delete-request)
     - [PUT Request](#put-request)
-  - [Validating geek creation](#validating-geek-creation)
+  - [Geeks](#geeks)
+    - [Validating geek creation](#validating-geek-creation)
+    - [Getting geeks list](#getting-geeks-list)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
   - [Linux](#linux)
@@ -1189,7 +1191,11 @@ We send a new GET request to validate all new changes
 **OBS.:** PUT requests operates similarly to POST requests, we just need the token to identify what should be changed.
 
 
-## Validating geek creation
+## Geeks
+
+Inside the applation there's service providers that needs to be added and stored in a list which should be displayed inside the page with all their information. In order to garantee geeks functionality we'll test for both it's creation and displayability inside the page
+
+### Validating geek creation
 
 Here we're going to validate the creation of geek user inside the application. Geeks are service providers that will add informations that allow people to reach them old for their services.
 
@@ -1202,6 +1208,32 @@ Here we basically:
 5. Then we send POST and GET requests with users token in order to create and validate users data
 
 **OBS.:** values like cost may need convertion once it needs to be identical in order to pass the test. Here we're going to convert both user data and API response with `${expected_float}    Convert To Number    ${user}[geek_profile][cost]` and `${got_float}    Convert To Number    ${response.json()}[cost]`.
+
+### Getting geeks list
+
+Here we're validating getting the geeks list for all displayed information visualization.
+
+First we'll generate a new user and through a normal user point of view we'll look for 
+````
+Get Geek List
+    ${user}    Factory Search For Geeks
+    POST User    ${user}
+
+    ${token}    Get Token    ${user}
+
+    ${response}    GET Geeks    ${token}
+
+    Status Should Be    200    ${response}
+````
+
+In order to validate the list we'll use the log function to get and validate the length of the list, once all geeks will be shown inside the same list.
+
+````
+    Log    ${response.json()}[Geeks]
+
+    ${total}    Get Length    ${response.json()}[Geeks]
+    Should Be True    ${total} > 0
+````
 
 ---
 
