@@ -49,6 +49,8 @@
   - [Geeks](#geeks)
     - [Validating geek creation](#validating-geek-creation)
     - [Getting geeks list](#getting-geeks-list)
+  - [Regression test](#regression-test)
+  - [**OBS.:** in this case all backend tests](#obs-in-this-case-all-backend-tests)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
   - [Linux](#linux)
@@ -1303,6 +1305,11 @@ In order to validate the list we'll use the log function to get and validate the
     Should Be True    ${total} > 0
 ````
 
+## Regression test
+
+We'll define a new run.sh file with the command `robot -d ./logs tests` and then activate it with `chmod +x run.sh`. By running `./run.sh` into the terminal we'll execute all the described commands inside of it.
+
+**OBS.:** in this case all backend tests
 ---
 
 # Usefull terminal commands
