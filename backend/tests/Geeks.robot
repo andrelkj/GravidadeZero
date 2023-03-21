@@ -44,16 +44,23 @@ Be a geek
     Should Be Equal As Strings    True    ${response.json()}[is_geek]
 
 Get Geek List
-    ${user}    Factory Search For Geeks
-    POST User    ${user}
+    [Tags]    temp
 
-    ${token}    Get Token    ${user}
+    ${data}    Factory Search For Geeks
+
+    FOR    ${geek}    IN    @{data}[geeks]
+        POST User    ${geek}
+        ${token}    Get Token    ${geek}
+
+        POST Geek    ${token}    ${geek}[geek_profile]
+    END
+
+    POST User    ${data}[user]
+
+    ${token}    Get Token    ${data}[user]
 
     ${response}    GET Geeks    ${token}
-
     Status Should Be    200    ${response}
-
-    Log    ${response.json()}[Geeks]
 
     ${total}    Get Length    ${response.json()}[Geeks]
     Should Be True    ${total} > 0

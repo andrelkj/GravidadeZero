@@ -1190,7 +1190,6 @@ We send a new GET request to validate all new changes
 
 **OBS.:** PUT requests operates similarly to POST requests, we just need the token to identify what should be changed.
 
-
 ## Geeks
 
 Inside the applation there's service providers that needs to be added and stored in a list which should be displayed inside the page with all their information. In order to garantee geeks functionality we'll test for both it's creation and displayability inside the page
@@ -1213,8 +1212,9 @@ Here we basically:
 
 Here we're validating getting the geeks list for all displayed information visualization.
 
-First we'll generate a new user and through a normal user point of view we'll look for 
-````
+First we'll generate a new user and through a normal user point of view we'll look for
+
+```
 Get Geek List
     ${user}    Factory Search For Geeks
     POST User    ${user}
@@ -1224,12 +1224,80 @@ Get Geek List
     ${response}    GET Geeks    ${token}
 
     Status Should Be    200    ${response}
-````
+```
 
 In order to validate the list we'll use the log function to get and validate the length of the list, once all geeks will be shown inside the same list.
 
-````
+```
     Log    ${response.json()}[Geeks]
+
+    ${total}    Get Length    ${response.json()}[Geeks]
+    Should Be True    ${total} > 0
+```
+
+**OBS.:** once we need to log in inside a user to visualise geeks list we create a dependency, so we're going to improve it to a more independent test case.
+
+1. We'll enter geeks information to the factory:
+
+```
+     'geeks': [
+            {
+                'name': 'Riri Willians',
+                'email': 'riri@marvel.com',
+                'password': 'pwd123',
+                'geek_profile': {
+                        'whatsapp': '11999999999',
+                        'desc': 'Seu computador está lento? Reiniciando do nada? Talvez seja um vírus, ou algum hardware com defeito. Posso fazer a manutenção no seu PC, formando, reinstalando o SO, trocando algum componente físico e porque não remover o baidu ou qualquer outro malware.',
+                        'printer_repair': 'Não',
+                        'work': 'Presencial',
+                        'cost': '100'
+                }
+            },
+            {
+                'name': 'Arnim Zola',
+                'email': 'zola@hidra.com',
+                'password': 'pwd123',
+                'geek_profile': {
+                        'whatsapp': '21999999999',
+                        'desc': 'Instalo Distros Ubuntu, Debian, ElementaryOS, PopOS, Linux Mint, Kurumin, Mandrake, Connectiva, Fedora, RedHat, CentOS, Slackware, Gentoo, Archlinux, Kubuntu, Xubuntu, Suze, Mandriva, Edubuntu, KateOS, Sabayon Linux, Manjaro Linux, BigLinux, ZorinOS, Unit',
+                        'printer_repair': 'Não',
+                        'work': 'Ambos',
+                        'cost': '110'
+                }
+            },
+            {
+                'name': 'Reed Richards',
+                'email': 'reed@fantastic4.com',
+                'password': 'pwd123',
+                'geek_profile': {
+                        'whatsapp': '31999999999',
+                        'desc': 'Instalado e faço manutenção em qualquer tipo de impressora, matricial padrão, matricial fiscal, a jato, a cera, a laser e até 3D. Também faço remold de fitas coloridas para Epson LX300. ',
+                        'printer_repair': 'Sim',
+                        'work': 'Remoto',
+                        'cost': '120'
+                }
+            }
+        ]
+```
+
+2. We'll set a behaviour for each of the geeks in order to create them:
+
+````
+    FOR    ${geek}    IN    @{data}[geeks]
+        POST User    ${geek}
+        ${token}    Get Token    ${geek}
+
+        POST Geek    ${token}    ${geek}[geek_profile]
+    END
+````
+
+3. Then we validate the token, status code response and length of the list
+
+````
+    ${token}    Get Token    ${data}[user]
+
+    ${response}    GET Geeks    ${token}
+    Status Should Be    200    ${response}
 
     ${total}    Get Length    ${response.json()}[Geeks]
     Should Be True    ${total} > 0
