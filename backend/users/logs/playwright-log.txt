@@ -1,5 +1,0 @@
-{"level":30,"time":"2023-03-09T03:59:00.187Z","pid":13953,"hostname":"Andres-iMac.local","msg":"Listening on 53712"}
-{"level":30,"time":"2023-03-09T03:59:00.249Z","pid":13953,"hostname":"Andres-iMac.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2023-03-09T03:59:00.250Z","pid":13953,"hostname":"Andres-iMac.local","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2023-03-09T03:59:00.251Z","pid":13953,"hostname":"Andres-iMac.local","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2023-03-09T03:59:00.252Z","pid":13953,"hostname":"Andres-iMac.local","msg":"End of node method getBrowserCatalog"}
