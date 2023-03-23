@@ -1420,6 +1420,8 @@ Here we're going to create a pipelane to whom execute all our frontend tests. We
 
 #### Adding configuration and dependencies
 
+In here we're going to install all node and libraries required for our test to run
+
 ````
     - name: Set up Node 14
       run: |
@@ -1430,6 +1432,8 @@ Here we're going to create a pipelane to whom execute all our frontend tests. We
         sudo apt-get update
         sudo apt-get install -y xvfb ca-certificates net-tools netcat gnupg ffmpeg libgtk-3-0 libgdk-pixbuf2.0-dev libxcomposite-dev libdbus-glib-1-2 libatk-bridge2.0-0 wget libgbm1 libnss3 libxss1 libasound2
 ````
+
+**OBS.:** Evaluate Javascript keyword was changed back to Execute Javascript once we rolled back the library and robot versions to allow better compatibility.
 
 ### Important commands
 
