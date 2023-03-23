@@ -54,6 +54,7 @@
     - [Creating python dependencies file](#creating-python-dependencies-file)
     - [Regression workflow](#regression-workflow)
     - [Uploading robot report](#uploading-robot-report)
+    - [jUnit reports](#junit-reports)
     - [Important commands](#important-commands)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
@@ -1392,6 +1393,22 @@ After running all tests a report is generated, here we're going to import our ht
 
 **OBS.:** here we can now download the report.
 
+### jUnit reports
+
+We're going to use jUnit reports format to integrate reports to the pipeline allowing outputs visualization through dashboard.
+
+1. Adding Test Reporter to regression workflow:
+
+````
+    - name: Test Reporter
+      uses: dorny/test-reporter@v1.6.0
+      with:
+        name: API Test Result
+        path: backend/logs/xunit.xml
+        reporter: java-junit // specify the format of the test result
+````
+
+
 ### Important commands
 
 - `on` - defines when to run the workflow
@@ -1417,6 +1434,8 @@ After running all tests a report is generated, here we're going to import our ht
 - robot -v BROWSER:chromium -v HEADLESS:true - define a variable and gives a value to it
 - pip freeze > requirements.txt - frozen python libraries version and add it to the file requirements.txt
 - pip install -r requirements.txt - install all dependencies from requirements.txt file
+- robot --help - open robot command line options with description
+- robot -x xunit.xml - display report in jUnit format
 
 ## Git
 
