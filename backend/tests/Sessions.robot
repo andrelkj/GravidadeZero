@@ -38,6 +38,8 @@ User session
 
     Should Be Equal    ${expected_size}    ${size}
 
+    # If there's tokens being returned with 141 we can use `Should Be True    ${size} > 0` instead of line 37 and 39 
+
 # And the generated token should expire in 10 days
     Should Be Equal    10d    ${response.json()}[expires_in]
 
