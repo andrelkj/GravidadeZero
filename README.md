@@ -1352,26 +1352,26 @@ And our actual steps
 
 ```
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v3 // add all code to the virtual machine
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v3 // install the python version described inside the with
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        pip install build
-        pip install -r requirements.txt
-    - name: Lint with flake8
+        python -m pip install --upgrade pip // keeps pip package updated
+        pip install build // install all needed dependencies and libraries to run the project
+        pip install -r requirements.txt // install all dependencies from requirements.txt
     - name: Run API Tests
       run: |
-        chmod +x ./backend/run.sh
-        cd backend/ && ./run/sh
+        chmod +x ./backend/run.sh // gives permition to execute run.sh file
+        cd backend/ && ./run.sh // move to backend file and execute ./run.sh
 ```
 
 **OBS.:** the workflow starts inside the basic project file (projec), also we need to give permission to our run.sh file adding the `chmod +x ./backend/run.sh` before the run.
 
-We then execute the commit
+We then execute the commit and them check for the status inside actions
+
 ### Important commands
 
 - `on` - defines when to run the workflow
