@@ -52,12 +52,13 @@
   - [Regression test](#regression-test)
   - [Github Actions](#github-actions)
     - [Creating python dependencies file](#creating-python-dependencies-file)
+    - [Regression workflow](#regression-workflow)
+    - [Important commands](#important-commands)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
   - [Linux](#linux)
   - [chmod +x run.sh](#chmod-x-runsh)
   - [Request Library](#request-library)
-  - [json=${variable} - convert the request content-type to json](#jsonvariable---convert-the-request-content-type-to-json)
 - [Important links](#important-links)
   - [Pabot](#pabot)
     - [Pabot screenshot path improvement](#pabot-screenshot-path-improvement)
@@ -1285,18 +1286,18 @@ In order to validate the list we'll use the log function to get and validate the
 
 2. We'll set a behaviour for each of the geeks in order to create them:
 
-````
+```
     FOR    ${geek}    IN    @{data}[geeks]
         POST User    ${geek}
         ${token}    Get Token    ${geek}
 
         POST Geek    ${token}    ${geek}[geek_profile]
     END
-````
+```
 
 3. Then we validate the token, status code response and length of the list
 
-````
+```
     ${token}    Get Token    ${data}[user]
 
     ${response}    GET Geeks    ${token}
@@ -1304,7 +1305,7 @@ In order to validate the list we'll use the log function to get and validate the
 
     ${total}    Get Length    ${response.json()}[Geeks]
     Should Be True    ${total} > 0
-````
+```
 
 ## Regression test
 
@@ -1324,6 +1325,59 @@ Github actions allow the creation of workflows that will execute jobs with all t
 2. Remove all unnecessary libraries
 
 **OBS.:** now requirements.txt should be available inside the projects file. Running `pip install -r requirements.txt` can be used to install all required libraries/dependencies from the file.
+
+### Regression workflow
+
+We'll define when we want this workflow to be executed:
+
+```
+on:
+  push:
+    branches: [ "master" ]
+```
+
+Then we'll define our jobs which stands for the steps it needs to execute:
+
+Entering running informations
+
+```
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9"]
+```
+
+And our actual steps
+
+```
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v3
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install build
+        pip install -r requirements.txt
+    - name: Lint with flake8
+    - name: Run API Tests
+      run: |
+        chmod +x ./backend/run.sh
+        cd backend/ && ./run/sh
+```
+
+**OBS.:** the workflow starts inside the basic project file (projec), also we need to give permission to our run.sh file adding the `chmod +x ./backend/run.sh` before the run.
+
+We then execute the commit
+### Important commands
+
+- `on` - defines when to run the workflow
+- `runs-on` - defines the virtuar machine agent whom should run the workflow
+- `fail-fast` - while false allows the flow to continue after a failed response, while true end the execution once a fail is respose is returned.
+- `pip install build` - install the project dependencies inside the virtual machine
 
 ---
 
@@ -1377,7 +1431,7 @@ run.bat
 
 ## Request Library
 
-## json=${variable} - convert the request content-type to json
+- `json=${variable}` - convert the request content-type to json
 
 # Important links
 
