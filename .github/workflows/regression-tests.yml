@@ -14,9 +14,9 @@ jobs:
         python-version: ["3.9"]
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
     - name: Install dependencies
@@ -29,13 +29,13 @@ jobs:
         chmod +x ./backend/run.sh
         cd backend/ && ./run.sh
     - name: Upload API Test Results
-      uses: actions/upload-artifact@v3.1.2
+      uses: actions/upload-artifact@v2.3.1
       if: always()
       with:
         name: api-reports
         path: backend/logs
     - name: Test Reporter
-      uses: dorny/test-reporter@v1.6.0
+      uses: dorny/test-reporter@v1.5.0
       with:
         name: API Test Result
         path: backend/logs/xunit.xml
@@ -50,9 +50,9 @@ jobs:
         python-version: ["3.9"]
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v2
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v3
+      uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
     - name: Set up Node 14
@@ -75,13 +75,13 @@ jobs:
         chmod +x ./frontend/run.sh
         cd frontend/ && ./run.sh
     - name: Upload Web Test Results
-      uses: actions/upload-artifact@v3.1.2
+      uses: actions/upload-artifact@v2.3.1
       if: always()
       with:
         name: web-reports
         path: frontend/logs
     - name: Test Reporter
-      uses: dorny/test-reporter@v1.6.0
+      uses: dorny/test-reporter@v1.5.0
       with:
         name: Web Test Result
         path: frontend/logs/xunit.xml
