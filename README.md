@@ -53,6 +53,7 @@
   - [Github Actions](#github-actions)
     - [Creating python dependencies file](#creating-python-dependencies-file)
     - [Regression workflow](#regression-workflow)
+    - [Uploading robot report](#uploading-robot-report)
     - [Important commands](#important-commands)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
@@ -1370,7 +1371,26 @@ And our actual steps
 
 **OBS.:** the workflow starts inside the basic project file (projec), also we need to give permission to our run.sh file adding the `chmod +x ./backend/run.sh` before the run.
 
-We then execute the commit and them check for the status inside actions
+We then execute the commit and them check for the status inside actions.
+
+### Uploading robot report
+
+After running all tests a report is generated, here we're going to import our html report file to the workflow.
+
+1. We're going to add Upload a Build Artifact resource to the regression workflow
+
+````
+    - name: Upload API Test Results
+      uses: actions/upload-artifact@v3.1.2 // install the artifact dependencies
+      if: always() // define when to execute it, in this case always
+      with: // define the name and from where the data would come from
+        name: api-reports
+        path: backend/logs
+````
+
+2. Visualize the artifacts generated from execution.
+
+**OBS.:** here we can now download the report.
 
 ### Important commands
 
