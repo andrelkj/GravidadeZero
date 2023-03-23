@@ -9,7 +9,7 @@ POST User
     [Arguments]    ${payload}
 
     ${response}    POST    ${API_USERS}/users    json=${payload}    expected_status=any
-    RETURN    ${response}
+    [Return]   ${response}
 
 DELETE User
     [Arguments]    ${token}
@@ -17,7 +17,7 @@ DELETE User
     ${headers}    Create Dictionary    Authorization=${token}
 
     ${response}    DELETE    ${API_USERS}/users    headers=${headers}    expected_status=any
-    RETURN    ${response}
+    [Return]    ${response}
 
 GET User
     [Arguments]    ${token}
@@ -25,7 +25,7 @@ GET User
     ${headers}    Create Dictionary    Authorization=${token}
 
     ${response}    GET    ${API_USERS}/users    headers=${headers}    expected_status=any
-    RETURN    ${response}
+    [Return]    ${response}
 
 PUT User
     [Arguments]    ${token}    ${payload}
@@ -33,4 +33,4 @@ PUT User
     ${headers}    Create Dictionary    Authorization=${token}
 
     ${response}    PUT    ${API_USERS}/users    json=${payload}    headers=${headers}    expected_status=any
-    RETURN    ${response}
+    [Return]    ${response}
