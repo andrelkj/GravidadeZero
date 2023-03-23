@@ -38,4 +38,4 @@ Geek Form Should Be Success
     Wait For Elements State    css=p >> text=${expected_message}    visible    5
 
 Reset Geek Form
-    Evaluate JavaScript    css=.be-geek-form    document.getElementsByClassName("be-geek-form")[0].reset()
+    Execute JavaScript    document.getElementsByClassName("be-geek-form")[0].reset()
