@@ -52,9 +52,10 @@
   - [Regression test](#regression-test)
   - [Github Actions](#github-actions)
     - [Creating python dependencies file](#creating-python-dependencies-file)
-    - [Regression workflow](#regression-workflow)
+    - [Regression backend workflow](#regression-backend-workflow)
     - [Uploading robot report](#uploading-robot-report)
     - [jUnit reports](#junit-reports)
+    - [Frontend workflow](#frontend-workflow)
     - [Important commands](#important-commands)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
@@ -1328,7 +1329,7 @@ Github actions allow the creation of workflows that will execute jobs with all t
 
 **OBS.:** now requirements.txt should be available inside the projects file. Running `pip install -r requirements.txt` can be used to install all required libraries/dependencies from the file.
 
-### Regression workflow
+### Regression backend workflow
 
 We'll define when we want this workflow to be executed:
 
@@ -1408,6 +1409,13 @@ We're going to use jUnit reports format to integrate reports to the pipeline all
         reporter: java-junit // specify the format of the test result
 ````
 
+### Frontend workflow
+
+Here we're going to create a pipelane to whom execute all our frontend tests. We'll use the same basic structure from the backend regression workflow just changing:
+
+1. Files path to frontend/
+2. Adding the jUnit report generation command to run.sh/ `pabot -x xunit.xml -d ./logs -v BROWSER:chromium -v HEADLESS:true -e smoke tests`
+3. Adds a `needs: api_tests`step so that the frontend workflows awaits for the backend workflow to be successfully tested in order to run
 
 ### Important commands
 
