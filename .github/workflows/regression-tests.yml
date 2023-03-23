@@ -27,4 +27,4 @@ jobs:
     - name: Run API Tests
       run: |
         chmod +x ./backend/run.sh
-        cd backend/ && ./run/sh
+        cd backend/ && ./run.sh
