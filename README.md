@@ -56,6 +56,7 @@
     - [Uploading robot report](#uploading-robot-report)
     - [jUnit reports](#junit-reports)
     - [Frontend workflow](#frontend-workflow)
+      - [Adding configuration and dependencies](#adding-configuration-and-dependencies)
     - [Important commands](#important-commands)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
@@ -1416,6 +1417,19 @@ Here we're going to create a pipelane to whom execute all our frontend tests. We
 1. Files path to frontend/
 2. Adding the jUnit report generation command to run.sh/ `pabot -x xunit.xml -d ./logs -v BROWSER:chromium -v HEADLESS:true -e smoke tests`
 3. Adds a `needs: api_tests`step so that the frontend workflows awaits for the backend workflow to be successfully tested in order to run
+
+#### Adding configuration and dependencies
+
+````
+    - name: Set up Node 14
+      run: |
+      curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash - &&\
+      sudo apt-get install -y nodejs
+    - name: Preparation
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y xvfb ca-certificates net-tools netcat gnupg ffmpeg libgtk-3-0 libgdk-pixbuf2.0-dev libxcomposite-dev libdbus-glib-1-2 libatk-bridge2.0-0 wget libgbm1 libnss3 libxss1 libasound2
+````
 
 ### Important commands
 
