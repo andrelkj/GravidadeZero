@@ -45,7 +45,7 @@ jobs:
   web_tests:
     needs: api_tests
     runs-on: ubuntu-latest
-    webategy:
+    strategy:
       fail-fast: false
       matrix:
         python-version: ["3.9"]
