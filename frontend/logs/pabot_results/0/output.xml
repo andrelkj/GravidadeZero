@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.1 (Python 3.11.1 on darwin)" generated="20230324 19:36:12.520" rpa="false" schemaversion="3">
-<suite id="s1" name="SearchForGeeks" source="/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/frontend/tests/SearchForGeeks.robot">
-<test id="s1-t1" name="Search for Alien Geek" line="10">
+<robot generator="Robot 6.0.1 (Python 3.11.1 on darwin)" generated="20230324 19:58:59.058" rpa="false" schemaversion="3">
+<suite id="s1" name="Tests" source="/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/frontend/tests">
+<suite id="s1-s1" name="SearchForGeeks" source="/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/frontend/tests/SearchForGeeks.robot">
+<test id="s1-s1-t1" name="Search for Alien Geek" line="10">
 <kw name="Start Session" library="Base" type="SETUP">
 <kw name="New Browser" library="Browser">
 <arg>${BROWSER}</arg>
@@ -10,18 +11,18 @@
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
-<msg timestamp="20230324 19:36:13.402" level="INFO">{"browser": "chromium", "headless": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "deprecated_pos_args": [], "tracesDir": "/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/frontend/logs/pabot_results/0/browser/traces/4cd39a2e-4492-4c15-8fb0-0d47ae04c2ee"}</msg>
-<msg timestamp="20230324 19:36:14.049" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"deprecated_pos_args":[],"tracesDir":"/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/frontend/logs/pabot_results/0/browser/traces/4cd39a2e-4492-4c15-8fb0-0d47ae04c2ee"}</msg>
-<status status="PASS" starttime="20230324 19:36:13.401" endtime="20230324 19:36:14.049"/>
+<msg timestamp="20230324 19:58:59.733" level="INFO">{"browser": "chromium", "headless": true, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "deprecated_pos_args": [], "tracesDir": "/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/frontend/logs/pabot_results/0/browser/traces/7ed3f798-8777-44b5-a21e-79efa203937d"}</msg>
+<msg timestamp="20230324 19:59:00.306" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"deprecated_pos_args":[],"tracesDir":"/Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/frontend/logs/pabot_results/0/browser/traces/7ed3f798-8777-44b5-a21e-79efa203937d"}</msg>
+<status status="PASS" starttime="20230324 19:58:59.732" endtime="20230324 19:59:00.306"/>
 </kw>
 <kw name="New Page" library="Browser">
 <arg>${BASE_URL}</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Open a new Page.</doc>
-<msg timestamp="20230324 19:36:15.074" level="INFO">Successfully initialized new page object and opened url: https://geeks-web-andre.fly.dev</msg>
-<msg timestamp="20230324 19:36:15.074" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
-<status status="PASS" starttime="20230324 19:36:14.049" endtime="20230324 19:36:15.074"/>
+<msg timestamp="20230324 19:59:01.312" level="INFO">Successfully initialized new page object and opened url: https://geeks-web-andre.fly.dev</msg>
+<msg timestamp="20230324 19:59:01.312" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<status status="PASS" starttime="20230324 19:59:00.307" endtime="20230324 19:59:01.312"/>
 </kw>
 <kw name="Set Viewport Size" library="Browser">
 <arg>1440</arg>
@@ -29,16 +30,16 @@
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Sets current Pages viewport size to specified dimensions.</doc>
-<msg timestamp="20230324 19:36:15.081" level="INFO">Set viewport size to: [object Object]</msg>
-<status status="PASS" starttime="20230324 19:36:15.074" endtime="20230324 19:36:15.081"/>
+<msg timestamp="20230324 19:59:01.332" level="INFO">Set viewport size to: [object Object]</msg>
+<status status="PASS" starttime="20230324 19:59:01.313" endtime="20230324 19:59:01.332"/>
 </kw>
-<status status="PASS" starttime="20230324 19:36:13.401" endtime="20230324 19:36:15.081"/>
+<status status="PASS" starttime="20230324 19:58:59.732" endtime="20230324 19:59:01.332"/>
 </kw>
 <kw name="Factory User" library="Users">
 <var>${alien}</var>
 <arg>search_alien</arg>
-<msg timestamp="20230324 19:36:15.082" level="INFO">${alien} = {'name': 'Dok', 'lastname': 'Ock', 'email': 'dok@oscorp.com', 'password': 'pwd123', 'geek_profile': {'whatsapp': '11999999999', 'desc': 'Faço conserto de qualquer impressora. Matricial a fita, Matrici...</msg>
-<status status="PASS" starttime="20230324 19:36:15.081" endtime="20230324 19:36:15.082"/>
+<msg timestamp="20230324 19:59:01.345" level="INFO">${alien} = {'name': 'Dok', 'lastname': 'Ock', 'email': 'dok@oscorp.com', 'password': 'pwd123', 'geek_profile': {'whatsapp': '11999999999', 'desc': 'Faço conserto de qualquer impressora. Matricial a fita, Matrici...</msg>
+<status status="PASS" starttime="20230324 19:59:01.332" endtime="20230324 19:59:01.345"/>
 </kw>
 <kw name="Create Geek Profile Service" library="Helpers">
 <arg>${alien}</arg>
@@ -50,36 +51,36 @@
 <arg>email=${user}[email]</arg>
 <arg>password=${user}[password]</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20230324 19:36:15.083" level="INFO">${payload} = {'email': 'dok@oscorp.com', 'password': 'pwd123'}</msg>
-<status status="PASS" starttime="20230324 19:36:15.082" endtime="20230324 19:36:15.083"/>
+<msg timestamp="20230324 19:59:01.346" level="INFO">${payload} = {'email': 'dok@oscorp.com', 'password': 'pwd123'}</msg>
+<status status="PASS" starttime="20230324 19:59:01.345" endtime="20230324 19:59:01.346"/>
 </kw>
 <kw name="POST" library="RequestsLibrary">
 <var>${response}</var>
 <arg>${API_GATEWAY}/sessions</arg>
 <arg>json=${payload}</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20230324 19:36:15.252" level="INFO">POST Request : url=https://geeks-api-andre.fly.dev/sessions 
+<msg timestamp="20230324 19:59:01.510" level="INFO">POST Request : url=https://geeks-api-andre.fly.dev/sessions 
  path_url=/sessions 
  headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '49', 'Content-Type': 'application/json'} 
  body=b'{"email": "dok@oscorp.com", "password": "pwd123"}' 
  </msg>
-<msg timestamp="20230324 19:36:15.252" level="INFO">POST Response : url=https://geeks-api-andre.fly.dev/sessions 
+<msg timestamp="20230324 19:59:01.510" level="INFO">POST Response : url=https://geeks-api-andre.fly.dev/sessions 
  status=200, reason=OK 
- headers={'x-powered-by': 'Express', 'access-control-allow-origin': '*', 'content-type': 'application/json; charset=utf-8', 'content-encoding': 'gzip', 'etag': 'W/"164-2BfEIIeSIzAJpVKtpLBiQlngGl8"', 'date': 'Fri, 24 Mar 2023 22:36:15 GMT', 'connection': 'keep-alive', 'keep-alive': 'timeout=5', 'transfer-encoding': 'chunked', 'server': 'Fly/620fe63b (2023-03-17)', 'via': '1.1 fly.io', 'fly-request-id': '01GWAW7VZWDEXV8C4DDZS5X0BN-gru'} 
- body={"user":{"id":659,"email":"dok@oscorp.com","password_hash":"$2b$08$JlrkG7rpVitB57mHDoI0J.x/jZx7clnYcq/A9pH96jndwkVUVeZNS","name":"Dok Ock","avatar":null,"whatsapp":null,"is_geek":false},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjU5LCJpYXQiOjE2Nzk2OTczNzUsImV4cCI6MTY4MDU2MTM3NX0.6RhJ96tkAYbeOPcVTgSPjWQ_0ZO4logG6uB5ut9FBIw","expires_in":"10d"} 
+ headers={'x-powered-by': 'Express', 'access-control-allow-origin': '*', 'content-type': 'application/json; charset=utf-8', 'content-encoding': 'gzip', 'etag': 'W/"164-yEzChD3b1GLWgME+WW+WVrP6FXo"', 'date': 'Fri, 24 Mar 2023 22:59:01 GMT', 'connection': 'keep-alive', 'keep-alive': 'timeout=5', 'transfer-encoding': 'chunked', 'server': 'Fly/620fe63b (2023-03-17)', 'via': '1.1 fly.io', 'fly-request-id': '01GWAXHJ7GD7FVJFH14604FAXC-gru'} 
+ body={"user":{"id":681,"email":"dok@oscorp.com","password_hash":"$2b$08$IHW5i.dmAONKESqmNX60L.FnvBGb2Vb1jSubbxlOMnlxJGcpuCPte","name":"Dok Ock","avatar":null,"whatsapp":null,"is_geek":false},"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjgxLCJpYXQiOjE2Nzk2OTg3NDEsImV4cCI6MTY4MDU2Mjc0MX0.6IqWvnl8PJV9QPmgGig9NJhb_XPBTki6r5k-1rvjrNs","expires_in":"10d"} 
  </msg>
-<msg timestamp="20230324 19:36:15.252" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20230324 19:36:15.083" endtime="20230324 19:36:15.252"/>
+<msg timestamp="20230324 19:59:01.511" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230324 19:59:01.346" endtime="20230324 19:59:01.511"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${token}</var>
 <arg>Bearer ${response.json()}[token]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230324 19:36:15.253" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjU5LCJpYXQiOjE2Nzk2OTczNzUsImV4cCI6MTY4MDU2MTM3NX0.6RhJ96tkAYbeOPcVTgSPjWQ_0ZO4logG6uB5ut9FBIw</msg>
-<status status="PASS" starttime="20230324 19:36:15.252" endtime="20230324 19:36:15.253"/>
+<msg timestamp="20230324 19:59:01.511" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjgxLCJpYXQiOjE2Nzk2OTg3NDEsImV4cCI6MTY4MDU2Mjc0MX0.6IqWvnl8PJV9QPmgGig9NJhb_XPBTki6r5k-1rvjrNs</msg>
+<status status="PASS" starttime="20230324 19:59:01.511" endtime="20230324 19:59:01.511"/>
 </kw>
-<msg timestamp="20230324 19:36:15.253" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjU5LCJpYXQiOjE2Nzk2OTczNzUsImV4cCI6MTY4MDU2MTM3NX0.6RhJ96tkAYbeOPcVTgSPjWQ_0ZO4logG6uB5ut9FBIw</msg>
-<status status="PASS" starttime="20230324 19:36:15.082" endtime="20230324 19:36:15.253"/>
+<msg timestamp="20230324 19:59:01.511" level="INFO">${token} = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjgxLCJpYXQiOjE2Nzk2OTg3NDEsImV4cCI6MTY4MDU2Mjc0MX0.6IqWvnl8PJV9QPmgGig9NJhb_XPBTki6r5k-1rvjrNs</msg>
+<status status="PASS" starttime="20230324 19:59:01.345" endtime="20230324 19:59:01.511"/>
 </kw>
 <kw name="Be a Geek Service" library="Service">
 <arg>${user}[geek_profile]</arg>
@@ -88,8 +89,8 @@
 <var>${headers}</var>
 <arg>Authorization=${token}</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20230324 19:36:15.254" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjU5LCJpYXQiOjE2Nzk2OTczNzUsImV4cCI6MTY4MDU2MTM3NX0.6RhJ96tkAYbeOPcVTgSPjWQ_0ZO4logG6uB5ut9FBIw'}</msg>
-<status status="PASS" starttime="20230324 19:36:15.254" endtime="20230324 19:36:15.254"/>
+<msg timestamp="20230324 19:59:01.512" level="INFO">${headers} = {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjgxLCJpYXQiOjE2Nzk2OTg3NDEsImV4cCI6MTY4MDU2Mjc0MX0.6IqWvnl8PJV9QPmgGig9NJhb_XPBTki6r5k-1rvjrNs'}</msg>
+<status status="PASS" starttime="20230324 19:59:01.512" endtime="20230324 19:59:01.512"/>
 </kw>
 <kw name="POST" library="RequestsLibrary">
 <var>${response}</var>
@@ -97,28 +98,28 @@
 <arg>json=${payload}</arg>
 <arg>headers=${headers}</arg>
 <doc>Sends a POST request.</doc>
-<msg timestamp="20230324 19:36:15.353" level="INFO">POST Request : url=https://geeks-api-andre.fly.dev/geeks 
+<msg timestamp="20230324 19:59:01.598" level="INFO">POST Request : url=https://geeks-api-andre.fly.dev/geeks 
  path_url=/geeks 
- headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjU5LCJpYXQiOjE2Nzk2OTczNzUsImV4cCI6MTY4MDU2MTM3NX0.6RhJ96tkAYbeOPcVTgSPjWQ_0ZO4logG6uB5ut9FBIw', 'Content-Length': '242', 'Content-Type': 'application/json'} 
+ headers={'User-Agent': 'python-requests/2.28.2', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NjgxLCJpYXQiOjE2Nzk2OTg3NDEsImV4cCI6MTY4MDU2Mjc0MX0.6IqWvnl8PJV9QPmgGig9NJhb_XPBTki6r5k-1rvjrNs', 'Content-Length': '242', 'Content-Type': 'application/json'} 
  body=b'{"whatsapp": "11999999999", "desc": "Fa\\u00e7o conserto de qualquer impressora. Matricial a fita, Matricial a fita colorida, a laser, a jato de tinta e tamb\\u00e9m impressora 3D.", "printer_repair": "Sim", "work": "Presencial", "cost": "250"}' 
  </msg>
-<msg timestamp="20230324 19:36:15.353" level="INFO">POST Response : url=https://geeks-api-andre.fly.dev/geeks 
+<msg timestamp="20230324 19:59:01.598" level="INFO">POST Response : url=https://geeks-api-andre.fly.dev/geeks 
  status=201, reason=Created 
- headers={'x-powered-by': 'Express', 'access-control-allow-origin': '*', 'date': 'Fri, 24 Mar 2023 22:36:15 GMT', 'connection': 'keep-alive', 'keep-alive': 'timeout=5', 'server': 'Fly/620fe63b (2023-03-17)', 'via': '1.1 fly.io', 'fly-request-id': '01GWAW7W317SMS9HZW83KYW2GN-gru', 'content-length': '0'} 
+ headers={'x-powered-by': 'Express', 'access-control-allow-origin': '*', 'date': 'Fri, 24 Mar 2023 22:59:01 GMT', 'connection': 'keep-alive', 'keep-alive': 'timeout=5', 'server': 'Fly/620fe63b (2023-03-17)', 'via': '1.1 fly.io', 'fly-request-id': '01GWAXHJA9N82W4DAHDAFPRCY5-gru', 'content-length': '0'} 
  body=None 
  </msg>
-<msg timestamp="20230324 19:36:15.354" level="INFO">${response} = &lt;Response [201]&gt;</msg>
-<status status="PASS" starttime="20230324 19:36:15.254" endtime="20230324 19:36:15.354"/>
+<msg timestamp="20230324 19:59:01.598" level="INFO">${response} = &lt;Response [201]&gt;</msg>
+<status status="PASS" starttime="20230324 19:59:01.512" endtime="20230324 19:59:01.598"/>
 </kw>
-<status status="PASS" starttime="20230324 19:36:15.253" endtime="20230324 19:36:15.354"/>
+<status status="PASS" starttime="20230324 19:59:01.512" endtime="20230324 19:59:01.598"/>
 </kw>
-<status status="PASS" starttime="20230324 19:36:15.082" endtime="20230324 19:36:15.354"/>
+<status status="PASS" starttime="20230324 19:59:01.345" endtime="20230324 19:59:01.599"/>
 </kw>
 <kw name="Factory User" library="Users">
 <var>${searcher}</var>
 <arg>searcher</arg>
-<msg timestamp="20230324 19:36:15.355" level="INFO">${searcher} = {'name': 'Johnny', 'lastname': 'Lawrence', 'email': 'johnny@cobrakai.com', 'password': 'pwd123'}</msg>
-<status status="PASS" starttime="20230324 19:36:15.354" endtime="20230324 19:36:15.355"/>
+<msg timestamp="20230324 19:59:01.599" level="INFO">${searcher} = {'name': 'Johnny', 'lastname': 'Lawrence', 'email': 'johnny@cobrakai.com', 'password': 'pwd123'}</msg>
+<status status="PASS" starttime="20230324 19:59:01.599" endtime="20230324 19:59:01.599"/>
 </kw>
 <kw name="Do Login" library="Helpers">
 <arg>${searcher}</arg>
@@ -128,8 +129,8 @@
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Navigates to the given ``url``.</doc>
-<msg timestamp="20230324 19:36:15.454" level="INFO">Successfully opened URL https://geeks-web-andre.fly.dev</msg>
-<status status="PASS" starttime="20230324 19:36:15.356" endtime="20230324 19:36:15.455"/>
+<msg timestamp="20230324 19:59:01.677" level="INFO">Successfully opened URL https://geeks-web-andre.fly.dev</msg>
+<status status="PASS" starttime="20230324 19:59:01.600" endtime="20230324 19:59:01.677"/>
 </kw>
 <kw name="Wait For Elements State" library="Browser">
 <arg>css=.login-form</arg>
@@ -138,10 +139,10 @@
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<msg timestamp="20230324 19:36:15.474" level="INFO">Waited for Element with selector css=.login-form at state visible</msg>
-<status status="PASS" starttime="20230324 19:36:15.455" endtime="20230324 19:36:15.474"/>
+<msg timestamp="20230324 19:59:01.693" level="INFO">Waited for Element with selector css=.login-form at state visible</msg>
+<status status="PASS" starttime="20230324 19:59:01.677" endtime="20230324 19:59:01.694"/>
 </kw>
-<status status="PASS" starttime="20230324 19:36:15.356" endtime="20230324 19:36:15.474"/>
+<status status="PASS" starttime="20230324 19:59:01.599" endtime="20230324 19:59:01.694"/>
 </kw>
 <kw name="Fill Credentials" library="AuthActions">
 <arg>${user}</arg>
@@ -151,8 +152,8 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20230324 19:36:15.475" level="INFO">Fills the text 'johnny@cobrakai.com' in the given field.</msg>
-<status status="PASS" starttime="20230324 19:36:15.475" endtime="20230324 19:36:15.527"/>
+<msg timestamp="20230324 19:59:01.694" level="INFO">Fills the text 'johnny@cobrakai.com' in the given field.</msg>
+<status status="PASS" starttime="20230324 19:59:01.694" endtime="20230324 19:59:01.712"/>
 </kw>
 <kw name="Fill Text" library="Browser">
 <arg>${INPUT_PASS}</arg>
@@ -160,10 +161,10 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20230324 19:36:15.527" level="INFO">Fills the text 'pwd123' in the given field.</msg>
-<status status="PASS" starttime="20230324 19:36:15.527" endtime="20230324 19:36:15.560"/>
+<msg timestamp="20230324 19:59:01.712" level="INFO">Fills the text 'pwd123' in the given field.</msg>
+<status status="PASS" starttime="20230324 19:59:01.712" endtime="20230324 19:59:01.742"/>
 </kw>
-<status status="PASS" starttime="20230324 19:36:15.474" endtime="20230324 19:36:15.560"/>
+<status status="PASS" starttime="20230324 19:59:01.694" endtime="20230324 19:59:01.742"/>
 </kw>
 <kw name="Submit Credentials" library="AuthActions">
 <kw name="Click" library="Browser">
@@ -171,9 +172,9 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<status status="PASS" starttime="20230324 19:36:15.561" endtime="20230324 19:36:15.606"/>
+<status status="PASS" starttime="20230324 19:59:01.743" endtime="20230324 19:59:01.791"/>
 </kw>
-<status status="PASS" starttime="20230324 19:36:15.561" endtime="20230324 19:36:15.606"/>
+<status status="PASS" starttime="20230324 19:59:01.742" endtime="20230324 19:59:01.791"/>
 </kw>
 <kw name="User Should Be Logged In" library="AuthActions">
 <arg>${user}</arg>
@@ -181,15 +182,15 @@
 <var>${element}</var>
 <arg>css=a[href="/profile"]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230324 19:36:15.607" level="INFO">${element} = css=a[href="/profile"]</msg>
-<status status="PASS" starttime="20230324 19:36:15.607" endtime="20230324 19:36:15.607"/>
+<msg timestamp="20230324 19:59:01.792" level="INFO">${element} = css=a[href="/profile"]</msg>
+<status status="PASS" starttime="20230324 19:59:01.791" endtime="20230324 19:59:01.792"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${expected_fullname}</var>
 <arg>${user}[name] ${user}[lastname]</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20230324 19:36:15.607" level="INFO">${expected_fullname} = Johnny Lawrence</msg>
-<status status="PASS" starttime="20230324 19:36:15.607" endtime="20230324 19:36:15.607"/>
+<msg timestamp="20230324 19:59:01.792" level="INFO">${expected_fullname} = Johnny Lawrence</msg>
+<status status="PASS" starttime="20230324 19:59:01.792" endtime="20230324 19:59:01.792"/>
 </kw>
 <kw name="Wait For Elements State" library="Browser">
 <arg>${element}</arg>
@@ -198,8 +199,8 @@
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<msg timestamp="20230324 19:36:15.744" level="INFO">Waited for Element with selector css=a[href="/profile"] at state visible</msg>
-<status status="PASS" starttime="20230324 19:36:15.607" endtime="20230324 19:36:15.744"/>
+<msg timestamp="20230324 19:59:01.932" level="INFO">Waited for Element with selector css=a[href="/profile"] at state visible</msg>
+<status status="PASS" starttime="20230324 19:59:01.792" endtime="20230324 19:59:01.932"/>
 </kw>
 <kw name="Get Text" library="Browser">
 <arg>${element}</arg>
@@ -209,11 +210,11 @@
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns text attribute of the element found by ``selector``.</doc>
-<status status="PASS" starttime="20230324 19:36:15.744" endtime="20230324 19:36:15.758"/>
+<status status="PASS" starttime="20230324 19:59:01.932" endtime="20230324 19:59:01.990"/>
 </kw>
-<status status="PASS" starttime="20230324 19:36:15.606" endtime="20230324 19:36:15.758"/>
+<status status="PASS" starttime="20230324 19:59:01.791" endtime="20230324 19:59:01.990"/>
 </kw>
-<status status="PASS" starttime="20230324 19:36:15.355" endtime="20230324 19:36:15.758"/>
+<status status="PASS" starttime="20230324 19:59:01.599" endtime="20230324 19:59:01.990"/>
 </kw>
 <kw name="Go To Geeks" library="GeekActions">
 <kw name="Click" library="Browser">
@@ -221,7 +222,7 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<status status="PASS" starttime="20230324 19:36:15.758" endtime="20230324 19:36:15.847"/>
+<status status="PASS" starttime="20230324 19:59:01.991" endtime="20230324 19:59:02.093"/>
 </kw>
 <kw name="Wait For Elements State" library="Browser">
 <arg>.title strong &gt;&gt; text=Estes são os Geeks disponíveis.</arg>
@@ -230,10 +231,10 @@
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<msg timestamp="20230324 19:36:15.857" level="INFO">Waited for Element with selector .title strong &gt;&gt; text=Estes são os Geeks disponíveis. at state visible</msg>
-<status status="PASS" starttime="20230324 19:36:15.847" endtime="20230324 19:36:15.857"/>
+<msg timestamp="20230324 19:59:02.105" level="INFO">Waited for Element with selector .title strong &gt;&gt; text=Estes são os Geeks disponíveis. at state visible</msg>
+<status status="PASS" starttime="20230324 19:59:02.093" endtime="20230324 19:59:02.106"/>
 </kw>
-<status status="PASS" starttime="20230324 19:36:15.758" endtime="20230324 19:36:15.857"/>
+<status status="PASS" starttime="20230324 19:59:01.991" endtime="20230324 19:59:02.106"/>
 </kw>
 <kw name="Fill Search Form" library="GeekActions">
 <arg>${EMPTY}</arg>
@@ -247,11 +248,11 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Selects options from select element found by ``selector``.</doc>
-<status status="NOT RUN" starttime="20230324 19:36:15.858" endtime="20230324 19:36:15.858"/>
+<status status="NOT RUN" starttime="20230324 19:59:02.107" endtime="20230324 19:59:02.107"/>
 </kw>
-<status status="NOT RUN" starttime="20230324 19:36:15.858" endtime="20230324 19:36:15.858"/>
+<status status="NOT RUN" starttime="20230324 19:59:02.107" endtime="20230324 19:59:02.107"/>
 </branch>
-<status status="PASS" starttime="20230324 19:36:15.858" endtime="20230324 19:36:15.858"/>
+<status status="PASS" starttime="20230324 19:59:02.107" endtime="20230324 19:59:02.107"/>
 </if>
 <kw name="Fill Text" library="Browser">
 <arg>id=desc</arg>
@@ -259,10 +260,10 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<msg timestamp="20230324 19:36:15.858" level="INFO">Fills the text 'Formato PC' in the given field.</msg>
-<status status="PASS" starttime="20230324 19:36:15.858" endtime="20230324 19:36:15.864"/>
+<msg timestamp="20230324 19:59:02.107" level="INFO">Fills the text 'Formato PC' in the given field.</msg>
+<status status="PASS" starttime="20230324 19:59:02.107" endtime="20230324 19:59:02.119"/>
 </kw>
-<status status="PASS" starttime="20230324 19:36:15.857" endtime="20230324 19:36:15.864"/>
+<status status="PASS" starttime="20230324 19:59:02.106" endtime="20230324 19:59:02.120"/>
 </kw>
 <kw name="Submit Search Form" library="GeekActions">
 <kw name="Click" library="Browser">
@@ -270,36 +271,38 @@
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<status status="PASS" starttime="20230324 19:36:15.864" endtime="20230324 19:36:15.963"/>
+<status status="PASS" starttime="20230324 19:59:02.120" endtime="20230324 19:59:02.205"/>
 </kw>
-<status status="PASS" starttime="20230324 19:36:15.864" endtime="20230324 19:36:15.964"/>
+<status status="PASS" starttime="20230324 19:59:02.120" endtime="20230324 19:59:02.206"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>5</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20230324 19:36:20.965" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20230324 19:36:15.964" endtime="20230324 19:36:20.966"/>
+<msg timestamp="20230324 19:59:07.207" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230324 19:59:02.206" endtime="20230324 19:59:07.208"/>
 </kw>
 <kw name="After Test" library="Base" type="TEARDOWN">
 <kw name="Screenshot Name" library="Utility">
 <var>${shot_name}</var>
-<msg timestamp="20230324 19:36:20.969" level="INFO">${shot_name} = 1b39f69c062b69b4032926f4d3c1691d67b1c084</msg>
-<status status="PASS" starttime="20230324 19:36:20.968" endtime="20230324 19:36:20.969"/>
+<msg timestamp="20230324 19:59:07.209" level="INFO">${shot_name} = 55fdace97fd8f99ec556ff52791f07fac4537bde</msg>
+<status status="PASS" starttime="20230324 19:59:07.209" endtime="20230324 19:59:07.209"/>
 </kw>
 <kw name="Take Screenshot" library="Browser">
 <arg>fullPage=true</arg>
 <arg>filename=${shot_name}</arg>
 <tag>PageContent</tag>
 <doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
-<msg timestamp="20230324 19:36:21.083" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/1b39f69c062b69b4032926f4d3c1691d67b1c084.png"&gt;&lt;img src="browser/screenshot/1b39f69c062b69b4032926f4d3c1691d67b1c084.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20230324 19:36:20.969" endtime="20230324 19:36:21.083"/>
+<msg timestamp="20230324 19:59:07.293" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/55fdace97fd8f99ec556ff52791f07fac4537bde.png"&gt;&lt;img src="browser/screenshot/55fdace97fd8f99ec556ff52791f07fac4537bde.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230324 19:59:07.209" endtime="20230324 19:59:07.293"/>
 </kw>
-<status status="PASS" starttime="20230324 19:36:20.967" endtime="20230324 19:36:21.083"/>
+<status status="PASS" starttime="20230324 19:59:07.209" endtime="20230324 19:59:07.293"/>
 </kw>
-<status status="PASS" starttime="20230324 19:36:13.400" endtime="20230324 19:36:21.083"/>
+<status status="PASS" starttime="20230324 19:58:59.730" endtime="20230324 19:59:07.293"/>
 </test>
 <doc>Search for Geeks Test Suite</doc>
-<status status="PASS" starttime="20230324 19:36:12.523" endtime="20230324 19:36:21.135"/>
+<status status="PASS" starttime="20230324 19:58:59.068" endtime="20230324 19:59:07.312"/>
+</suite>
+<status status="PASS" starttime="20230324 19:58:59.061" endtime="20230324 19:59:07.314"/>
 </suite>
 <statistics>
 <total>
@@ -308,7 +311,8 @@
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="SearchForGeeks">SearchForGeeks</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="SearchForGeeks">Tests.SearchForGeeks</stat>
 </suite>
 </statistics>
 <errors>
