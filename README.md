@@ -59,6 +59,7 @@
       - [Adding configuration and dependencies](#adding-configuration-and-dependencies)
     - [Important commands](#important-commands)
   - [Geek search](#geek-search)
+    - [Creating the geek user seed](#creating-the-geek-user-seed)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
   - [Linux](#linux)
@@ -1452,7 +1453,33 @@ First we'll create 3 API requests into Thunder Client to manually test: user cre
 
 By doing that we now have all necessary steps to automate our tests with predefined independent users.
 
+### Creating the geek user seed
 
+Once we now have our steps defined we need to prepared the environment with users data. We'll create 2 new users within users factory:
+
+One Alien Geek that would repair printers
+
+````
+        'search_alien': {
+            'name': 'Dok',
+            'lastname': 'Ock',
+            'email': 'dok@oscorp.com',
+            'password': 'pwd123'
+        }
+````
+
+And one common geek that wouldn't repair printers
+
+````
+         'search_common': {
+            'name': 'Peter', 
+            'lastname': 'Parker',
+            'email': 'peter@oscorp.com',
+            'password': 'pwd123'
+        }
+````
+
+**OBS.:** there's a business rule that defined geeks that execute printer repair as Aliens and the ones that cannot as common geeks so this differentiation is important.
 
 ---
 

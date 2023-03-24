@@ -13,7 +13,9 @@ def users_to_insert_db():
     return[
         factory_user('login'),
         factory_user('be_geek'),
-        factory_user('attempt_be_geek')
+        factory_user('attempt_be_geek'),
+        factory_user('search_alien'),
+        factory_user('search_common')
     ]
 
 def factory_user(target):
@@ -62,6 +64,18 @@ def factory_user(target):
                 'work': 'Ambos',
                 'cost': '200'
             }
+        },
+        'search_alien': {
+            'name': 'Dok',
+            'lastname': 'Ock',
+            'email': 'dok@oscorp.com',
+            'password': 'pwd123'
+        },
+         'search_common': {
+            'name': 'Peter', 
+            'lastname': 'Parker',
+            'email': 'peter@oscorp.com',
+            'password': 'pwd123'
         }
     }
 
