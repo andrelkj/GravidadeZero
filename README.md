@@ -58,6 +58,7 @@
     - [Frontend workflow](#frontend-workflow)
       - [Adding configuration and dependencies](#adding-configuration-and-dependencies)
     - [Important commands](#important-commands)
+  - [Geek search](#geek-search)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
   - [Linux](#linux)
@@ -1441,6 +1442,17 @@ In here we're going to install all node and libraries required for our test to r
 - `runs-on` - defines the virtuar machine agent whom should run the workflow
 - `fail-fast` - while false allows the flow to continue after a failed response, while true end the execution once a fail is respose is returned.
 - `pip install build` - install the project dependencies inside the virtual machine
+
+
+## Geek search
+
+Here we're going to automate the geek search by generating a base user through API requests and then validating it through web page elements.
+
+First we'll create 3 API requests into Thunder Client to manually test: user creation (POST New user), login (POST Session) and geek registry, both for alien (POST Alien Geek Profile) and common geeks (POST Common Geek Profile).
+
+By doing that we now have all necessary steps to automate our tests with predefined independent users.
+
+
 
 ---
 
