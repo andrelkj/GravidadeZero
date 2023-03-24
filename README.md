@@ -1557,3 +1557,5 @@ By doing this we now refresh browsers lib screenshot file before each execution,
 [Typora](https://typora.io/) is a paid md files editor that allows easier ways to create readable and writable md notes
 
 **Obs.:** i'm not using it in here because it's now paid
+
+test
