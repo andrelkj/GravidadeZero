@@ -60,6 +60,7 @@
     - [Important commands](#important-commands)
   - [Geek search](#geek-search)
     - [Creating the geek user seed](#creating-the-geek-user-seed)
+    - [Creating search geeks test suite](#creating-search-geeks-test-suite)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
   - [Linux](#linux)
@@ -1480,6 +1481,14 @@ And one common geek that wouldn't repair printers
 ````
 
 **OBS.:** there's a business rule that defined geeks that execute printer repair as Aliens and the ones that cannot as common geeks so this differentiation is important.
+
+### Creating search geeks test suite
+
+Here we'll automate all te steps we manually executed through thunder client. To do it we'll:
+
+1. Create a new [SearchForGeeks.robot file](frontend/tests/SearchForGeeks.robot) with all our test steps
+2. Create a new [service](frontend/resources/Service.robot) which will contain all our API services
+3. 
 
 ---
 

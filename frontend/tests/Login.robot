@@ -6,6 +6,7 @@ Resource            ../resources/Base.robot
 Test Setup          Start Session
 Test Teardown       After Test
 
+Library    ../../resources/factories/Users.py
 
 *** Test Cases ***
 User Login

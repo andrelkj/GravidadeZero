@@ -1,76 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Tests" tests="25" errors="0" failures="0" skipped="0" time="9.456" timestamp="2023-03-24T00:12:56.816000">
-<testsuite name="Login" tests="7" errors="0" failures="0" skipped="0" time="8.919" timestamp="2023-03-24T00:12:56.927000">
-<testcase classname="Tests.Login" name="User Login" time="1.818">
-</testcase>
-<testcase classname="Tests.Login" name="Incorrect Pass" time="1.241">
-</testcase>
-<testcase classname="Tests.Login" name="User not found" time="1.154">
-</testcase>
-<testcase classname="Tests.Login" name="Incorrect Email" time="0.987">
-</testcase>
-<testcase classname="Tests.Login" name="Required Email" time="0.982">
-</testcase>
-<testcase classname="Tests.Login" name="Required Password" time="1.021">
-</testcase>
-<testcase classname="Tests.Login" name="Required Fields" time="0.988">
+<testsuite name="SearchForGeeks" tests="1" errors="0" failures="0" skipped="0" time="2.214" timestamp="2023-03-24T15:37:34.042000">
+<testcase classname="SearchForGeeks" name="Search for Alien Geek" time="1.265">
 </testcase>
 <properties>
-<property name="Documentation" value="Login Test Suite"/>
-</properties>
-</testsuite>
-<testsuite name="Signup" tests="5" errors="0" failures="0" skipped="0" time="8.868" timestamp="2023-03-24T00:12:56.937000">
-<testcase classname="Tests.Signup" name="Register a new user" time="1.822">
-</testcase>
-<testcase classname="Tests.Signup" name="Duplicate User" time="1.516">
-</testcase>
-<testcase classname="Tests.Signup" name="Wrong Email" time="1.063">
-</testcase>
-<testcase classname="Tests.Signup" name="Required Fields" time="0.994">
-</testcase>
-<testcase classname="Tests.Signup" name="Short Password" time="2.799">
-</testcase>
-<properties>
-<property name="Documentation" value="Signup Test Suite"/>
-</properties>
-</testsuite>
-<testsuite name="AttemptBeGeek" tests="12" errors="0" failures="0" skipped="0" time="4.840" timestamp="2023-03-24T00:12:56.932000">
-<testcase classname="Tests.AttemptBeGeek" name="Short desc" time="0.244">
-</testcase>
-<testcase classname="Tests.AttemptBeGeek" name="Long desc" time="0.330">
-</testcase>
-<testcase classname="Tests.AttemptBeGeek" name="Empty desc" time="0.179">
-</testcase>
-<testcase classname="Tests.AttemptBeGeek" name="Whats only ddd" time="0.179">
-</testcase>
-<testcase classname="Tests.AttemptBeGeek" name="Whats only number" time="0.189">
-</testcase>
-<testcase classname="Tests.AttemptBeGeek" name="Empty whats" time="0.223">
-</testcase>
-<testcase classname="Tests.AttemptBeGeek" name="Cost letters" time="0.210">
-</testcase>
-<testcase classname="Tests.AttemptBeGeek" name="Cost alpha" time="0.186">
-</testcase>
-<testcase classname="Tests.AttemptBeGeek" name="Cost special" time="0.198">
-</testcase>
-<testcase classname="Tests.AttemptBeGeek" name="Empty cost" time="0.181">
-</testcase>
-<testcase classname="Tests.AttemptBeGeek" name="No printer repair" time="0.186">
-</testcase>
-<testcase classname="Tests.AttemptBeGeek" name="No word" time="0.195">
-</testcase>
-<properties>
-<property name="Documentation" value="Attempt BeGeek Test Suite"/>
-</properties>
-</testsuite>
-<testsuite name="BeGeek" tests="1" errors="0" failures="0" skipped="0" time="2.676" timestamp="2023-03-24T00:12:56.926000">
-<testcase classname="Tests.BeGeek" name="Be a Geek" time="2.063">
-</testcase>
-<properties>
-<property name="Documentation" value="BeGeek Test Suite"/>
-</properties>
-</testsuite>
-<properties>
-<property name="Documentation" value="[https://pabot.org/?ref=log|Pabot] result from 4 executions."/>
+<property name="Documentation" value="Search for Geeks Test Suite"/>
 </properties>
 </testsuite>
