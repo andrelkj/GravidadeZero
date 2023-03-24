@@ -7,7 +7,7 @@ Library    RequestsLibrary
 ${API_GATEWAY}    https://geeks-api-andre.fly.dev
 
 *** Keywords ***
-Get Token
+Get Token Service
     [Arguments]    ${user}
 
     ${payload}    Create Dictionary
@@ -19,3 +19,14 @@ Get Token
     ${token}    Set Variable    Bearer ${response.json()}[token]
 
     [Return]    ${token}
+
+Be a Geek Service
+    [Arguments]    ${payload}    ${token}
+
+    ${headers}    Create Dictionary    Authorization=${token}
+
+    ${response}    POST    ${API_GATEWAY}/geeks
+    ...    json=${payload}
+    ...    headers=${headers}
+    
+    [Return]    ${response}

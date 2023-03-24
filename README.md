@@ -61,6 +61,7 @@
   - [Geek search](#geek-search)
     - [Creating the geek user seed](#creating-the-geek-user-seed)
     - [Creating search geeks test suite](#creating-search-geeks-test-suite)
+    - [Turning user into geek](#turning-user-into-geek)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
   - [Linux](#linux)
@@ -1488,7 +1489,49 @@ Here we'll automate all te steps we manually executed through thunder client. To
 
 1. Create a new [SearchForGeeks.robot file](frontend/tests/SearchForGeeks.robot) with all our test steps
 2. Create a new [service](frontend/resources/Service.robot) which will contain all our API services
-3. 
+3. Then we define the steps to get all needed information to execute the test
+
+````
+*** Settings ***
+Documentation    Services API
+
+Library    RequestsLibrary
+
+*** Variables ***
+${API_GATEWAY}    https://geeks-api-andre.fly.dev
+
+*** Keywords ***
+Get Token
+    [Arguments]    ${user}
+
+    ${payload}    Create Dictionary
+    ...    email=${user}[email]
+    ...    password=${user}[password]
+
+    ${response}    POST    ${API_GATEWAY}/sessions    json=${payload}
+
+    ${token}    Set Variable    Bearer ${response.json()}[token]
+
+    [Return]    ${token}
+````
+
+4. And create our test case steps as well
+
+````
+*** Test Cases ***
+Search for Alien Geek
+    ${alien}    Factory User   search_alien
+
+    Get Token    ${alien}
+````
+
+**OBS.:** here we're only validating it the user was created and is actually registered.
+
+### Turning user into geek
+
+Once that we now have a brand new and indepentend registered user we'll create steps to turn him into a service provider. For this we also need to consider both alien and common geeks.
+
+**OBS.:** where adding Service to our keywords in order to indicate that it will consume the API service
 
 ---
 
