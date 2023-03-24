@@ -62,6 +62,8 @@
     - [Creating the geek user seed](#creating-the-geek-user-seed)
     - [Creating search geeks test suite](#creating-search-geeks-test-suite)
     - [Turning user into geek](#turning-user-into-geek)
+    - [Adding searcher](#adding-searcher)
+      - [We have a bug](#we-have-a-bug)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
   - [Linux](#linux)
@@ -1532,6 +1534,52 @@ Search for Alien Geek
 Once that we now have a brand new and indepentend registered user we'll create steps to turn him into a service provider. For this we also need to consider both alien and common geeks.
 
 **OBS.:** where adding Service to our keywords in order to indicate that it will consume the API service
+
+### Adding searcher
+
+We'll need to login with a different user in order to search and visualize available geeks so we're going to:
+
+1. Add a new searcher factory:
+
+````
+        'searcher': {
+            'name': 'Johnny',
+            'lastname': 'Lawrence',
+            'email': 'johnny@cobrakai.com',
+            'password': 'pwd123'
+        }
+````
+
+2. Identifing it inside the page using pre defined actions
+
+````
+    Go To Geeks
+    Fill Search Form    ${EMPTY}    Formato PC
+    Submit Search Form
+````
+
+**OBS.:** we'll use a conditionals inside the fill search form action to only execute the validation if there's data inside of it. As a optional field it's important to allow it to be empty as well.
+
+````
+Fill Search Form
+    [Arguments]    ${target_option}    ${target_text}
+
+    IF    '${target_option}'
+        Select Options By    id=printer_repair    value    ${target_option}
+    END
+
+    Fill Text    id=desc    ${target_text}
+````
+
+#### We have a bug
+
+Automation executes each step a lot faster than a manual execution, sometimes this can cause issues in the system or break displayed elements. For this Wait for elements state and sleep can be used in order to allow a delay in the execution making it closer to reality. Although this is still a bug that must be fixed.
+
+Also sleep isn't recommended to be used once it freezes all execution for that time.
+ 
+**IMPORTANT** while considering page object models it would be necessary to create a new file which would be related to the search geek page once it's one element inside of this page.
+
+
 
 ---
 

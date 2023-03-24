@@ -9,9 +9,13 @@ Test Teardown       After Test
 *** Test Cases ***
 Search for Alien Geek
     ${alien}    Factory User   search_alien
-
     Create Geek Profile Service    ${alien}
 
     ${searcher}    Factory User    searcher
-
     Do Login    ${searcher}
+
+    Go To Geeks
+    Fill Search Form    ${EMPTY}    Formato PC
+    Submit Search Form
+
+    Sleep    5
