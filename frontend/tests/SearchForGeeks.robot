@@ -11,3 +11,7 @@ Search for Alien Geek
     ${alien}    Factory User   search_alien
 
     Create Geek Profile Service    ${alien}
+
+    ${searcher}    Factory User    searcher
+
+    Do Login    ${searcher}

@@ -1,7 +1,7 @@
 # make it possible to create shortcuts to specific terminal commands
 
 robot -l NONE -o NONE -r NONE tasks/Delorean.robot
-pabot -x xunit.xml -d ./logs -v BROWSER:chromium -v HEADLESS:true tests/SearchForGeeks.robot
+pabot -x xunit.xml -d ./logs -v BROWSER:chromium -v HEADLESS:false tests/SearchForGeeks.robot
 
 # delete the old browser file and create a brand new one
 rm -rf ./logs/browser

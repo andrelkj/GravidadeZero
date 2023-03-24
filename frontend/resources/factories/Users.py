@@ -16,7 +16,8 @@ def users_to_insert_db():
         factory_user('be_geek'),
         factory_user('attempt_be_geek'),
         factory_user('search_alien'),
-        factory_user('search_common')
+        factory_user('search_common'),
+        factory_user('searcher')
     ]
 
 
@@ -66,6 +67,12 @@ def factory_user(target):
                 'work': 'Ambos',
                 'cost': '200'
             }
+        },
+        'searcher': {
+            'name': 'Johnny',
+            'lastname': 'Lawrence',
+            'email': 'johnny@cobrakai.com',
+            'password': 'pwd123'
         },
         'search_alien': {
             'name': 'Dok',
