@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="SearchForGeeks" tests="1" errors="0" failures="0" skipped="0" time="8.644" timestamp="2023-03-24T23:55:42.368000">
-<testcase classname="SearchForGeeks" name="Search for Alien Geek" time="7.540">
+<testsuite name="SearchForGeeks" tests="3" errors="0" failures="0" skipped="0" time="5.118" timestamp="2023-03-25T00:18:10.443000">
+<testcase classname="SearchForGeeks" name="Search for Alien Geek" time="1.706">
+</testcase>
+<testcase classname="SearchForGeeks" name="Search for Common Geek" time="1.419">
+</testcase>
+<testcase classname="SearchForGeeks" name="Search not found" time="1.171">
 </testcase>
 <properties>
 <property name="Documentation" value="Search for Geeks Test Suite"/>

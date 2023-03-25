@@ -80,7 +80,7 @@ def factory_user(target):
             'email': 'dok@oscorp.com',
             'password': 'pwd123',
             'geek_profile': {
-                'whatsapp': '11999999999',
+                'whatsapp': '11999999916',
                 'desc': 'Faço conserto de qualquer impressora. Matricial a fita, Matricial a fita colorida, a laser, a jato de tinta e também impressora 3D.',
                 'printer_repair': 'Sim',
                 'work': 'Presencial',
@@ -91,7 +91,14 @@ def factory_user(target):
             'name': 'Peter',
             'lastname': 'Parker',
             'email': 'peter@oscorp.com',
-            'password': 'pwd123'
+            'password': 'pwd123',
+            'geek_profile': {
+                'whatsapp': '11999999917',
+                'desc': 'Faço instalação de distribuições Linux no seu computador PC X86 ou X64 com processadores Intel ou AMD. Pode ser Linux Debian, Ubuntu, Mint, Fedora etc...',
+                'printer_repair': 'Não',
+                'work': 'Remoto',
+                'cost': '200'
+            }
         }
     }
 

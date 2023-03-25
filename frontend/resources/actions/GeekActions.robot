@@ -60,9 +60,9 @@ Reset Geek Form
 Geek Should Be Found
     [Arguments]    ${geek}
 
-    ${full_name}    Set Variable    ${geek}[name]    ${geek}[lastname]
+    ${full_name}    Set Variable    ${geek}[name] ${geek}[lastname]
 
-    ${target_geek}    Get Element    xpath=//strong[contains(text(), 'Dok Ock')]/../../..
+    ${target_geek}    Get Element    xpath=//strong[contains(text(), '${full_name}')]/../../..
 
     ${work}    Convert To Lower Case    ${geek}[geek_profile][work]
 
@@ -74,3 +74,6 @@ Geek Should Be Found
 
 Alien Icon Should Be Visible
     Get Text    ${target_geek}    contains    👽
+
+Geek Not Found
+    Wait For Elements State    css=.search-not-found p >> text=Não encontramos Geeks com o(s) termo(s) informado na busca!    visible    5
