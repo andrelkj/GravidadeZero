@@ -60,10 +60,11 @@
     - [Important commands](#important-commands)
   - [Geek search](#geek-search)
     - [Creating the geek user seed](#creating-the-geek-user-seed)
-    - [Creating search geeks test suite](#creating-search-geeks-test-suite)
+    - [Search geeks test suite](#search-geeks-test-suite)
     - [Turning user into geek](#turning-user-into-geek)
     - [Adding searcher](#adding-searcher)
       - [We have a bug](#we-have-a-bug)
+    - [Validating geek list](#validating-geek-list)
 - [Usefull terminal commands](#usefull-terminal-commands)
   - [Git](#git)
   - [Linux](#linux)
@@ -1485,7 +1486,7 @@ And one common geek that wouldn't repair printers
 
 **OBS.:** there's a business rule that defined geeks that execute printer repair as Aliens and the ones that cannot as common geeks so this differentiation is important.
 
-### Creating search geeks test suite
+### Search geeks test suite
 
 Here we'll automate all te steps we manually executed through thunder client. To do it we'll:
 
@@ -1579,7 +1580,54 @@ Also sleep isn't recommended to be used once it freezes all execution for that t
  
 **IMPORTANT** while considering page object models it would be necessary to create a new file which would be related to the search geek page once it's one element inside of this page.
 
+### Validating geek list
 
+We're going validate all geeks information using xpath to find the article elements that is what refers to the hole component, and them we're going to validate each of it's elements individually.
+
+**OBS.:** CSS Selector cannot be used in here once it would return unespecific elements. In here we're trying to find a generic element and to make it specific xpath allow us to find an inside elements and them go back to the origin keeping it's specificity. For example:
+
+1. Finding the geek article element with class geek-item:
+
+````
+    Get Element    xpath=//strong[contains(text(), 'Dok Ock')]/../../..
+````
+
+Here we start for the text inside of the element that would be unique and them we return back all files till the article where it's possible to access all other elements like "Valor/hora","Description", etc. Plus we also validate the name.
+
+2. Now we validate each element individually:
+
+````
+    ${target}    Get Element    xpath=//strong[contains(text(), 'Dok Ock')]/../../..
+
+    Get Text    ${target}    contains    Atendimento ${geek}[geek_profile][work]
+    Get Text    ${target}    contains    ${geek}[geek_profile][desc]
+    Get Text    ${target}    contains    ${geek}[geek_profile][cost]
+````
+
+The work data is converted to lowercase so we also need to convert it by using:
+
+````
+    ${work}    Convert To Lower Case    ${geek}[geek_profile][work]
+
+    Get Text    ${target}    contains    Atendimento ${work}
+````
+
+**OBS.:** for Convert To Lower Case to work we need to import `Library  String` as well.
+
+3. Then for last we'll validate the alien emoji to see if the user is actually a alien geek:
+
+````
+Alien Icon Should Be Visible
+    Get Text    ${target_geek}    contains    👽
+````
+**OBS.:** Robot can understand emojis so we just need to copy and paste it as value inside the Get Text function.
+
+Here it's important to remember that Alien Icon Should Be Visible do not cannot find elements in the page so we'll define the variable ${target_geek} which contain the selector locator as a suite variable, making it possible to be used across different test cases as long as they're in the same test suite.
+
+````
+    ${target_geek}    Get Element    xpath=//strong[contains(text(), 'Dok Ock')]/../../..
+    Set Suite Variable    ${target_geek}
+````
 
 ---
 

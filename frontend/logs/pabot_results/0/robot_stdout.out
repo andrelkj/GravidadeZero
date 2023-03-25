@@ -1,14 +1,9 @@
 ==============================================================================
-Tests                                                                         
-==============================================================================
-Tests.SearchForGeeks :: Search for Geeks Test Suite                           
+SearchForGeeks :: Search for Geeks Test Suite                                 
 ==============================================================================
 Search for Alien Geek                                                 | PASS |
 ------------------------------------------------------------------------------
-Tests.SearchForGeeks :: Search for Geeks Test Suite                   | PASS |
-1 test, 1 passed, 0 failed
-==============================================================================
-Tests                                                                 | PASS |
+SearchForGeeks :: Search for Geeks Test Suite                         | PASS |
 1 test, 1 passed, 0 failed
 ==============================================================================
 Output:  /Users/andre/Documents/Learning/QA Academy/GravidadeZERO/getgeeks/projects/frontend/logs/pabot_results/0/output.xml

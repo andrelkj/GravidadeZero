@@ -3,6 +3,7 @@ Documentation       Base Test
 
 Library             Browser
 Library             Collections
+Library             String
 
 Library             factories/Users.py
 Library             Utility.py
